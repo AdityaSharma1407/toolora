@@ -36,8 +36,8 @@ export default function AdSenseScript() {
 
     checkConsent();
 
-    window.addEventListener("toolora-consent-change", checkConsent);
-    return () => window.removeEventListener("toolora-consent-change", checkConsent);
+    window.addEventListener("bitsandtools-consent-change", checkConsent);
+    return () => window.removeEventListener("bitsandtools-consent-change", checkConsent);
   }, []);
 
   // Do not load script if monetization is disabled, provider is not AdSense,

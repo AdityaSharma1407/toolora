@@ -3,23 +3,30 @@ import CompressPdfWorkspace from "@/components/pdf/CompressPdfWorkspace";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
+import RelatedTools from "@/components/common/RelatedTools";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Sparkles, Minimize2 } from "lucide-react";
 
 export const metadata = {
-  title: "Compress PDF Files Online | Toolora",
+  title: "Compress PDF Files Online — Reduce PDF Size Free | Bits & Tools",
   description:
-    "Reduce PDF file size with a simple, browser-based compression workflow. Free, fast, private, and client-side with zero file uploads.",
+    "Reduce PDF file size with genuine client-side structural optimization. Free, fast, private, and browser-based with zero file uploads.",
   alternates: {
     canonical: "/compress-pdf",
   },
   openGraph: {
-    title: "Compress PDF Files Online | Toolora",
+    title: "Compress PDF Files Online — Reduce PDF Size Free | Bits & Tools",
     description:
       "Reduce PDF file size with a simple, browser-based compression workflow. Free, secure, client-side PDF optimizer.",
-    url: `${siteConfig.url}/compress-pdf`,
+    url: "/compress-pdf",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Compress PDF Files Online — Reduce PDF Size Free | Bits & Tools",
+    description:
+      "Reduce PDF file size with a simple, browser-based compression workflow. Free, secure, client-side PDF optimizer.",
   },
 };
 
@@ -32,12 +39,12 @@ const COMPRESS_PDF_FAQS = [
   {
     question: "Will compressing my PDF reduce text or image quality?",
     answer:
-      "No. Toolora's browser-side optimizer specializes in structural compaction, unused object purging, and object stream compression. It cleans unnecessary internal revision histories and metadata without downsampling vector fonts or text crispness.",
+      "No. Bits & Tools' browser-side optimizer specializes in structural compaction, unused object purging, and object stream compression. It cleans unnecessary internal revision histories and metadata without downsampling vector fonts or text crispness.",
   },
   {
     question: "Why didn't my PDF file size decrease significantly?",
     answer:
-      "Some PDFs are already heavily compressed when originally saved (for example, scanned PDFs consisting of pre-compressed JPEG streams). In such documents, further compression without degrading image resolution is physically impossible. Toolora will honestly notify you if your document is already fully optimized.",
+      "Some PDFs are already heavily compressed when originally saved (for example, scanned PDFs consisting of pre-compressed JPEG streams). In such documents, further compression without degrading image resolution is physically impossible. Bits & Tools will honestly notify you if your document is already fully optimized.",
   },
   {
     question: "Are my confidential files uploaded to a remote server?",
@@ -47,7 +54,7 @@ const COMPRESS_PDF_FAQS = [
   {
     question: "What is the maximum file size supported for compression?",
     answer:
-      `Toolora supports PDF documents up to ${siteConfig.limits.compressPdf.maxFileSizeFormatted} in size. Because processing takes place locally in browser RAM, keeping files within this limit ensures smooth, responsive execution across laptops, tablets, and phones.`,
+      `Bits & Tools supports PDF documents up to ${siteConfig.limits.compressPdf.maxFileSizeFormatted} in size. Because processing takes place locally in browser RAM, keeping files within this limit ensures smooth, responsive execution across laptops, tablets, and phones.`,
   },
 ];
 
@@ -78,28 +85,49 @@ export default function CompressPdfPage() {
     { label: "Compress PDF", href: "/compress-pdf" },
   ];
 
+  const toolSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Compress PDF Online",
+    url: `${siteConfig.url}/compress-pdf`,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires JavaScript and HTML5 support",
+    description:
+      "Reduce PDF file size through structural optimization and stream compaction directly in your browser with complete client-side privacy.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
+
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/30">
+    <div className="flex flex-col min-h-screen bg-canvas">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
+      />
       {/* Hero Header */}
-      <div className="border-b border-slate-200/60 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-10">
+      <div className="border-b border-black/[0.06] bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-8 sm:pb-10">
           <Breadcrumbs items={breadcrumbs} />
 
-          <div className="text-center max-w-3xl mx-auto mt-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200/60 text-brand-700 text-xs font-semibold mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
+          <div className="text-center max-w-3xl mx-auto mt-2 sm:mt-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium mb-3 border border-black/[0.04]">
+              <Sparkles className="w-3.5 h-3.5 text-brand-600" />
               <span>Structural Optimization &bull; Zero Server Storage</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
               Compress PDF Files Online
             </h1>
 
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Reduce PDF file size with a simple, browser-based compression workflow.
+            <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Reduce PDF file size with a fast, browser-based compression workflow.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-5 text-xs text-slate-500">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 No file upload to servers
@@ -138,6 +166,9 @@ export default function CompressPdfPage() {
         subtitle="Everything you need to know about browser-based PDF compression"
         items={COMPRESS_PDF_FAQS}
       />
+
+      {/* Related Working Tools */}
+      <RelatedTools currentToolId="compress-pdf" />
     </div>
   );
 }

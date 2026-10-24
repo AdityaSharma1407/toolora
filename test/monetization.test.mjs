@@ -47,7 +47,22 @@ describe("Monetization & Advertising Configuration", () => {
   });
 
   test("consent configuration specifies standard storage key", () => {
-    assert.equal(siteConfig.consent.storageKey, "toolora_consent_preferences");
+    assert.equal(siteConfig.consent.storageKey, "bitsandtools_consent_preferences");
     assert.equal(siteConfig.consent.requiredForAds, true);
+  });
+
+  test("site configuration specifies correct email and canonical deployed domain", () => {
+    // Verified user personal email is centralized
+    assert.equal(
+      siteConfig.contactEmail,
+      process.env.NEXT_PUBLIC_CONTACT_EMAIL || "sharmaaditya14jul@gmail.com"
+    );
+    assert.notEqual(siteConfig.contactEmail, "contact@bitsandtools.com");
+
+    // Canonical domain matches deployed domain by default until custom domain configured
+    assert.equal(
+      siteConfig.url,
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.bitsandtools.com"
+    );
   });
 });

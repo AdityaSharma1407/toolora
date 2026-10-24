@@ -236,7 +236,7 @@ export default function JpgToPdfWorkspace() {
               fileInputRef.current?.click();
             }
           }}
-          className="relative flex flex-col items-center justify-center cursor-pointer rounded-2xl border-2 border-dashed border-slate-300 hover:border-brand-400 bg-white hover:bg-slate-50/60 p-10 md:p-14 shadow-xs transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+          className="relative flex flex-col items-center justify-center cursor-pointer rounded-2xl sm:rounded-3xl border-2 border-dashed border-slate-300 hover:border-brand-400 bg-white hover:bg-slate-50/50 p-6 sm:p-10 md:p-14 shadow-subtle transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
         >
           <input
             ref={fileInputRef}
@@ -247,15 +247,15 @@ export default function JpgToPdfWorkspace() {
             className="hidden"
           />
 
-          <div className="w-16 h-16 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <ImageIcon className="w-8 h-8" />
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-3 sm:mb-4">
+            <ImageIcon className="w-7 h-7 sm:w-8 sm:h-8" />
           </div>
 
-          <h3 className="text-lg md:text-xl font-bold text-slate-900 text-center mb-2">
+          <h3 className="text-base sm:text-xl font-bold text-slate-900 text-center mb-1.5 sm:mb-2">
             Select or Drop JPG &amp; PNG Images
           </h3>
 
-          <p className="text-xs md:text-sm text-slate-500 text-center max-w-md mb-6 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-500 text-center max-w-md mb-5 sm:mb-6 leading-relaxed">
             Choose single or multiple pictures from your computer or phone. Converts directly in your browser.
           </p>
 
@@ -361,14 +361,14 @@ export default function JpgToPdfWorkspace() {
                     </p>
                   </div>
 
-                  {/* Controls */}
-                  <div className="flex items-center gap-1 shrink-0">
+                  {/* Controls (Strictly touch-friendly >= 40-44px on mobile) */}
+                  <div className="flex items-center gap-0.5 shrink-0">
                     <button
                       type="button"
                       onClick={() => handleMoveUp(index)}
                       disabled={index === 0}
-                      aria-label="Move image up"
-                      className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                      aria-label={`Move image ${item.name} up`}
+                      className="min-w-[40px] min-h-[40px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 disabled:opacity-20 disabled:cursor-not-allowed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                     >
                       <ArrowUp className="w-4 h-4" />
                     </button>
@@ -377,8 +377,8 @@ export default function JpgToPdfWorkspace() {
                       type="button"
                       onClick={() => handleMoveDown(index)}
                       disabled={index === images.length - 1}
-                      aria-label="Move image down"
-                      className="p-1.5 rounded-lg text-slate-500 hover:bg-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                      aria-label={`Move image ${item.name} down`}
+                      className="min-w-[40px] min-h-[40px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 disabled:opacity-20 disabled:cursor-not-allowed transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                     >
                       <ArrowDown className="w-4 h-4" />
                     </button>
@@ -386,8 +386,8 @@ export default function JpgToPdfWorkspace() {
                     <button
                       type="button"
                       onClick={() => handleRemove(index)}
-                      aria-label="Remove image"
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors ml-1"
+                      aria-label={`Remove image ${item.name}`}
+                      className="min-w-[40px] min-h-[40px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center rounded-xl text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors ml-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -415,7 +415,7 @@ export default function JpgToPdfWorkspace() {
                 <select
                   value={pageSize}
                   onChange={(e) => setPageSize(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-medium text-slate-800 focus:outline-none focus:border-brand-600"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:border-brand-600 focus-visible:ring-2 focus-visible:ring-brand-500"
                 >
                   <option value="a4">A4 (210 × 297 mm)</option>
                   <option value="letter">US Letter (8.5 × 11 in)</option>
@@ -432,7 +432,7 @@ export default function JpgToPdfWorkspace() {
                   value={orientation}
                   disabled={pageSize === "fit"}
                   onChange={(e) => setOrientation(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-medium text-slate-800 focus:outline-none focus:border-brand-600 disabled:opacity-50"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:border-brand-600 focus-visible:ring-2 focus-visible:ring-brand-500 disabled:opacity-50"
                 >
                   <option value="portrait">Portrait</option>
                   <option value="landscape">Landscape</option>
@@ -448,7 +448,7 @@ export default function JpgToPdfWorkspace() {
                   value={placement}
                   disabled={pageSize === "fit"}
                   onChange={(e) => setPlacement(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-medium text-slate-800 focus:outline-none focus:border-brand-600 disabled:opacity-50"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:border-brand-600 focus-visible:ring-2 focus-visible:ring-brand-500 disabled:opacity-50"
                 >
                   <option value="fit">Fit within page (No crop)</option>
                   <option value="fill">Fill page (May crop)</option>
@@ -463,7 +463,7 @@ export default function JpgToPdfWorkspace() {
                 <select
                   value={margin}
                   onChange={(e) => setMargin(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-medium text-slate-800 focus:outline-none focus:border-brand-600"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:border-brand-600 focus-visible:ring-2 focus-visible:ring-brand-500"
                 >
                   <option value="none">No Margin (0 pt)</option>
                   <option value="small">Small (15 pt)</option>

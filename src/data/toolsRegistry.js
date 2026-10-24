@@ -509,14 +509,27 @@ export function getToolById(id) {
 
 export function searchTools(query = "") {
   const trimmed = query.trim().toLowerCase();
-  if (!trimmed) return TOOLS;
+  if (!trimmed) {
+    return [...TOOLS].sort((a, b) => {
+      if (a.status === "available" && b.status !== "available") return -1;
+      if (a.status !== "available" && b.status === "available") return 1;
+      return 0;
+    });
+  }
 
-  return TOOLS.filter((tool) => {
+  const matches = TOOLS.filter((tool) => {
     return (
       tool.name.toLowerCase().includes(trimmed) ||
       tool.description.toLowerCase().includes(trimmed) ||
       tool.keywords.some((kw) => kw.toLowerCase().includes(trimmed)) ||
       tool.category.toLowerCase().includes(trimmed)
     );
+  });
+
+  // Prioritize active, fully-implemented tools at the top of search results
+  return matches.sort((a, b) => {
+    if (a.status === "available" && b.status !== "available") return -1;
+    if (a.status !== "available" && b.status === "available") return 1;
+    return 0;
   });
 }

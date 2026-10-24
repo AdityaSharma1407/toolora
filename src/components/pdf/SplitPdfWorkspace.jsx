@@ -351,14 +351,14 @@ export default function SplitPdfWorkspace() {
                 <button
                   type="button"
                   onClick={() => applyPreset("all")}
-                  className="px-2.5 py-1 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md transition-colors"
+                  className="min-h-[36px] sm:min-h-[32px] px-3 py-1.5 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                 >
                   All ({totalPages})
                 </button>
                 <button
                   type="button"
                   onClick={() => applyPreset("first")}
-                  className="px-2.5 py-1 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md transition-colors"
+                  className="min-h-[36px] sm:min-h-[32px] px-3 py-1.5 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                 >
                   First Page
                 </button>
@@ -366,7 +366,7 @@ export default function SplitPdfWorkspace() {
                   <button
                     type="button"
                     onClick={() => applyPreset("last")}
-                    className="px-2.5 py-1 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md transition-colors"
+                    className="min-h-[36px] sm:min-h-[32px] px-3 py-1.5 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                   >
                     Last Page (#{totalPages})
                   </button>
@@ -376,14 +376,14 @@ export default function SplitPdfWorkspace() {
                     <button
                       type="button"
                       onClick={() => applyPreset("odd")}
-                      className="px-2.5 py-1 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md transition-colors"
+                      className="min-h-[36px] sm:min-h-[32px] px-3 py-1.5 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                     >
                       Odd Pages
                     </button>
                     <button
                       type="button"
                       onClick={() => applyPreset("even")}
-                      className="px-2.5 py-1 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md transition-colors"
+                      className="min-h-[36px] sm:min-h-[32px] px-3 py-1.5 text-xs font-medium bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                     >
                       Even Pages
                     </button>

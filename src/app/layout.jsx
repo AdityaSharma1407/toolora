@@ -8,8 +8,8 @@ import { siteConfig } from "@/config/site";
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} - Free, Fast & Private Online Tools`,
-    template: `%s | ${siteConfig.name}`,
+    default: `${siteConfig.displayName || siteConfig.name} - Free, Fast & Private Online Tools`,
+    template: `%s | ${siteConfig.displayName || siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
@@ -24,19 +24,19 @@ export const metadata = {
     "free file utilities",
     "private pdf merger",
   ],
-  authors: [{ name: siteConfig.name }],
-  creator: siteConfig.name,
+  authors: [{ name: siteConfig.displayName || siteConfig.name }],
+  creator: siteConfig.displayName || siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.name} - Free Online Utilities`,
+    title: `${siteConfig.displayName || siteConfig.name} - Free Online Utilities`,
     description: siteConfig.description,
-    siteName: siteConfig.name,
+    siteName: siteConfig.displayName || siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} - Free Online Utilities`,
+    title: `${siteConfig.displayName || siteConfig.name} - Free Online Utilities`,
     description: siteConfig.description,
   },
   robots: {
@@ -49,14 +49,46 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#2563eb",
+  themeColor: "#fbfbfd",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.displayName || siteConfig.name,
+    alternateName: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.displayName || siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/images/og-bitsandtools.png`,
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: siteConfig.contactEmail,
+      contactType: "Customer Support",
+    },
+  };
+
   return (
     <html lang="en" className="h-full scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
         <AdSenseScript />
         {/* Skip to Main Content Link for Keyboard Accessibility */}

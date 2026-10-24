@@ -6,7 +6,10 @@ import { Search, X, ArrowRight, Clock } from "lucide-react";
 import { searchTools } from "@/data/toolsRegistry";
 import DynamicIcon from "./DynamicIcon";
 
-export default function ToolSearch({ placeholder = "Search all tools (e.g., merge, pdf, compress, convert)..." }) {
+export default function ToolSearch({
+  placeholder = "Search all tools (e.g., merge, pdf, compress, convert)...",
+  onSelect = null,
+}) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
@@ -16,21 +19,35 @@ export default function ToolSearch({ placeholder = "Search all tools (e.g., merg
     return searchTools(query).slice(0, 8);
   }, [query]);
 
-  // Close dropdown on outside click
+  // Close dropdown on outside click or Escape key
   useEffect(() => {
     function handleClickOutside(e) {
       if (containerRef.current && !containerRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     }
+    function handleKeyDown(e) {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    }
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
+
+  function handleSelect() {
+    setIsOpen(false);
+    if (onSelect) onSelect();
+  }
 
   return (
     <div ref={containerRef} className="relative w-full max-w-2xl mx-auto">
       <div className="relative flex items-center">
-        <Search className="absolute left-4 w-5 h-5 text-slate-400 pointer-events-none" />
+        <Search className="absolute left-4 w-4 h-4 sm:w-5 sm:h-5 text-slate-400 pointer-events-none" />
         <input
           type="text"
           value={query}
@@ -41,7 +58,7 @@ export default function ToolSearch({ placeholder = "Search all tools (e.g., merg
           onFocus={() => setIsOpen(true)}
           placeholder={placeholder}
           aria-label="Search tools"
-          className="w-full pl-11 pr-10 py-3.5 bg-white border border-slate-300 rounded-xl shadow-xs text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-600 focus:ring-3 focus:ring-brand-100 transition-all"
+          className="w-full min-h-[48px] pl-11 pr-11 py-3 bg-slate-100/80 hover:bg-slate-100 focus:bg-white border border-transparent focus:border-black/[0.12] rounded-2xl shadow-subtle text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 transition-all"
         />
         {query && (
           <button
@@ -51,7 +68,7 @@ export default function ToolSearch({ placeholder = "Search all tools (e.g., merg
               setIsOpen(false);
             }}
             aria-label="Clear search"
-            className="absolute right-3.5 p-1 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="absolute right-1 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-200/50 transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -59,8 +76,8 @@ export default function ToolSearch({ placeholder = "Search all tools (e.g., merg
       </div>
 
       {isOpen && query.trim().length > 0 && (
-        <div className="absolute z-50 left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden divide-y divide-slate-100 animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="px-4 py-2 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500 flex items-center justify-between">
+        <div className="absolute z-50 left-0 right-0 mt-2 bg-white rounded-2xl shadow-modal border border-black/[0.08] overflow-hidden divide-y divide-slate-100 animate-in fade-in slide-in-from-top-1 duration-150">
+          <div className="px-4 py-2 bg-slate-50 text-[11px] font-semibold uppercase tracking-wider text-slate-500 flex items-center justify-between">
             <span>Search Results ({results.length})</span>
             {results.length > 0 && <span className="text-[11px] text-slate-400 font-normal">Select a tool below</span>}
           </div>
@@ -82,19 +99,19 @@ export default function ToolSearch({ placeholder = "Search all tools (e.g., merg
                     <Link
                       key={tool.id}
                       href={tool.route}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-3.5 px-4 py-3 hover:bg-brand-50/70 transition-colors group"
+                      onClick={handleSelect}
+                      className="min-h-[52px] flex items-center gap-3.5 px-4 py-3 hover:bg-brand-50/60 transition-colors group"
                     >
-                      <div className="p-2 rounded-lg bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition-colors">
-                        <DynamicIcon name={tool.icon} className="w-5 h-5" />
+                      <div className="w-9 h-9 rounded-xl bg-brand-50/80 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        <DynamicIcon name={tool.icon} className="w-4 h-4" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-semibold text-slate-900 group-hover:text-brand-600">
                             {tool.name}
                           </span>
-                          <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-emerald-100 text-emerald-800">
-                            Active
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                            Ready
                           </span>
                         </div>
                         <p className="text-xs text-slate-500 truncate mt-0.5">
@@ -109,17 +126,17 @@ export default function ToolSearch({ placeholder = "Search all tools (e.g., merg
                 return (
                   <div
                     key={tool.id}
-                    className="flex items-center gap-3.5 px-4 py-3 bg-slate-50/40 opacity-75 cursor-not-allowed"
+                    className="min-h-[52px] flex items-center gap-3.5 px-4 py-3 bg-slate-50/40 opacity-75 cursor-not-allowed"
                   >
-                    <div className="p-2 rounded-lg bg-slate-100 text-slate-400">
-                      <DynamicIcon name={tool.icon} className="w-5 h-5" />
+                    <div className="w-9 h-9 rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center">
+                      <DynamicIcon name={tool.icon} className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-slate-600">
                           {tool.name}
                         </span>
-                        <span className="inline-flex items-center gap-1 px-1.5 py-0.2 rounded text-[10px] font-medium bg-slate-200 text-slate-600">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 text-slate-500 border border-slate-200/60">
                           <Clock className="w-2.5 h-2.5" />
                           <span>Coming Soon</span>
                         </span>

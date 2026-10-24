@@ -67,7 +67,7 @@ export async function compressPdfDocument(fileData, options = {}, onProgress = n
   }
 
   if (srcDoc.isEncrypted) {
-    throw new Error("This PDF is password-protected. Toolora cannot compress encrypted files.");
+    throw new Error("This PDF is password-protected. Bits & Tools cannot compress encrypted files.");
   }
 
   const pageCount = srcDoc.getPageCount();
@@ -88,8 +88,8 @@ export async function compressPdfDocument(fileData, options = {}, onProgress = n
     finalDoc.setAuthor("");
     finalDoc.setSubject("");
     finalDoc.setKeywords([]);
-    finalDoc.setProducer("Toolora Browser Optimizer");
-    finalDoc.setCreator("Toolora");
+    finalDoc.setProducer("Bits & Tools Browser Optimizer");
+    finalDoc.setCreator("Bits & Tools");
   } else if (level === "recommended") {
     // Mode 2: Recommended Optimization
     // Strips document info dictionary and XML metadata packages

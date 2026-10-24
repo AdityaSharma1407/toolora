@@ -256,7 +256,7 @@ export default function CompressPdfWorkspace() {
             <Info className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
             <p className="text-xs text-slate-500 leading-relaxed">
               <strong className="text-slate-700">Genuine Client-Side Compression: </strong>
-              Toolora performs structural cleanup and stream optimization locally in your browser.
+              Bits &amp; Tools performs structural cleanup and stream optimization locally in your browser.
               If a PDF was already exported with aggressive compression or consists primarily of pre-compressed JPEG scans,
               further compression may yield minimal size reduction to avoid corrupting image or vector text data.
             </p>

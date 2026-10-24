@@ -85,7 +85,7 @@ export async function mergePdfDocuments(files, onProgress = null) {
     // 4. Verify encryption state
     if (srcDoc.isEncrypted) {
       throw new Error(
-        `"${fileName}" is password-protected. Toolora cannot merge encrypted documents.`
+        `"${fileName}" is password-protected. Bits & Tools cannot merge encrypted documents.`
       );
     }
 

@@ -3,23 +3,30 @@ import JpgToPdfWorkspace from "@/components/image/JpgToPdfWorkspace";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
+import RelatedTools from "@/components/common/RelatedTools";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Sparkles, Image as ImageIcon } from "lucide-react";
 
 export const metadata = {
-  title: "JPG to PDF Converter Online Free | Toolora",
+  title: "JPG to PDF Converter Online — Convert Images to PDF | Bits & Tools",
   description:
     "Convert JPG, JPEG, and PNG images into a single PDF document. Free, fast, private, and client-side with custom page sizes, orientations, and margins.",
   alternates: {
     canonical: "/jpg-to-pdf",
   },
   openGraph: {
-    title: "JPG to PDF Converter Online Free | Toolora",
+    title: "JPG to PDF Converter Online — Convert Images to PDF | Bits & Tools",
     description:
       "Convert JPG, JPEG, and PNG images into a single PDF document. Free, secure, client-side image converter.",
-    url: `${siteConfig.url}/jpg-to-pdf`,
+    url: "/jpg-to-pdf",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JPG to PDF Converter Online — Convert Images to PDF | Bits & Tools",
+    description:
+      "Convert JPG, JPEG, and PNG images into a single PDF document. Free, secure, client-side image converter.",
   },
 };
 
@@ -32,12 +39,12 @@ const JPG_TO_PDF_FAQS = [
   {
     question: "Can I combine multiple pictures into one PDF?",
     answer:
-      "Yes! You can upload up to 30 images at once. Toolora compiles each photo as a distinct page within a single unified PDF file following the exact order you specify.",
+      "Yes! You can upload up to 30 images at once. Bits & Tools compiles each photo as a distinct page within a single unified PDF file following the exact order you specify.",
   },
   {
     question: "Are PNG graphics and photos supported?",
     answer:
-      "Yes. In addition to standard JPG and JPEG files, Toolora supports PNG images with transparency and high-resolution color depth.",
+      "Yes. In addition to standard JPG and JPEG files, Bits & Tools supports PNG images with transparency and high-resolution color depth.",
   },
   {
     question: "Are my photos uploaded to a cloud server?",
@@ -78,28 +85,49 @@ export default function JpgToPdfPage() {
     { label: "JPG to PDF", href: "/jpg-to-pdf" },
   ];
 
+  const toolSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "JPG to PDF Converter Online",
+    url: `${siteConfig.url}/jpg-to-pdf`,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires JavaScript and HTML5 support",
+    description:
+      "Convert JPG, JPEG, and PNG images into a single unified PDF document directly inside your browser with complete client-side privacy.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
+
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/30">
+    <div className="flex flex-col min-h-screen bg-canvas">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
+      />
       {/* Hero Header */}
-      <div className="border-b border-slate-200/60 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-10">
+      <div className="border-b border-black/[0.06] bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-8 sm:pb-10">
           <Breadcrumbs items={breadcrumbs} />
 
-          <div className="text-center max-w-3xl mx-auto mt-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200/60 text-brand-700 text-xs font-semibold mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
+          <div className="text-center max-w-3xl mx-auto mt-2 sm:mt-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium mb-3 border border-black/[0.04]">
+              <Sparkles className="w-3.5 h-3.5 text-brand-600" />
               <span>Multi-Image Compilation &bull; Custom Page Sizing</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
               JPG to PDF Converter
             </h1>
 
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Convert JPG, JPEG, and PNG images into a single PDF document.
+            <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Convert JPG, JPEG, and PNG images into a single PDF document with custom page sizes and orientations.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-5 text-xs text-slate-500">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 No file upload to servers
@@ -138,6 +166,9 @@ export default function JpgToPdfPage() {
         subtitle="Answers regarding formats, page dimensions, and compression"
         items={JPG_TO_PDF_FAQS}
       />
+
+      {/* Related Working Tools */}
+      <RelatedTools currentToolId="jpg-to-pdf" />
     </div>
   );
 }

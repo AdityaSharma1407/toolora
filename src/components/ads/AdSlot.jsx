@@ -51,8 +51,8 @@ export default function AdSlot({
 
     checkConsent();
 
-    window.addEventListener("toolora-consent-change", checkConsent);
-    return () => window.removeEventListener("toolora-consent-change", checkConsent);
+    window.addEventListener("bitsandtools-consent-change", checkConsent);
+    return () => window.removeEventListener("bitsandtools-consent-change", checkConsent);
   }, []);
 
   // Safe push to adsbygoogle on mount only

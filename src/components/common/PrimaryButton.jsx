@@ -14,25 +14,25 @@ export default function PrimaryButton({
   ...props
 }) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed select-none";
+    "inline-flex items-center justify-center font-medium rounded-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none select-none";
 
   const sizeStyles = {
-    sm: "px-3 py-1.5 text-xs gap-1.5",
-    md: "px-4 py-2 text-sm gap-2",
-    lg: "px-6 py-3 text-base gap-2.5 font-semibold",
+    sm: "min-h-[36px] px-3.5 py-1.5 text-xs gap-1.5",
+    md: "min-h-[44px] px-4.5 py-2.5 text-sm gap-2",
+    lg: "min-h-[48px] px-6 py-3 text-base gap-2.5 font-semibold",
   };
 
   const variantStyles = {
     primary:
-      "bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800 shadow-sm border border-transparent",
+      "bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800 shadow-subtle border border-transparent",
     secondary:
-      "bg-slate-100 text-slate-800 hover:bg-slate-200 active:bg-slate-300 border border-slate-200",
+      "bg-slate-100 text-slate-800 hover:bg-slate-200/80 active:bg-slate-200 border border-slate-200/60",
     outline:
-      "bg-white text-slate-700 hover:bg-slate-50 active:bg-slate-100 border border-slate-300 shadow-2xs",
+      "bg-white text-slate-800 hover:bg-slate-50 active:bg-slate-100 border border-slate-300/80 shadow-2xs",
     danger:
-      "bg-red-50 text-red-700 hover:bg-red-100 active:bg-red-200 border border-red-200",
+      "bg-red-50 text-red-700 hover:bg-red-100 active:bg-red-200 border border-red-200/80",
     ghost:
-      "bg-transparent text-slate-600 hover:bg-slate-100 active:bg-slate-200",
+      "bg-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 active:bg-slate-200/60",
   };
 
   return (

@@ -20,7 +20,7 @@ const DEFAULT_STEPS = [
     step: "03",
     title: "Merge & Instant Download",
     description:
-      "Click Merge PDF. Toolora compiles your files right in your browser within seconds and delivers a clean, ready-to-use document.",
+      "Click Merge PDF. Bits & Tools compiles your files right in your browser within seconds and delivers a clean, ready-to-use document.",
     icon: Download,
   },
 ];
@@ -32,13 +32,13 @@ export default function HowItWorks({
   className = "",
 }) {
   return (
-    <section className={`py-12 bg-slate-50/70 border-y border-slate-200/60 ${className}`}>
+    <section className={`py-12 bg-canvas border-y border-black/[0.06] ${className}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             {title}
           </h2>
-          <p className="mt-2 text-sm md:text-base text-slate-600">
+          <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -49,20 +49,20 @@ export default function HowItWorks({
             return (
               <div
                 key={idx}
-                className="relative bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col"
+                className="relative bg-white p-6 rounded-2xl border border-black/[0.06] shadow-subtle flex flex-col"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-xl bg-brand-50 text-brand-600">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-11 h-11 rounded-xl bg-brand-50/80 text-brand-600 flex items-center justify-center">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-2xl font-black text-slate-200 tracking-wider">
+                  <span className="text-2xl font-bold text-slate-200 tracking-tight">
                     {item.step}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed flex-1">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed flex-1">
                   {item.description}
                 </p>
               </div>

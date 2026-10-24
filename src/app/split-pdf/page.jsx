@@ -3,23 +3,30 @@ import SplitPdfWorkspace from "@/components/pdf/SplitPdfWorkspace";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
+import RelatedTools from "@/components/common/RelatedTools";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Sparkles, Scissors } from "lucide-react";
 
 export const metadata = {
-  title: "Split PDF Files Online Free | Toolora",
+  title: "Split PDF Files Online — Separate & Extract PDF Pages | Bits & Tools",
   description:
-    "Separate PDF pages into individual files or extract the pages you need. Free, fast, browser-based, and 100% private. No sign-up required.",
+    "Separate PDF pages into individual files or extract custom page ranges. Free, fast, browser-based, and 100% private. No sign-up required.",
   alternates: {
     canonical: "/split-pdf",
   },
   openGraph: {
-    title: "Split PDF Files Online Free | Toolora",
+    title: "Split PDF Files Online — Separate & Extract PDF Pages | Bits & Tools",
     description:
-      "Separate PDF pages into individual files or extract the pages you need. Fast, free, and secure client-side PDF splitter.",
-    url: `${siteConfig.url}/split-pdf`,
+      "Separate PDF pages into individual files or extract custom page ranges. Fast, free, and secure client-side PDF splitter.",
+    url: "/split-pdf",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Split PDF Files Online — Separate & Extract PDF Pages | Bits & Tools",
+    description:
+      "Separate PDF pages into individual files or extract custom page ranges. Fast, free, and secure client-side PDF splitter.",
   },
 };
 
@@ -32,7 +39,7 @@ const SPLIT_PDF_FAQS = [
   {
     question: "How does splitting into individual files work?",
     answer:
-      "Select 'Split Every Page (ZIP)' mode. Toolora extracts every page of your document as an independent single-page PDF file and packages all of them into a single convenient ZIP archive for download.",
+      "Select 'Split Every Page (ZIP)' mode. Bits & Tools extracts every page of your document as an independent single-page PDF file and packages all of them into a single convenient ZIP archive for download.",
   },
   {
     question: "What page range formats are supported?",
@@ -78,28 +85,49 @@ export default function SplitPdfPage() {
     { label: "Split PDF", href: "/split-pdf" },
   ];
 
+  const toolSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Split PDF Online",
+    url: `${siteConfig.url}/split-pdf`,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires JavaScript and HTML5 support",
+    description:
+      "Separate PDF pages into individual files or extract custom page ranges directly in your browser with complete client-side privacy.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
+
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/30">
+    <div className="flex flex-col min-h-screen bg-canvas">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
+      />
       {/* Hero Header */}
-      <div className="border-b border-slate-200/60 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-10">
+      <div className="border-b border-black/[0.06] bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-8 sm:pb-10">
           <Breadcrumbs items={breadcrumbs} />
 
-          <div className="text-center max-w-3xl mx-auto mt-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200/60 text-brand-700 text-xs font-semibold mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
+          <div className="text-center max-w-3xl mx-auto mt-2 sm:mt-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium mb-3 border border-black/[0.04]">
+              <Sparkles className="w-3.5 h-3.5 text-brand-600" />
               <span>Page Range Extraction &bull; ZIP Bundling</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
               Split PDF Files Online
             </h1>
 
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Separate PDF pages into individual files or extract the pages you need.
+            <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Separate PDF pages into individual files or extract the pages you need with zero server uploads.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-5 text-xs text-slate-500">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 No file upload to servers
@@ -110,7 +138,7 @@ export default function SplitPdfPage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Zap className="w-4 h-4 text-emerald-600" />
-                Instant processing
+                Instant in-memory processing
               </span>
             </div>
           </div>
@@ -138,6 +166,9 @@ export default function SplitPdfPage() {
         subtitle="Helpful answers about page ranges, ZIP packaging, and limits"
         items={SPLIT_PDF_FAQS}
       />
+
+      {/* Related Working Tools */}
+      <RelatedTools currentToolId="split-pdf" />
     </div>
   );
 }

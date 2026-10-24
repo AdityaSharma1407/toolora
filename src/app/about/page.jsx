@@ -5,11 +5,24 @@ import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Heart, Layers, ArrowRight, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "About Toolora | Free & Private Online Tools Platform",
+  title: "About Bits & Tools — Fast, Private Client-Side Online Utilities",
   description:
-    "Learn about Toolora's mission to provide fast, reliable, and 100% private digital utilities with zero file uploads to servers.",
+    "Learn about Bits & Tools' mission to provide fast, reliable, and 100% private digital utilities with zero file uploads to servers.",
   alternates: {
     canonical: "/about",
+  },
+  openGraph: {
+    title: "About Bits & Tools — Fast, Private Client-Side Online Utilities",
+    description:
+      "Learn about Bits & Tools' mission to provide fast, reliable, and 100% private digital utilities with zero file uploads to servers.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Bits & Tools — Fast, Private Client-Side Online Utilities",
+    description:
+      "Learn about Bits & Tools' mission to provide fast, reliable, and 100% private digital utilities with zero file uploads to servers.",
   },
 };
 
@@ -17,32 +30,32 @@ export default function AboutPage() {
   const breadcrumbs = [{ label: "About", href: "/about" }];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-canvas">
       {/* Header */}
-      <div className="bg-gradient-to-b from-brand-50/50 to-white border-b border-slate-100 py-12 sm:py-16">
+      <div className="bg-white border-b border-black/[0.06] py-8 sm:py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <Breadcrumbs items={breadcrumbs} />
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200/60 text-brand-700 text-xs font-semibold mb-4 mt-4">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium mb-3 mt-3 border border-black/[0.04]">
+            <Sparkles className="w-3.5 h-3.5 text-brand-600" />
             <span>Our Mission &amp; Philosophy</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            About Toolora
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+            About Bits &amp; Tools
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="mt-2.5 sm:mt-4 text-sm sm:text-lg text-slate-600 leading-relaxed">
             Fast, completely private, and free online utilities designed for people who care about document security and productivity.
           </p>
         </div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
-        {/* Why Toolora */}
+        {/* Why Bits & Tools */}
         <section className="space-y-4">
           <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-            Why We Built Toolora
+            Why We Built Bits &amp; Tools
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed">
             Every day, millions of people need to combine PDF files, compress images, or convert documents.
@@ -51,7 +64,7 @@ export default function AboutPage() {
           </p>
           <p className="text-sm text-slate-600 leading-relaxed">
             We believed there was a better way. Modern web browsers are powerful operating environments capable of executing
-            complex cryptographic and binary manipulations locally. <strong>Toolora</strong> was created to prove that document utilities
+            complex cryptographic and binary manipulations locally. <strong>Bits &amp; Tools</strong> was created to prove that document utilities
             can be fast, free, and uncompromisingly private — with <strong>zero server uploads</strong>.
           </p>
         </section>
@@ -101,7 +114,7 @@ export default function AboutPage() {
             Our Monetization Model
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed">
-            Toolora is funded through ethical, non-intrusive display advertising (such as Google AdSense).
+            Bits &amp; Tools is funded through ethical, non-intrusive display advertising (such as Google AdSense).
             Here is our advertising promise:
           </p>
           <ul className="text-xs text-slate-600 space-y-1.5 list-disc pl-5">

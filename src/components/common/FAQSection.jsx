@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function FAQSection({
   title = "Frequently Asked Questions",
-  subtitle = "Everything you need to know about merging PDFs with Toolora",
+  subtitle = "Everything you need to know about using this tool on Bits & Tools",
   items = [],
   includeSchema = true,
   className = "",
@@ -62,7 +62,7 @@ export default function FAQSection({
             return (
               <div
                 key={index}
-                className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-2xs transition-all"
+                className="bg-white border border-black/[0.06] rounded-2xl overflow-hidden shadow-subtle transition-all"
               >
                 <button
                   type="button"
@@ -70,11 +70,11 @@ export default function FAQSection({
                   aria-expanded={isOpen}
                   aria-controls={faqId}
                   onClick={() => toggle(index)}
-                  className="w-full flex items-center justify-between text-left p-5 text-slate-900 font-semibold text-base hover:text-brand-600 focus:outline-none focus-visible:bg-slate-50 transition-colors"
+                  className="w-full min-h-[48px] flex items-center justify-between text-left p-4 sm:p-5 text-slate-900 font-semibold text-sm sm:text-base hover:text-brand-600 focus:outline-none focus-visible:bg-slate-50 transition-colors"
                 >
                   <span className="pr-4">{faq.question}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                    className={`w-4 h-4 sm:w-5 sm:h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                       isOpen ? "rotate-180 text-brand-600" : ""
                     }`}
                     aria-hidden="true"
@@ -86,7 +86,7 @@ export default function FAQSection({
                     id={faqId}
                     role="region"
                     aria-labelledby={headerId}
-                    className="px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3"
+                    className="px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100/80 pt-3"
                   >
                     {faq.answer}
                   </div>

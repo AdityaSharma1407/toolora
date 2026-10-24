@@ -131,11 +131,11 @@ export default function PdfUploadZone({
             fileInputRef.current?.click();
           }
         }}
-        className={`relative flex flex-col items-center justify-center cursor-pointer rounded-2xl border-2 border-dashed transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
+        className={`relative flex flex-col items-center justify-center cursor-pointer rounded-2xl sm:rounded-3xl border-2 border-dashed transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
           isDragOver
-            ? "border-brand-600 bg-brand-50/70 scale-[1.005]"
-            : "border-slate-300 hover:border-brand-400 bg-white hover:bg-slate-50/60 shadow-xs"
-        } ${compact ? "p-6" : "p-10 md:p-14"}`}
+            ? "border-brand-600 bg-brand-50/60 scale-[1.005]"
+            : "border-slate-300 hover:border-brand-400 bg-white hover:bg-slate-50/50 shadow-subtle"
+        } ${compact ? "p-5 sm:p-6" : "p-6 sm:p-10 md:p-14"}`}
       >
         <input
           ref={fileInputRef}
@@ -147,16 +147,16 @@ export default function PdfUploadZone({
           aria-label="Upload PDF files input"
         />
 
-        <div className="w-16 h-16 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <FileText className="w-8 h-8" />
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-3 sm:mb-4">
+          <FileText className="w-7 h-7 sm:w-8 sm:h-8" />
         </div>
 
-        <h3 className="text-lg md:text-xl font-bold text-slate-900 text-center mb-2">
+        <h3 className="text-base sm:text-xl font-bold text-slate-900 text-center mb-1.5 sm:mb-2">
           {isDragOver ? "Drop your PDF files here" : "Select or Drop PDF Files"}
         </h3>
 
-        <p className="text-xs md:text-sm text-slate-500 text-center max-w-md mb-6 leading-relaxed">
-          Choose two or more PDF files from your device. Documents are merged directly in your browser.
+        <p className="text-xs sm:text-sm text-slate-500 text-center max-w-md mb-5 sm:mb-6 leading-relaxed">
+          Choose two or more PDF files from your device. Documents are merged directly in your browser with zero uploads.
         </p>
 
         <PrimaryButton

@@ -1,14 +1,28 @@
 import React from "react";
+import Link from "next/link";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { siteConfig } from "@/config/site";
 import { ShieldCheck, Lock, Eye, Cookie, FileText, Globe } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy | Toolora",
+  title: "Privacy Policy — Bits & Tools Client-Side Privacy Protection",
   description:
-    "Learn how Toolora protects your privacy with browser-local document processing, zero server uploads, and transparent cookie practices.",
+    "Learn how Bits & Tools protects your privacy with browser-local document processing, zero server uploads, and transparent cookie practices.",
   alternates: {
     canonical: "/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy — Bits & Tools Client-Side Privacy Protection",
+    description:
+      "Learn how Bits & Tools protects your privacy with browser-local document processing, zero server uploads, and transparent cookie practices.",
+    url: "/privacy-policy",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy — Bits & Tools Client-Side Privacy Protection",
+    description:
+      "Learn how Bits & Tools protects your privacy with browser-local document processing, zero server uploads, and transparent cookie practices.",
   },
 };
 
@@ -17,12 +31,12 @@ export default function PrivacyPolicyPage() {
   const lastUpdated = "October 24, 2026";
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-canvas">
       {/* Header */}
-      <div className="bg-slate-50 border-b border-slate-200/80 py-10">
+      <div className="bg-white border-b border-black/[0.06] py-8 sm:py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <Breadcrumbs items={breadcrumbs} />
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+          <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-3">
             Privacy Policy
           </h1>
           <p className="text-xs text-slate-500 mt-2">
@@ -41,9 +55,9 @@ export default function PrivacyPolicyPage() {
                 Core Privacy Guarantee: Client-Side Processing
               </h3>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                When you use Toolora to merge, split, or compress PDFs, or convert images, your files are processed
+                When you use Bits &amp; Tools to merge, split, or compress PDFs, or convert images, your files are processed
                 entirely in-memory inside your local web browser. Your document contents are never transmitted over the internet
-                to Toolora servers or any third-party processing APIs.
+                to Bits &amp; Tools servers or any third-party processing APIs.
               </p>
             </div>
           </div>
@@ -70,7 +84,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p>
               Unlike conventional online conversion platforms that upload your sensitive documents to remote servers,
-              Toolora is built on a <strong>privacy-by-design</strong> architecture:
+              Bits &amp; Tools is built on a <strong>privacy-by-design</strong> architecture:
             </p>
             <ul className="list-disc pl-5 space-y-1.5 mt-2">
               <li>Your uploaded PDFs, documents, and images remain in your device&apos;s RAM.</li>
@@ -166,12 +180,22 @@ export default function PrivacyPolicyPage() {
               6. Contact Us
             </h2>
             <p>
-              If you have any questions or concerns regarding this Privacy Policy or your personal data, please contact our privacy team at:
+              If you have any questions or concerns regarding this Privacy Policy or your personal data, please contact us directly:
             </p>
-            <div className="mt-2 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs">
-              <div><strong>Email:</strong> {siteConfig.contactEmail}</div>
-              <div><strong>Platform:</strong> {siteConfig.name} Online Tools</div>
-              <div><strong>Online Contact:</strong> <a href="/contact" className="text-brand-600 underline">toolora.com/contact</a></div>
+            <div className="mt-2 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1.5">
+              <div>
+                <strong>Direct Email:</strong>{" "}
+                <a href={`mailto:${siteConfig.contactEmail}`} className="text-brand-600 underline hover:text-brand-700 font-medium">
+                  {siteConfig.contactEmail}
+                </a>
+              </div>
+              <div><strong>Platform:</strong> {siteConfig.displayName || siteConfig.name} Online Tools</div>
+              <div>
+                <strong>Online Contact:</strong>{" "}
+                <Link href="/contact" className="text-brand-600 underline hover:text-brand-700">
+                  {siteConfig.url.replace(/^https?:\/\//, "")}/contact
+                </Link>
+              </div>
             </div>
           </section>
         </div>

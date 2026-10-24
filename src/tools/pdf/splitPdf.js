@@ -159,7 +159,7 @@ export async function splitPdfDocument(fileData, options = {}, onProgress = null
   }
 
   if (srcDoc.isEncrypted) {
-    throw new Error("This PDF is password-protected. Toolora cannot split encrypted documents.");
+    throw new Error("This PDF is password-protected. Bits & Tools cannot split encrypted documents.");
   }
 
   const totalPages = srcDoc.getPageCount();

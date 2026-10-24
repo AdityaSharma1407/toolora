@@ -5,11 +5,24 @@ import { siteConfig } from "@/config/site";
 import { Mail, Building, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "Contact Us | Toolora",
+  title: "Contact Us — Bits & Tools Support & Inquiries",
   description:
-    "Get in touch with the Toolora team for feedback, feature requests, bug reports, and advertising partnership inquiries.",
+    "Get in touch with the Bits & Tools team for feedback, feature requests, bug reports, and advertising partnership inquiries.",
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Us — Bits & Tools Support & Inquiries",
+    description:
+      "Get in touch with the Bits & Tools team for feedback, feature requests, bug reports, and advertising partnership inquiries.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us — Bits & Tools Support & Inquiries",
+    description:
+      "Get in touch with the Bits & Tools team for feedback, feature requests, bug reports, and advertising partnership inquiries.",
   },
 };
 
@@ -17,15 +30,15 @@ export default function ContactPage() {
   const breadcrumbs = [{ label: "Contact", href: "/contact" }];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-canvas">
       {/* Header */}
-      <div className="bg-slate-50 border-b border-slate-200/80 py-12">
+      <div className="bg-white border-b border-black/[0.06] py-8 sm:py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <Breadcrumbs items={breadcrumbs} />
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+          <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-3">
             Contact Us
           </h1>
-          <p className="text-base text-slate-600 mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
             Have questions, feedback, feature requests, or partnership inquiries? Get in touch with our team.
           </p>
         </div>
@@ -58,7 +71,7 @@ export default function ContactPage() {
               <div className="flex items-center gap-2.5 text-xs text-slate-700">
                 <Building className="w-4 h-4 text-brand-600 shrink-0" />
                 <span>
-                  <strong>Platform:</strong> {siteConfig.name} Online Tools
+                  <strong>Platform:</strong> {siteConfig.displayName || siteConfig.name} Online Tools
                 </span>
               </div>
 

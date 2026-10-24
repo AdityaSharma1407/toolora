@@ -4,11 +4,24 @@ import { siteConfig } from "@/config/site";
 import { FileText, Shield, AlertTriangle, CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Terms of Service | Toolora",
+  title: "Terms of Service — Bits & Tools Online Utilities",
   description:
-    "Review the Terms of Service governing the use of Toolora's free, browser-based online tools and services.",
+    "Review the Terms of Service governing the use of Bits & Tools' free, browser-based online tools and services.",
   alternates: {
     canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms of Service — Bits & Tools Online Utilities",
+    description:
+      "Review the Terms of Service governing the use of Bits & Tools' free, browser-based online tools and services.",
+    url: "/terms",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service — Bits & Tools Online Utilities",
+    description:
+      "Review the Terms of Service governing the use of Bits & Tools' free, browser-based online tools and services.",
   },
 };
 
@@ -17,12 +30,12 @@ export default function TermsPage() {
   const lastUpdated = "October 24, 2026";
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-canvas">
       {/* Header */}
-      <div className="bg-slate-50 border-b border-slate-200/80 py-10">
+      <div className="bg-white border-b border-black/[0.06] py-8 sm:py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <Breadcrumbs items={breadcrumbs} />
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+          <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-3">
             Terms of Service
           </h1>
           <p className="text-xs text-slate-500 mt-2">
@@ -39,7 +52,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing or using <strong>{siteConfig.name}</strong> (&quot;the Service&quot;), available at{" "}
+              By accessing or using <strong>{siteConfig.displayName || siteConfig.name}</strong> (&quot;the Service&quot;), available at{" "}
               <a href={siteConfig.url} className="text-brand-600 underline">
                 {siteConfig.url}
               </a>
@@ -53,7 +66,7 @@ export default function TermsPage() {
               2. Description of Service
             </h2>
             <p>
-              Toolora provides free, web-based digital utilities (including PDF merging, splitting, compressing, and image conversion).
+              Bits &amp; Tools provides free, web-based digital utilities (including PDF merging, splitting, compressing, and image conversion).
               All processing is executed locally in the user&apos;s browser using client-side JavaScript.
               We do not transmit, inspect, or store your documents on our servers.
             </p>
@@ -65,8 +78,8 @@ export default function TermsPage() {
               3. Document Ownership &amp; User Rights
             </h2>
             <p>
-              You retain full, exclusive ownership, intellectual property rights, and copyright in any files, documents, or images processed using Toolora.
-              Because your documents never leave your local device, Toolora asserts zero ownership or licensing rights over your content.
+              You retain full, exclusive ownership, intellectual property rights, and copyright in any files, documents, or images processed using Bits &amp; Tools.
+              Because your documents never leave your local device, Bits &amp; Tools asserts zero ownership or licensing rights over your content.
             </p>
           </section>
 
@@ -85,7 +98,7 @@ export default function TermsPage() {
               5. Advertising &amp; Third-Party Services
             </h2>
             <p>
-              Toolora is made available free of charge. To support ongoing development and server maintenance, the website may display display advertisements
+              Bits &amp; Tools is made available free of charge. To support ongoing development and server maintenance, the website may display display advertisements
               provided by Google AdSense and other advertising networks. Advertisements are clearly separated from functional tools and do not alter the
               integrity of your documents.
             </p>
@@ -108,7 +121,7 @@ export default function TermsPage() {
               7. Limitation of Liability
             </h2>
             <p>
-              To the fullest extent permitted by applicable law, Toolora and its creators shall not be liable for any indirect, incidental, special, or
+              To the fullest extent permitted by applicable law, Bits &amp; Tools and its creators shall not be liable for any indirect, incidental, special, or
               consequential damages resulting from your use of or inability to use the Service. Users are encouraged to maintain original copies of their files.
             </p>
           </section>

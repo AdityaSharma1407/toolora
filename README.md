@@ -1,6 +1,6 @@
-# Toolora — Modern, SEO-Friendly Online Tools Platform
+# Bits & Tools — Modern, Privacy-First Online Tools Platform
 
-Toolora is a fast, modern, and privacy-focused online tools platform built with Next.js (App Router), React, Tailwind CSS, Lucide icons, and `pdf-lib`.
+Bits & Tools (`bitsandtools.com`) is a fast, modern, and privacy-focused online tools platform built with Next.js (App Router), React, Tailwind CSS, Lucide icons, and `pdf-lib`.
 
 All document manipulation runs **locally in the user's browser**. Documents are never transmitted to any external server.
 
@@ -68,7 +68,7 @@ npm run start
 
 ## 💰 Advertising & Monetization Architecture
 
-Toolora includes a production-ready advertising and monetization architecture designed around **zero disruption to user tools and maximum privacy compliance**.
+Bits & Tools includes a production-ready advertising and monetization architecture designed around **zero disruption to user tools and maximum privacy compliance**.
 
 ### 1. Kept Disabled by Default
 Advertising is **disabled by default** in the code and `.env.example`. When disabled:
@@ -115,7 +115,7 @@ To add another provider (such as Ezoic or a direct display network):
 3. The existing `AdSlot` components throughout the site automatically route through the configured provider without touching individual pages.
 
 ### 6. Privacy & Consent Management
-- **Local Storage:** The user's consent choice is stored under `toolora_consent_preferences`.
+- **Local Storage:** The user's consent choice is stored under `bitsandtools_consent_preferences`.
 - **EU / UK GDPR & India DPDP:** If a user chooses "Essential Only", advertising cookies and third-party scripts are completely blocked.
 - **Opt-Out:** Users can change their consent preferences anytime or opt out of personalized Google advertising via [Google Ads Settings](https://www.google.com/settings/ads) and [AboutAds](https://www.aboutads.info/choices/).
 
@@ -131,7 +131,7 @@ The test verifies that with default settings, `siteConfig.monetization.enabled` 
 ## 📂 Project Architecture
 
 ```
-Toolora/
+BitsAndTools/
 ├── src/
 │   ├── app/
 │   │   ├── globals.css           # Tailwind base styles and theme
@@ -174,7 +174,9 @@ Toolora/
 ├── test/
 │   ├── pdf-merge.test.mjs        # Merge PDF tests
 │   ├── pdf-tools.test.mjs        # Split, Compress, JPG to PDF tests
-│   └── monetization.test.mjs     # Monetization, consent, and analytics tests
+│   ├── monetization.test.mjs     # Monetization, consent, and analytics tests
+│   ├── tools-pipeline.test.mjs   # Full E2E tools file processing tests
+│   └── contact-and-seo.test.mjs  # SEO, sitemap, robots, and contact verification tests
 ├── .env.example
 ├── next.config.mjs
 ├── tailwind.config.js
@@ -185,7 +187,7 @@ Toolora/
 
 ## 🔒 Privacy & Security
 
-Toolora executes document manipulation in-memory using WebAssembly and client-side JavaScript. No file data is transmitted to Toolora servers.
+Bits & Tools executes document manipulation in-memory using WebAssembly and client-side JavaScript. No file data is transmitted to Bits & Tools servers.
 
 ---
 

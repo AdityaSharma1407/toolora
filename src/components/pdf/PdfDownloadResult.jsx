@@ -25,39 +25,39 @@ export default function PdfDownloadResult({ result, onReset }) {
   }
 
   return (
-    <div className="w-full bg-white border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-sm flex flex-col items-center text-center animate-in fade-in zoom-in-95 duration-200">
+    <div className="w-full bg-white border border-black/[0.06] rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-subtle flex flex-col items-center text-center animate-in fade-in zoom-in-95 duration-200">
       {/* Success Badge */}
       <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 ring-8 ring-emerald-50/50">
         <CheckCircle2 className="w-8 h-8" />
       </div>
 
-      <h3 className="text-2xl font-extrabold text-slate-900 mb-2">
+      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
         PDFs Successfully Combined!
       </h3>
 
-      <p className="text-sm text-slate-600 max-w-md mb-8">
+      <p className="text-xs sm:text-sm text-slate-600 max-w-md mb-6 leading-relaxed">
         Your new document is ready. We combined{" "}
         <span className="font-semibold text-slate-800">{sourceCount} documents</span> into{" "}
         <span className="font-semibold text-slate-800">{pageCount} total pages</span>.
       </p>
 
       {/* File Details Card */}
-      <div className="w-full max-w-lg bg-slate-50 border border-slate-200/80 rounded-xl p-4 mb-8 text-left">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-200/80">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg bg-white text-brand-600 border border-slate-200">
+      <div className="w-full max-w-lg bg-slate-50/80 border border-black/[0.06] rounded-2xl p-4 sm:p-5 mb-6 sm:mb-8 text-left">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-200/60">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="p-2 rounded-xl bg-white text-brand-600 border border-slate-200 shadow-2xs shrink-0">
               <FileCheck className="w-4 h-4" />
             </div>
-            <div>
-              <div className="text-xs text-slate-500 font-medium">Output File</div>
-              <div className="text-sm font-bold text-slate-900 truncate max-w-[220px] sm:max-w-xs">
+            <div className="min-w-0">
+              <div className="text-[11px] text-slate-500 font-medium">Output File</div>
+              <div className="text-xs sm:text-sm font-bold text-slate-900 truncate max-w-[180px] sm:max-w-xs">
                 {filename}
               </div>
             </div>
           </div>
-          <div className="text-right">
-            <div className="text-xs text-slate-500 font-medium">Size</div>
-            <div className="text-sm font-bold text-slate-900">
+          <div className="text-right shrink-0">
+            <div className="text-[11px] text-slate-500 font-medium">Size</div>
+            <div className="text-xs sm:text-sm font-bold text-slate-900">
               {formatBytes(byteLength)}
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function PdfDownloadResult({ result, onReset }) {
           variant="primary"
           icon={Download}
           onClick={handleDownload}
-          className="w-full sm:flex-1 py-3.5 shadow-md shadow-brand-500/20"
+          className="w-full sm:flex-1 py-3.5 shadow-subtle"
         >
           Download Merged PDF
         </PrimaryButton>
@@ -109,7 +109,7 @@ export default function PdfDownloadResult({ result, onReset }) {
         </PrimaryButton>
       </div>
 
-      <p className="mt-6 text-xs text-slate-400">
+      <p className="mt-5 text-[11px] sm:text-xs text-slate-400">
         Your combined file was generated client-side in memory and will be cleared when you navigate away.
       </p>
     </div>

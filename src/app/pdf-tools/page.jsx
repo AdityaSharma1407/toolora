@@ -7,11 +7,24 @@ import AdPlacement from "@/components/common/AdPlacement";
 import { FileText, ShieldCheck, Zap, ArrowRight, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "PDF Tools - Free Online PDF Utilities",
+  title: "PDF Tools Directory — Free Online PDF Utilities | Bits & Tools",
   description:
-    "Explore Toolora's suite of free PDF tools. Merge, split, compress, convert, and manage your PDF documents directly in your web browser with complete privacy.",
+    "Explore Bits & Tools' suite of free PDF tools. Merge, split, compress, convert, and manage your PDF documents directly in your web browser with complete privacy.",
   alternates: {
     canonical: "/pdf-tools",
+  },
+  openGraph: {
+    title: "PDF Tools Directory — Free Online PDF Utilities | Bits & Tools",
+    description:
+      "Explore Bits & Tools' suite of free PDF tools. Merge, split, compress, convert, and manage your PDF documents directly in your web browser with complete privacy.",
+    url: "/pdf-tools",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PDF Tools Directory — Free Online PDF Utilities | Bits & Tools",
+    description:
+      "Explore Bits & Tools' suite of free PDF tools. Merge, split, compress, convert, and manage your PDF documents directly in your web browser with complete privacy.",
   },
 };
 
@@ -23,23 +36,23 @@ export default function PdfToolsPage() {
   const breadcrumbs = [{ label: "PDF Tools", href: "/pdf-tools" }];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-canvas">
       {/* Hero Header */}
-      <div className="bg-gradient-to-b from-brand-50/50 to-white border-b border-slate-100 py-10 sm:py-14">
+      <div className="bg-white border-b border-black/[0.06] py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={breadcrumbs} />
 
-          <div className="max-w-3xl mt-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-4">
-              <FileText className="w-3.5 h-3.5" />
+          <div className="max-w-3xl mt-3 sm:mt-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium mb-3 border border-black/[0.04]">
+              <FileText className="w-3.5 h-3.5 text-brand-600" />
               <span>PDF Utility Directory</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
               All PDF Tools
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-2.5 sm:mt-4 text-sm sm:text-lg text-slate-600 leading-relaxed">
               Manage your PDF documents easily. All tools execute locally in your browser for absolute confidentiality and lightning speed.
             </p>
 
@@ -107,7 +120,7 @@ export default function PdfToolsPage() {
           </h3>
           <p className="text-sm text-slate-600 leading-relaxed max-w-3xl">
             Most online PDF services upload your private contracts, financial statements, and personal forms to a distant cloud server.
-            Toolora uses modern WebAssembly and JavaScript libraries to execute PDF manipulations right inside your browser memory.
+            Bits &amp; Tools uses modern WebAssembly and JavaScript libraries to execute PDF manipulations right inside your browser memory.
             Your confidential files never leave your device.
           </p>
           <div className="mt-4">

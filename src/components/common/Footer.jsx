@@ -20,7 +20,7 @@ export default function Footer() {
                 Browser-Local Document Processing
               </h4>
               <p className="text-xs text-slate-400">
-                Toolora processes your PDF files locally on your device using client-side JavaScript. Your documents are never sent to any external server.
+                {siteConfig.displayName || "Bits & Tools"} processes your PDF files locally on your device using client-side JavaScript. Your documents are never sent to any external server.
               </p>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function Footer() {
                 <Layers className="w-4 h-4" />
               </div>
               <span className="text-xl font-bold text-white tracking-tight">
-                {siteConfig.name}
+                {siteConfig.displayName || siteConfig.name}
               </span>
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
@@ -115,47 +115,48 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/image-tools#compress-image" className="text-slate-400 hover:text-slate-200">
-                  Compress Image
-                </Link>
-              </li>
-              <li>
-                <Link href="/image-tools#resize-image" className="text-slate-400 hover:text-slate-200">
-                  Resize Image
-                </Link>
-              </li>
-              <li>
-                <Link href="/image-tools#crop-image" className="text-slate-400 hover:text-slate-200">
-                  Crop Image
+                <Link
+                  href="/jpg-to-pdf"
+                  className="text-slate-300 hover:text-brand-400 transition-colors flex items-center gap-1.5"
+                >
+                  <span>JPG to PDF</span>
+                  <span className="px-1.5 py-0.2 rounded text-[10px] bg-brand-950 text-brand-300 border border-brand-800">
+                    Live
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/image-tools" className="text-brand-400 hover:underline">
-                  View All Image Tools &rarr;
+                  View Image Directory &rarr;
+                </Link>
+              </li>
+              <li>
+                <Link href="/#roadmap" className="text-slate-400 hover:text-slate-200">
+                  Upcoming Image Tools
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Conversions & Platform */}
+          {/* Platform & Roadmap */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Conversions & Utilities
+              Platform &amp; Roadmap
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <Link href="/#convert-tools" className="hover:text-slate-200">
-                  Office to PDF
+                <Link href="/#roadmap" className="hover:text-slate-200 transition-colors">
+                  Engineering Roadmap
                 </Link>
               </li>
               <li>
-                <Link href="/#utility-tools" className="hover:text-slate-200">
-                  Developer Utilities
+                <Link href="/about" className="hover:text-slate-200 transition-colors">
+                  Privacy Architecture
                 </Link>
               </li>
               <li>
-                <Link href="/#media-tools" className="hover:text-slate-200">
-                  Video & Audio Tools
+                <Link href="/contact" className="hover:text-slate-200 transition-colors">
+                  Request a Tool
                 </Link>
               </li>
             </ul>
@@ -169,13 +170,22 @@ export default function Footer() {
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <Link href="/about" className="hover:text-slate-200 transition-colors">
-                  About Toolora
+                  About {siteConfig.displayName || "Bits & Tools"}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-slate-200 transition-colors">
                   Contact Support
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${siteConfig.contactEmail}`}
+                  className="hover:text-slate-200 transition-colors truncate block"
+                  title={`Email: ${siteConfig.contactEmail}`}
+                >
+                  {siteConfig.contactEmail}
+                </a>
               </li>
               <li>
                 <Link href="/privacy-policy" className="hover:text-slate-200 transition-colors">
@@ -204,7 +214,7 @@ export default function Footer() {
         {/* Bottom copyright & legal bar */}
         <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; {currentYear} {siteConfig.name}. All rights reserved. Built with precision for the modern web.
+            &copy; {currentYear} {siteConfig.displayName || siteConfig.name}. All rights reserved. Built with precision for the modern web.
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/privacy-policy" className="hover:text-slate-400">

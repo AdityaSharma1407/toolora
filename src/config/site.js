@@ -1,13 +1,14 @@
 export const siteConfig = {
-  name: "Toolora",
-  shortName: "Toolora",
+  name: "BitsAndTools",
+  displayName: "Bits & Tools",
+  shortName: "Bits & Tools",
   tagline: "Free, Fast & Secure Online Tools",
   description:
-    "Toolora provides fast, free, and privacy-focused online utilities. Merge, split, compress PDFs, convert images, and use everyday developer tools locally in your browser with complete privacy.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://toolora.com",
+    "Bits & Tools provides fast, free, and privacy-focused online utilities. Merge, split, compress PDFs, convert images, and use everyday developer tools locally in your browser with complete privacy.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.bitsandtools.com",
   themeColor: "#2563eb",
-  ogImage: "/images/og-toolora.png",
-  contactEmail: "contact@toolora.com",
+  ogImage: "/images/og-bitsandtools.png",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "sharmaaditya14jul@gmail.com",
   links: {
     github: "https://github.com",
     twitter: "https://twitter.com",
@@ -85,7 +86,7 @@ export const siteConfig = {
 
   // --- Privacy & Consent Management ---
   consent: {
-    storageKey: "toolora_consent_preferences",
+    storageKey: "bitsandtools_consent_preferences",
     version: "1.0",
     requiredForAds: true,
   },
