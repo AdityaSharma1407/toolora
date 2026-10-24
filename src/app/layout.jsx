@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import CookieConsentBanner from "@/components/common/CookieConsentBanner";
@@ -120,6 +121,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <CookieConsentBanner />
         <Script
+          id="google-adsense-script"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8022438675607325"
           crossOrigin="anonymous"
