@@ -68,7 +68,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight sm:leading-tight">
-            Every Online Tool You Need,{" "}
+            Every Online Tool You Need{" "}
             <span className="text-brand-600">
               Private &amp; Free
             </span>

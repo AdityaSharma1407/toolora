@@ -55,7 +55,7 @@ export const metadata = {
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/site.webmanifest"
 };
 
 export const viewport = {
@@ -90,6 +90,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full scroll-smooth">
       <head>
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-8022438675607325"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -115,6 +119,12 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         <CookieConsentBanner />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8022438675607325"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
