@@ -6,19 +6,22 @@ import { ChevronDown } from "lucide-react";
 export default function FAQSection({
   title = "Frequently Asked Questions",
   subtitle = "Everything you need to know about using this tool on Bits & Tools",
-  items = [],
+  items,
+  faqs,
   includeSchema = true,
   className = "",
 }) {
   const [openIndex, setOpenIndex] = useState(0);
 
-  if (!items || items.length === 0) return null;
+  const faqList = Array.isArray(items) && items.length > 0 ? items : (Array.isArray(faqs) ? faqs : []);
+
+  if (faqList.length === 0) return null;
 
   // JSON-LD structured data for Google FAQ Rich Snippets
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
+    mainEntity: faqList.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -54,7 +57,7 @@ export default function FAQSection({
         </div>
 
         <div className="space-y-3">
-          {items.map((faq, index) => {
+          {faqList.map((faq, index) => {
             const isOpen = openIndex === index;
             const faqId = `faq-content-${index}`;
             const headerId = `faq-header-${index}`;

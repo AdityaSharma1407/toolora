@@ -111,6 +111,18 @@ export default function HomePage() {
             >
               JPG to PDF
             </Link>
+            <Link
+              href="/pdf-to-jpg"
+              className="px-2.5 py-1 rounded-lg bg-white border border-slate-200/80 text-slate-700 hover:text-brand-600 hover:border-brand-300 transition-colors"
+            >
+              PDF to JPG
+            </Link>
+            <Link
+              href="/rotate-pdf"
+              className="px-2.5 py-1 rounded-lg bg-white border border-slate-200/80 text-slate-700 hover:text-brand-600 hover:border-brand-300 transition-colors"
+            >
+              Rotate PDF
+            </Link>
           </div>
 
           {/* Ad Slot: Below Hero (Disabled by default) */}
@@ -195,7 +207,7 @@ export default function HomePage() {
                     PDF Productivity Suite
                   </h3>
                   <p className="text-xs text-slate-500">
-                    4 live client-side tools for merging, splitting, compressing, and compiling PDF files.
+                    8 live client-side tools for merging, splitting, compressing, converting, rotating, deleting, and reordering PDF files.
                   </p>
                 </div>
               </div>

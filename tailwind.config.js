@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      spacing: {
+        3.5: "0.875rem",
+        4.5: "1.125rem",
+      },
       colors: {
         canvas: "#fbfbfd",
         brand: {

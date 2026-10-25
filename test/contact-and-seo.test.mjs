@@ -14,7 +14,7 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
   test("6. Sitemap.xml produces clean canonical URLs without duplicates or broken pages", () => {
     const entries = sitemap();
     assert.ok(Array.isArray(entries));
-    assert.equal(entries.length, 11);
+    assert.equal(entries.length, 15);
 
     const urls = entries.map((e) => e.url);
     const expectedBase = "https://www.bitsandtools.com";
@@ -24,6 +24,10 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
     assert.ok(urls.includes(`${expectedBase}/split-pdf`));
     assert.ok(urls.includes(`${expectedBase}/compress-pdf`));
     assert.ok(urls.includes(`${expectedBase}/jpg-to-pdf`));
+    assert.ok(urls.includes(`${expectedBase}/pdf-to-jpg`));
+    assert.ok(urls.includes(`${expectedBase}/rotate-pdf`));
+    assert.ok(urls.includes(`${expectedBase}/delete-pdf-pages`));
+    assert.ok(urls.includes(`${expectedBase}/reorder-pdf-pages`));
     assert.ok(urls.includes(`${expectedBase}/pdf-tools`));
     assert.ok(urls.includes(`${expectedBase}/image-tools`));
     assert.ok(urls.includes(`${expectedBase}/about`));

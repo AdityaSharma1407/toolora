@@ -35,6 +35,30 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/pdf-to-jpg`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/rotate-pdf`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/delete-pdf-pages`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/reorder-pdf-pages`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/pdf-tools`,
       lastModified: new Date(),
       changeFrequency: "weekly",
