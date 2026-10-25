@@ -1,5 +1,4 @@
 import "./globals.css";
-import Script from "next/script";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import CookieConsentBanner from "@/components/common/CookieConsentBanner";
@@ -47,6 +46,9 @@ export const metadata = {
   verification: {
     google: siteConfig.analytics.searchConsoleVerification || undefined,
   },
+  other: {
+    "google-adsense-account": "ca-pub-8022438675607325",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -56,7 +58,7 @@ export const metadata = {
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  manifest: "/site.webmanifest"
+  manifest: "/site.webmanifest",
 };
 
 export const viewport = {
@@ -120,13 +122,6 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         <CookieConsentBanner />
-        <Script
-          id="google-adsense-script"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8022438675607325"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );

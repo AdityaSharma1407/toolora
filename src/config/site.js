@@ -41,10 +41,10 @@ export const siteConfig = {
   // --- Advertising & Monetization Architecture ---
   // Kept disabled by default; only active when explicitly configured via environment variables
   monetization: {
-    enabled: process.env.NEXT_PUBLIC_ADS_ENABLED === "true",
-    provider: process.env.NEXT_PUBLIC_AD_PROVIDER || "adsense", // 'adsense' | 'ezoic' | 'custom'
+    enabled: String(process.env.NEXT_PUBLIC_ADS_ENABLED || "").trim().toLowerCase() === "true",
+    provider: (process.env.NEXT_PUBLIC_AD_PROVIDER || "adsense").trim().toLowerCase(),
     adsense: {
-      client: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "",
+      client: (process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "ca-pub-8022438675607325").trim(),
       slots: {
         "home-top": process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_TOP || "",
         "home-content": process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_CONTENT || "",

@@ -24,9 +24,14 @@ export default function AdSlot({
   const isAdActive = isGloballyEnabled && isPlacementEnabled && enabled;
 
   const clientId = monetization?.adsense?.client;
-  // Resolve effective slot ID from explicit prop or central slot registry
-  const effectiveSlotId =
-    slotId || (placement ? monetization?.adsense?.slots?.[placement] : "");
+  // Resolve effective slot ID: prefer explicit numeric prop, fallback to central slot registry from env
+  const isExplicitNumeric = typeof slotId === "string" && /^\d+$/.test(slotId.trim());
+  const slotFromEnv = placement ? monetization?.adsense?.slots?.[placement] : "";
+  const effectiveSlotId = isExplicitNumeric
+    ? slotId.trim()
+    : typeof slotFromEnv === "string" && /^\d+$/.test(slotFromEnv.trim())
+    ? slotFromEnv.trim()
+    : "";
 
   const isConfigValid =
     typeof clientId === "string" &&
