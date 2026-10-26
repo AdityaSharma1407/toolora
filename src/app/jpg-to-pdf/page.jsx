@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Sparkles, Image as ImageIcon } from "lucide-react";
 
 export const metadata = {
-  title: "JPG to PDF Converter Online — Convert Images to PDF | Bits & Tools",
+  title: "JPG to PDF Converter Online — Convert Images to PDF",
   description:
     "Convert JPG, JPEG, and PNG images into a single PDF document. Free, fast, private, and client-side with custom page sizes, orientations, and margins.",
   alternates: {

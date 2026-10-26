@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "PDF to JPG Converter Online — Free & High Quality (300 DPI) | Bits & Tools",
+  title: "PDF to JPG Converter Online — Free & High Quality (300 DPI)",
   description:
     "Convert PDF pages into high-resolution JPG images online for free. Download individual pages or package all images into a single ZIP file. 100% private client-side processing.",
   keywords: [

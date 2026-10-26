@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Rotate PDF Pages Online — Free & Permanent PDF Rotation | Bits & Tools",
+  title: "Rotate PDF Pages Online — Free & Permanent PDF Rotation",
   description:
     "Rotate PDF pages clockwise (+90°), counterclockwise (-90°), or upside down (180°) permanently. Rotate individual pages or all pages at once with zero quality loss.",
   keywords: [

@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Delete PDF Pages Online — Remove Unwanted Pages Free | Bits & Tools",
+  title: "Delete PDF Pages Online — Remove Unwanted Pages Free",
   description:
     "Remove unwanted, blank, or sensitive pages from any PDF document for free. Preview visual thumbnails, select pages to delete, and download a clean PDF. 100% private.",
   keywords: [

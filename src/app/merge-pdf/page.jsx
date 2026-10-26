@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "Merge PDF Files Online — Free PDF Merger | Bits & Tools",
+  title: "Merge PDF Files Online — Free PDF Merger",
   description:
     "Combine multiple PDF files into one document in seconds. 100% free, browser-based, secure, and private. No installation or registration required.",
   alternates: {

@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Reorder PDF Pages Online — Rearrange & Sort Pages Free | Bits & Tools",
+  title: "Reorder PDF Pages Online — Rearrange & Sort Pages Free",
   description:
     "Rearrange, sort, and organize pages within your PDF document using drag-and-drop or directional arrow controls. Invert sequence or reset anytime. 100% private.",
   keywords: [

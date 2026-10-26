@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getAvailableTools } from "@/data/toolsRegistry";
+import { getAvailableTools, getToolById } from "@/data/toolsRegistry";
 import DynamicIcon from "./DynamicIcon";
 import { ArrowRight, Sparkles } from "lucide-react";
 
@@ -10,7 +10,10 @@ export default function RelatedTools({
   subtitle = "Explore other free, browser-based tools available on Bits & Tools with zero file uploads",
   maxItems = 3,
 }) {
-  const availableTools = getAvailableTools().filter((t) => t.id !== currentToolId);
+  const currentTool = getToolById(currentToolId);
+  const availableTools = getAvailableTools()
+    .filter((tool, idx, arr) => idx === arr.findIndex((t) => t.route === tool.route))
+    .filter((t) => t.id !== currentToolId && (!currentTool || t.route !== currentTool.route));
   const displayTools = availableTools.slice(0, maxItems);
 
   if (displayTools.length === 0) return null;

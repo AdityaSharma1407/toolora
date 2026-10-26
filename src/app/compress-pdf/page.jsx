@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Sparkles, Minimize2 } from "lucide-react";
 
 export const metadata = {
-  title: "Compress PDF Files Online — Reduce PDF Size Free | Bits & Tools",
+  title: "Compress PDF Files Online — Reduce PDF Size Free",
   description:
     "Reduce PDF file size with genuine client-side structural optimization. Free, fast, private, and browser-based with zero file uploads.",
   alternates: {

@@ -7,7 +7,7 @@ import AdPlacement from "@/components/common/AdPlacement";
 import { Image as ImageIcon, Sparkles, ShieldCheck, ArrowRight, Layers, CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Image Tools Directory — Free Online Image Utilities | Bits & Tools",
+  title: "Image Tools Directory — Free Online Image Utilities",
   description:
     "Convert, manage, and process images directly in your browser. Convert JPG, JPEG, and PNG to high-quality PDF files with complete client-side privacy.",
   alternates: {

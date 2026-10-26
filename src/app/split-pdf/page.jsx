@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Sparkles, Scissors } from "lucide-react";
 
 export const metadata = {
-  title: "Split PDF Files Online — Separate & Extract PDF Pages | Bits & Tools",
+  title: "Split PDF Files Online — Separate & Extract PDF Pages",
   description:
     "Separate PDF pages into individual files or extract custom page ranges. Free, fast, browser-based, and 100% private. No sign-up required.",
   alternates: {

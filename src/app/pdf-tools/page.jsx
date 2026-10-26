@@ -7,7 +7,7 @@ import AdPlacement from "@/components/common/AdPlacement";
 import { FileText, ShieldCheck, Zap, ArrowRight, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "PDF Tools Directory — Free Online PDF Utilities | Bits & Tools",
+  title: "PDF Tools Directory — Free Online PDF Utilities",
   description:
     "Explore Bits & Tools' suite of free PDF tools. Merge, split, compress, convert, and manage your PDF documents directly in your web browser with complete privacy.",
   alternates: {

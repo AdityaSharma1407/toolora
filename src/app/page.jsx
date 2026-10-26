@@ -46,7 +46,9 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const availableTools = getAvailableTools();
+  const availableTools = getAvailableTools().filter(
+    (tool, idx, arr) => idx === arr.findIndex((t) => t.route === tool.route)
+  );
   const pdfTools = getToolsByCategory(CATEGORIES.PDF.id);
   const imageTools = getToolsByCategory(CATEGORIES.IMAGE.id);
   const convertTools = getToolsByCategory(CATEGORIES.CONVERT.id);

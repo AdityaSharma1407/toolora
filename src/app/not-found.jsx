@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FileQuestion, ArrowLeft, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "Page Not Found (404) — Bits & Tools",
+  title: "Page Not Found (404)",
   description: "The requested page could not be found on Bits & Tools.",
 };
 
