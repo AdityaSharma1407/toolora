@@ -165,7 +165,7 @@ describe("Tools Registry Verification", () => {
   test("Planned tools are marked coming-soon", () => {
     const all = getAllTools();
     const comingSoon = all.filter((t) => t.status === "coming-soon");
-    assert.ok(comingSoon.length >= 25);
+    assert.ok(comingSoon.length >= 10);
   });
 
   test("Search filters by name and keywords", () => {

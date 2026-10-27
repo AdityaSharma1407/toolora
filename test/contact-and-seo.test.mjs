@@ -14,12 +14,13 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
   test("6. Sitemap.xml produces clean canonical URLs without duplicates or broken pages", () => {
     const entries = sitemap();
     assert.ok(Array.isArray(entries));
-    assert.equal(entries.length, 15);
+    assert.equal(entries.length, 46);
 
     const urls = entries.map((e) => e.url);
     const expectedBase = "https://www.bitsandtools.com";
 
     assert.ok(urls.includes(expectedBase));
+    // PDF Tools
     assert.ok(urls.includes(`${expectedBase}/merge-pdf`));
     assert.ok(urls.includes(`${expectedBase}/split-pdf`));
     assert.ok(urls.includes(`${expectedBase}/compress-pdf`));
@@ -28,8 +29,47 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
     assert.ok(urls.includes(`${expectedBase}/rotate-pdf`));
     assert.ok(urls.includes(`${expectedBase}/delete-pdf-pages`));
     assert.ok(urls.includes(`${expectedBase}/reorder-pdf-pages`));
+    assert.ok(urls.includes(`${expectedBase}/add-page-numbers`));
+    assert.ok(urls.includes(`${expectedBase}/watermark-pdf`));
+    assert.ok(urls.includes(`${expectedBase}/protect-pdf`));
+    assert.ok(urls.includes(`${expectedBase}/unlock-pdf`));
+
+    // Quick Wins & Developer Utilities
+    assert.ok(urls.includes(`${expectedBase}/word-counter`));
+    assert.ok(urls.includes(`${expectedBase}/case-converter`));
+    assert.ok(urls.includes(`${expectedBase}/json-formatter`));
+    assert.ok(urls.includes(`${expectedBase}/base64-encoder-decoder`));
+    assert.ok(urls.includes(`${expectedBase}/url-encoder-decoder`));
+    assert.ok(urls.includes(`${expectedBase}/percentage-calculator`));
+    assert.ok(urls.includes(`${expectedBase}/age-calculator`));
+    assert.ok(urls.includes(`${expectedBase}/uuid-generator`));
+    assert.ok(urls.includes(`${expectedBase}/hash-generator`));
+    assert.ok(urls.includes(`${expectedBase}/text-diff`));
+    assert.ok(urls.includes(`${expectedBase}/slug-generator`));
+    assert.ok(urls.includes(`${expectedBase}/qr-code-generator`));
+    assert.ok(urls.includes(`${expectedBase}/json-to-csv`));
+    assert.ok(urls.includes(`${expectedBase}/list-tools`));
+    assert.ok(urls.includes(`${expectedBase}/jwt-decoder`));
+    assert.ok(urls.includes(`${expectedBase}/timestamp-converter`));
+    assert.ok(urls.includes(`${expectedBase}/password-generator`));
+
+    // Image Tools
+    assert.ok(urls.includes(`${expectedBase}/resize-image`));
+    assert.ok(urls.includes(`${expectedBase}/compress-image`));
+    assert.ok(urls.includes(`${expectedBase}/image-converter`));
+    assert.ok(urls.includes(`${expectedBase}/jpg-to-png`));
+    assert.ok(urls.includes(`${expectedBase}/png-to-jpg`));
+    assert.ok(urls.includes(`${expectedBase}/webp-converter`));
+    assert.ok(urls.includes(`${expectedBase}/color-palette-extractor`));
+    assert.ok(urls.includes(`${expectedBase}/svg-to-png`));
+    assert.ok(urls.includes(`${expectedBase}/crop-image`));
+
+    // Directory Hubs
     assert.ok(urls.includes(`${expectedBase}/pdf-tools`));
     assert.ok(urls.includes(`${expectedBase}/image-tools`));
+    assert.ok(urls.includes(`${expectedBase}/utility-tools`));
+
+    // Static Pages
     assert.ok(urls.includes(`${expectedBase}/about`));
     assert.ok(urls.includes(`${expectedBase}/contact`));
     assert.ok(urls.includes(`${expectedBase}/privacy-policy`));

@@ -4,6 +4,10 @@ import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { rotatePdfDocument, normalizeAngle } from "../src/tools/pdf/rotatePdf.js";
 import { deletePdfPages } from "../src/tools/pdf/deletePdfPages.js";
 import { reorderPdfPages } from "../src/tools/pdf/reorderPdfPages.js";
+import { addPageNumbersToPdf } from "../src/tools/pdf/addPageNumbers.js";
+import { watermarkPdfDocument } from "../src/tools/pdf/watermarkPdf.js";
+import { protectPdfDocument } from "../src/tools/pdf/protectPdf.js";
+import { unlockPdfDocument } from "../src/tools/pdf/unlockPdf.js";
 import {
   TOOLS,
   getAvailableTools,
@@ -369,3 +373,105 @@ describe("6. ArrayBuffer Worker Transfer & Detachment Safeguard", () => {
 });
 
 
+
+describe("7. Add Page Numbers Core Logic", () => {
+  test("inserts page numbers into multi-page PDF document", async () => {
+    const inputBytes = await createTestDoc(3);
+    const { pdfBytes, pageCount, modifiedPages } = await addPageNumbersToPdf(inputBytes, {
+      position: "bottom-center",
+      format: "page-x-of-y",
+    });
+
+    assert.equal(pageCount, 3);
+    assert.equal(modifiedPages, 3);
+    assert.ok(pdfBytes.byteLength > inputBytes.byteLength);
+
+    const doc = await PDFDocument.load(pdfBytes);
+    assert.equal(doc.getPageCount(), 3);
+  });
+
+  test("skips cover page when skipFirstPage is true", async () => {
+    const inputBytes = await createTestDoc(4);
+    const { modifiedPages } = await addPageNumbersToPdf(inputBytes, {
+      skipFirstPage: true,
+      format: "x-of-y",
+    });
+
+    assert.equal(modifiedPages, 3);
+  });
+});
+
+describe("8. Watermark PDF Core Logic", () => {
+  test("stamps text watermark on all pages of PDF", async () => {
+    const inputBytes = await createTestDoc(3);
+    const { pdfBytes, pageCount } = await watermarkPdfDocument(inputBytes, {
+      text: "CONFIDENTIAL",
+      opacity: 0.3,
+      rotation: -45,
+    });
+
+    assert.equal(pageCount, 3);
+    assert.ok(pdfBytes.byteLength > inputBytes.byteLength);
+
+    const doc = await PDFDocument.load(pdfBytes);
+    assert.equal(doc.getPageCount(), 3);
+  });
+});
+
+describe("9. Protect & Unlock PDF Core Logic", () => {
+  test("encrypts PDF with password and successfully unlocks with correct password", async () => {
+    const inputBytes = await createTestDoc(2);
+
+    // 1. Protect PDF
+    const { pdfBytes: protectedBytes } = await protectPdfDocument(inputBytes, "StrongSecretKey123!");
+    assert.ok(protectedBytes.byteLength > 0);
+
+    // 2. Standard load without password must fail
+    let loadFailed = false;
+    try {
+      await PDFDocument.load(protectedBytes);
+    } catch {
+      loadFailed = true;
+    }
+    assert.ok(loadFailed, "Protected PDF must fail to load without password");
+
+    // 3. Unlock with wrong password must throw
+    let wrongPassFailed = false;
+    try {
+      await unlockPdfDocument(protectedBytes, "WrongPassword");
+    } catch (err) {
+      wrongPassFailed = true;
+      assert.ok(err.message.includes("Incorrect password"));
+    }
+    assert.ok(wrongPassFailed, "Unlocking with wrong password must throw error");
+
+    // 4. Unlock with correct password
+    const { pdfBytes: unlockedBytes, pageCount } = await unlockPdfDocument(protectedBytes, "StrongSecretKey123!");
+    assert.equal(pageCount, 2);
+
+    // 5. Unlocked PDF loads cleanly without passwords
+    const cleanDoc = await PDFDocument.load(unlockedBytes);
+    assert.equal(cleanDoc.getPageCount(), 2);
+  });
+});
+
+describe("10. PDF Suite 2 SEO & Structured Metadata Verification", () => {
+  const pages = [
+    { name: "Add Page Numbers", path: "src/app/add-page-numbers/page.jsx", canonical: "/add-page-numbers" },
+    { name: "Watermark PDF", path: "src/app/watermark-pdf/page.jsx", canonical: "/watermark-pdf" },
+    { name: "Protect PDF", path: "src/app/protect-pdf/page.jsx", canonical: "/protect-pdf" },
+    { name: "Unlock PDF", path: "src/app/unlock-pdf/page.jsx", canonical: "/unlock-pdf" },
+  ];
+
+  for (const page of pages) {
+    test(`${page.name} exports canonical metadata, FAQPage, and WebApplication schemas`, () => {
+      const pageContent = fs.readFileSync(page.path, "utf8");
+      assert.ok(pageContent.includes(`canonical: "${page.canonical}"`));
+      assert.ok(pageContent.includes("export const metadata = {"));
+      assert.ok(pageContent.includes('"@type": "WebApplication"'));
+      assert.ok(pageContent.includes("<FAQSection"));
+      assert.ok(pageContent.includes("<HowItWorks"));
+      assert.ok(pageContent.includes("<RelatedTools"));
+    });
+  }
+});
