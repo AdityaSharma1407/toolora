@@ -44,6 +44,38 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Global Hotkey Listener: Ctrl+K / Cmd+K or "/" to toggle quick search
+  useEffect(() => {
+    function handleGlobalKeyDown(e) {
+      const isInput =
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target?.isContentEditable;
+
+      // Ctrl+K or Cmd+K
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchModalOpen((prev) => !prev);
+        return;
+      }
+
+      // "/" key when not typing in an input
+      if (e.key === "/" && !isInput && !searchModalOpen) {
+        e.preventDefault();
+        setSearchModalOpen(true);
+        return;
+      }
+
+      // Escape key to close modal
+      if (e.key === "Escape" && searchModalOpen) {
+        setSearchModalOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, [searchModalOpen]);
+
   const navCategories = [
     { label: "PDF", href: "/pdf-tools" },
     { label: "Images", href: "/image-tools" },
@@ -182,15 +214,20 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Search Trigger Button */}
+            {/* Search Trigger Button with Hotkey Badge */}
             <button
               type="button"
               onClick={() => setSearchModalOpen(true)}
-              aria-label="Open search"
-              className="min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-[36px] flex items-center justify-center gap-2 px-3 py-1.5 text-xs text-slate-600 bg-slate-100/80 hover:bg-slate-200/70 rounded-xl border border-black/[0.04] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              aria-label="Open search (Ctrl+K)"
+              className="min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-[36px] flex items-center justify-between gap-3 px-3 py-1.5 text-xs text-slate-600 bg-slate-100/80 hover:bg-slate-200/70 rounded-xl border border-black/[0.04] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             >
-              <SearchIcon className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-slate-500" />
-              <span className="hidden sm:inline">Search 55 tools...</span>
+              <div className="flex items-center gap-2">
+                <SearchIcon className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-slate-500" />
+                <span className="hidden sm:inline">Search 55 tools...</span>
+              </div>
+              <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-white border border-slate-200/90 rounded shadow-2xs font-medium">
+                <span>Ctrl</span> K
+              </kbd>
             </button>
 
             {/* Quick Action Link */}
@@ -216,30 +253,42 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Search Modal */}
+      {/* Global Command Palette / Search Modal */}
       {searchModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-20 px-4 bg-black/30 backdrop-blur-sm animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-20 px-4 bg-black/40 backdrop-blur-md animate-in fade-in"
           onClick={() => setSearchModalOpen(false)}
         >
           <div
-            className="w-full max-w-2xl bg-white rounded-2xl shadow-modal p-4 border border-black/[0.08]"
+            className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-5 border border-black/[0.08] animate-in zoom-in-95 duration-150"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-100">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Quick Tool Search (55 Tools Available)
-              </span>
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                  <SearchIcon className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+                  Quick Tool Palette
+                </span>
+                <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                  55 Tools Live
+                </span>
+              </div>
               <button
                 type="button"
                 onClick={() => setSearchModalOpen(false)}
                 aria-label="Close search modal"
-                className="min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+                className="min-w-[32px] min-h-[32px] flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
-            <ToolSearch onSelect={() => setSearchModalOpen(false)} />
+            <ToolSearch
+              autoFocus
+              isModal
+              onSelect={() => setSearchModalOpen(false)}
+            />
           </div>
         </div>
       )}

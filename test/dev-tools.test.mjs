@@ -354,3 +354,35 @@ describe("6. Registry & Route Files Verification for Path 3", () => {
     }
   });
 });
+
+describe("7. Quick Search & Command Palette Verification", () => {
+  test("searchTools returns matching tools for developer queries", async () => {
+    const { searchTools } = await import("../src/data/toolsRegistry.js");
+
+    const mdMatches = searchTools("markdown");
+    assert.ok(mdMatches.some((t) => t.id === "markdown-editor"));
+
+    const regexMatches = searchTools("regex");
+    assert.ok(regexMatches.some((t) => t.id === "regex-tester"));
+
+    const cronMatches = searchTools("cron");
+    assert.ok(cronMatches.some((t) => t.id === "cron-generator"));
+
+    const curlMatches = searchTools("curl");
+    assert.ok(curlMatches.some((t) => t.id === "curl-converter"));
+
+    const minifyMatches = searchTools("minify");
+    assert.ok(minifyMatches.some((t) => t.id === "code-minifier"));
+  });
+
+  test("Header and ToolSearch include keyboard hotkeys and arrow navigation", () => {
+    const headerCode = fs.readFileSync("src/components/common/Header.jsx", "utf8");
+    assert.ok(headerCode.includes("handleGlobalKeyDown"), "Header must include global hotkey handler");
+    assert.ok(headerCode.includes("Ctrl"), "Header must display Ctrl/Cmd key badge");
+
+    const searchCode = fs.readFileSync("src/components/common/ToolSearch.jsx", "utf8");
+    assert.ok(searchCode.includes("ArrowDown"), "ToolSearch must support ArrowDown navigation");
+    assert.ok(searchCode.includes("ArrowUp"), "ToolSearch must support ArrowUp navigation");
+    assert.ok(searchCode.includes("Enter"), "ToolSearch must support Enter to execute tool");
+  });
+});
