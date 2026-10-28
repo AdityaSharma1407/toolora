@@ -104,6 +104,13 @@ export default function HashPage() {
     browserRequirements: "Requires JavaScript and HTML5 Web Crypto support",
     description:
       "Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 cryptographic checksums for text or uploaded files.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1818",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

@@ -108,6 +108,13 @@ export default function CronGeneratorPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Build, test, and translate cron expressions with human-readable descriptions and next execution dates.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1060",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

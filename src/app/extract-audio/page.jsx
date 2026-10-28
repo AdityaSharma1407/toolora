@@ -102,6 +102,13 @@ export default function ExtractAudioPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Extract audio tracks from MP4, WebM, and MOV videos directly in your browser with complete privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1213",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

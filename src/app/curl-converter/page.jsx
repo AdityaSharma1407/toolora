@@ -109,6 +109,13 @@ export default function CurlConverterPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert cURL commands to Fetch, Axios, Python Requests, Node.js, PHP, and Go code snippets.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1388",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

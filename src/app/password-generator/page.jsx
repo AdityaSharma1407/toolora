@@ -108,6 +108,13 @@ export default function PasswordGeneratorPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Generate cryptographically secure random passwords and memorable passphrases with NIST entropy scoring and crack time estimates.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1762",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

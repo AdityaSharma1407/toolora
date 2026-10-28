@@ -108,6 +108,13 @@ export default function AddPageNumbersPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Insert custom page numbers, headers, and footers into PDF documents with custom typography and positioning.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "914",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

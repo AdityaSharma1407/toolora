@@ -27,25 +27,36 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Bits & Tools — 55 Free, Fast & Private Online Tools",
+  title: "Bits & Tools — Free Online Tools: PDF, Image, Video & Developer Utilities",
   description:
-    "Fast, free, and privacy-focused online tools platform. Merge, split, compress PDFs, convert images, documents, audio, video, and developer utilities directly in your browser with zero server uploads.",
+    "Free, 100% private in-browser online tools. Merge and compress PDFs, convert images and documents, trim videos, and use 55+ developer utilities with zero server file uploads.",
+  keywords: [
+    "free online tools",
+    "pdf tools online",
+    "merge pdf free",
+    "compress pdf online",
+    "image converter online",
+    "free developer utilities",
+    "private file tools",
+    "no upload tools",
+    "client side tools",
+  ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Bits & Tools — 55 Free, Fast & Private Online Tools",
+    title: "Bits & Tools — Free Online Tools: PDF, Image, Video & Developer Utilities",
     description:
-      "Fast, free, and privacy-focused online tools platform. 55 client-side utilities running in-browser with zero server uploads.",
+      "Free, 100% private in-browser online utilities. 55 client-side tools running in your browser memory with zero server uploads.",
     url: "/",
     siteName: "Bits & Tools",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bits & Tools — 55 Free, Fast & Private Online Tools",
+    title: "Bits & Tools — Free Online Tools: PDF, Image, Video & Developer Utilities",
     description:
-      "55 client-side utilities running in-browser with zero server uploads.",
+      "55 fast, private, and free client-side utilities running in-browser with zero server uploads.",
   },
 };
 
@@ -462,23 +473,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 100% Engineering Milestone Section */}
-      <section className="py-14 bg-slate-50 border-t border-slate-200/80" id="roadmap">
+      {/* Tool Categories Directory */}
+      <section className="py-14 bg-slate-50 border-t border-slate-200/80" id="suites">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold mb-3 border border-emerald-200/60">
-              <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-              <span>100% Delivery Milestone Achieved</span>
-            </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              All 55 Planned In-Browser Utilities Are Live!
+              Browse Tools by Category
             </h2>
             <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-              Every planned utility across all 5 engineering suites has been released and verified. Have a suggestion for an additional tool? Let us know on our{" "}
-              <Link href="/contact" className="text-brand-600 underline font-semibold">
-                contact page
-              </Link>
-              .
+              Explore our full catalog of 55 client-side utilities. Fast, private, and always free to use directly in your browser.
             </p>
           </div>
 

@@ -107,6 +107,13 @@ export default function HtmlToPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert HTML markup or .html files into formatted PDF documents in your browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1708",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

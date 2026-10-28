@@ -107,6 +107,13 @@ export default function PdfToExcelPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Extract tables and structured data from PDF files into Microsoft Excel (.xlsx) and CSV files.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "769",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

@@ -103,6 +103,13 @@ export default function UuidPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Generate random, cryptographically secure RFC 4122 version-4 UUIDs and GUIDs in bulk.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1413",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

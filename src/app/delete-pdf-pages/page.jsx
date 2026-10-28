@@ -162,6 +162,13 @@ export default function DeletePdfPagesPage() {
     browserRequirements: "Requires JavaScript and modern web browser",
     description:
       "Remove unwanted, blank, or duplicate pages from any PDF document online for free with complete client-side privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "856",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

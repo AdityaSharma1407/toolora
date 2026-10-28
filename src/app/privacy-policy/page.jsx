@@ -177,26 +177,11 @@ export default function PrivacyPolicyPage() {
 
           <section>
             <h2 className="text-lg font-bold text-slate-900 mb-3">
-              6. Contact Us
+              6. Policy Administration
             </h2>
             <p>
-              If you have any questions or concerns regarding this Privacy Policy or your personal data, please contact us directly:
+              This Privacy Policy is governed and maintained by the platform operators of {siteConfig.displayName || siteConfig.name}. Because all file manipulations take place entirely in your local browser environment without server data collection, no personal documents or file contents are retained, processed, or shared on remote servers.
             </p>
-            <div className="mt-2 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-1.5">
-              <div>
-                <strong>Direct Email:</strong>{" "}
-                <a href={`mailto:${siteConfig.contactEmail}`} className="text-brand-600 underline hover:text-brand-700 font-medium">
-                  {siteConfig.contactEmail}
-                </a>
-              </div>
-              <div><strong>Platform:</strong> {siteConfig.displayName || siteConfig.name} Online Tools</div>
-              <div>
-                <strong>Online Contact:</strong>{" "}
-                <Link href="/contact" className="text-brand-600 underline hover:text-brand-700">
-                  {siteConfig.url.replace(/^https?:\/\//, "")}/contact
-                </Link>
-              </div>
-            </div>
           </section>
         </div>
       </div>

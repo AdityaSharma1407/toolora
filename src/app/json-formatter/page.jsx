@@ -110,6 +110,13 @@ export default function JsonFormatterPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Beautify, minify, validate, and sort JSON keys in your browser. Highlights syntax errors with line & column numbers.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1327",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

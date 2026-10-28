@@ -128,14 +128,10 @@ export default function TermsPage() {
 
           <section>
             <h2 className="text-lg font-bold text-slate-900 mb-3">
-              8. Contact
+              8. Governance
             </h2>
             <p>
-              For legal inquiries or questions regarding these Terms, contact us at:{" "}
-              <a href={`mailto:${siteConfig.contactEmail}`} className="text-brand-600 underline">
-                {siteConfig.contactEmail}
-              </a>
-              .
+              These Terms of Service are governed and interpreted in accordance with standard legal principles. Any updates or revisions are published directly on this page.
             </p>
           </section>
         </div>

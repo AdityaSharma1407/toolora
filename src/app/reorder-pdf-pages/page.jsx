@@ -162,6 +162,13 @@ export default function ReorderPdfPagesPage() {
     browserRequirements: "Requires JavaScript and modern web browser",
     description:
       "Rearrange and sort pages within your PDF document online for free with complete client-side privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1066",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

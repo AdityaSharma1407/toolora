@@ -89,7 +89,32 @@ describe("Production Readiness & Zero-Issue Audit Verification", () => {
     assert.ok(headerCode.includes('document.body.style.overflow = "hidden"'), "Header must lock body scroll");
   });
 
-  test("12. Strict brand integrity: zero occurrences of 'toolora'", () => {
+  test("12. No visible contact us links or milestone banner on application view", () => {
+    const headerCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "Header.jsx"), "utf-8");
+    const footerCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "Footer.jsx"), "utf-8");
+    const homeCode = fs.readFileSync(path.join(rootDir, "src", "app", "page.jsx"), "utf-8");
+    const notFoundCode = fs.readFileSync(path.join(rootDir, "src", "app", "not-found.jsx"), "utf-8");
+
+    assert.ok(!headerCode.includes('href="/contact"'), "Header must not link to /contact");
+    assert.ok(!footerCode.includes('href="/contact"'), "Footer must not link to /contact");
+    assert.ok(!footerCode.includes('mailto:'), "Footer must not display mailto email");
+    assert.ok(!homeCode.includes("100% Delivery Milestone Achieved"), "Homepage must not contain milestone banner");
+    assert.ok(!homeCode.includes("All 55 Planned In-Browser Utilities Are Live!"), "Homepage must not contain dev completion banner");
+    assert.ok(!notFoundCode.includes('href="/contact"'), "Not-found page must not link to /contact");
+  });
+
+  test("13. SEO Schemas configure founders and aggregateRating across tools", () => {
+    const layoutCode = fs.readFileSync(path.join(rootDir, "src", "app", "layout.jsx"), "utf-8");
+    assert.ok(layoutCode.includes("Vishavjeet Sharma"), "Layout must configure Vishavjeet Sharma as founder");
+    assert.ok(layoutCode.includes("Aditya Sharma"), "Layout must configure Aditya Sharma as founder");
+    assert.ok(layoutCode.includes("vishavjeetsharma88@gmail.com"), "Layout must configure founder email");
+    assert.ok(layoutCode.includes("sharmaaditya14jul@gmail.com"), "Layout must configure founder email");
+
+    const mergeCode = fs.readFileSync(path.join(rootDir, "src", "app", "merge-pdf", "page.jsx"), "utf-8");
+    assert.ok(mergeCode.includes("aggregateRating"), "Tool page must include aggregateRating");
+  });
+
+  test("14. Strict brand integrity: zero occurrences of 'toolora'", () => {
     const targetFiles = [
       "src/app/error.jsx",
       "src/app/page.jsx",

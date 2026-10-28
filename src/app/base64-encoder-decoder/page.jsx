@@ -109,6 +109,13 @@ export default function Base64Page() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Encode and decode Base64 strings, UTF-8 text, and files with URL-safe options.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1808",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

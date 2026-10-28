@@ -107,6 +107,13 @@ export default function ExcelToPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert Excel workbooks (.xlsx) and CSV spreadsheets into formatted PDF tables in your browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1845",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

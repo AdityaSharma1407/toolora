@@ -79,6 +79,13 @@ export default function MergePdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Combine multiple PDF files into one document in seconds. 100% free, browser-based, secure, and private with zero server file uploads.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1028",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

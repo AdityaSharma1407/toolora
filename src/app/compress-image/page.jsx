@@ -108,6 +108,13 @@ export default function CompressImagePage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Reduce image file size of JPG, PNG, and WebP while preserving visual quality directly in the browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1835",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

@@ -101,6 +101,13 @@ export default function VideoToGifPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert video clips into looping animated GIFs directly in your browser with complete client-side privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1682",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

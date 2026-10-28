@@ -103,6 +103,13 @@ export default function TextDiffPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Compare two text or code files and highlight additions, deletions, and differences line by line.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1081",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

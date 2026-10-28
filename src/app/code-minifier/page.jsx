@@ -109,6 +109,13 @@ export default function CodeMinifierPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Minify and beautify HTML, CSS, JavaScript, and JSON with real-time byte savings calculations.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1664",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

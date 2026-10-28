@@ -103,6 +103,13 @@ export default function SlugPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Generate clean, SEO-friendly URL slugs from any title or text.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1196",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

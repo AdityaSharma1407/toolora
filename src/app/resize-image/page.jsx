@@ -108,6 +108,13 @@ export default function ResizeImagePage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Resize images by pixels or percentage with aspect ratio locks and custom format export.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1569",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

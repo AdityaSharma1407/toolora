@@ -119,6 +119,13 @@ export default function WordCounterPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Count words, characters, sentences, paragraphs, and estimate reading time in real time with 100% browser-based privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1652",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

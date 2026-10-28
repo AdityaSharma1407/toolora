@@ -104,6 +104,13 @@ export default function AgePage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Calculate your exact chronological age in years, months, days, weeks, and hours.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1147",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

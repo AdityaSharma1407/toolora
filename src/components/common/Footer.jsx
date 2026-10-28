@@ -220,20 +220,6 @@ export default function Footer() {
                   Terms
                 </Link>
               </li>
-              <li>
-                <Link href="/contact" className="text-slate-400 hover:text-slate-200">
-                  Contact Support
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${siteConfig.contactEmail}`}
-                  className="text-slate-400 hover:text-slate-200 truncate block text-[11px]"
-                  title={`Email: ${siteConfig.contactEmail}`}
-                >
-                  {siteConfig.contactEmail}
-                </a>
-              </li>
             </ul>
           </div>
         </div>

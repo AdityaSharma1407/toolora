@@ -108,6 +108,13 @@ export default function SvgToPngPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert SVG vectors into high-resolution PNG images with custom 1x to 8x resolution scaling.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1085",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

@@ -70,14 +70,6 @@ export default function ErrorBoundary({ error, reset }) {
             )}
           </div>
         )}
-
-        {/* Support Link */}
-        <div className="mt-6 text-xs text-slate-400">
-          Need help?{" "}
-          <Link href="/contact" className="text-brand-600 hover:underline font-semibold">
-            Contact Support
-          </Link>
-        </div>
       </div>
     </div>
   );

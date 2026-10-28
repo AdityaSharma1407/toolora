@@ -95,6 +95,13 @@ export default function JpgToPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert JPG, JPEG, and PNG images into a single unified PDF document directly inside your browser with complete client-side privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1756",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

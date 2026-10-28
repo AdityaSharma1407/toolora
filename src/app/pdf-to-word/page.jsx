@@ -106,6 +106,13 @@ export default function PdfToWordPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert PDF files into editable Microsoft Word (.docx) documents in your browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "973",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

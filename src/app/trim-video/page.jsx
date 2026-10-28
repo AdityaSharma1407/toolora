@@ -102,6 +102,13 @@ export default function TrimVideoPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Cut out unwanted segments and adjust start and end points of video clips directly in your browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1520",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

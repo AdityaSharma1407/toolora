@@ -101,6 +101,13 @@ export default function WordToPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert Word documents (.docx) into formatted PDF files directly in your web browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1243",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

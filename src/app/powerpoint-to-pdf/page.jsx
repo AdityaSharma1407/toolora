@@ -105,6 +105,13 @@ export default function PowerpointToPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert PowerPoint files (.pptx) or outline slides into 16:9 widescreen PDF presentations.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1450",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

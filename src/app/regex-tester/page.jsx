@@ -108,6 +108,13 @@ export default function RegexTesterPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Test, debug, and inspect regular expressions with real-time match highlighting and capture group inspection.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1666",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

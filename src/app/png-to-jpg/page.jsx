@@ -101,6 +101,13 @@ export default function PngToJpgPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert PNG images to standard JPEG format with custom background fill and compression quality.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1018",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

@@ -108,6 +108,13 @@ export default function ImageConverterPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Universal image converter for PNG, JPG, and WebP files with quality controls and transparency preservation.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1694",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

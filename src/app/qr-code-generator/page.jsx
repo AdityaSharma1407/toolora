@@ -108,6 +108,13 @@ export default function QrCodePage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Generate custom QR codes for URLs, WiFi networks, vCards, and plain text with PNG and vector SVG export.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1309",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

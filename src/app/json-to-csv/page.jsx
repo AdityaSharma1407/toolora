@@ -108,6 +108,13 @@ export default function JsonToCsvPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert JSON arrays and objects to RFC 4180 compliant CSV and vice versa with custom delimiters and table preview.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1328",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

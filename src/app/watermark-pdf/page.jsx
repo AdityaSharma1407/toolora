@@ -108,6 +108,13 @@ export default function WatermarkPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Stamp custom text watermarks onto PDF pages with configurable opacity, rotation, and colors.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1049",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

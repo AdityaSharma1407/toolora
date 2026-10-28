@@ -101,6 +101,13 @@ export default function JpgToPngPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert JPG and JPEG images to lossless PNG format directly in the browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "888",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

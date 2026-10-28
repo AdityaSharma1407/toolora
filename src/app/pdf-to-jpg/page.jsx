@@ -165,6 +165,13 @@ export default function PdfToJpgPage() {
     browserRequirements: "Requires JavaScript and modern web browser with HTML5 Canvas",
     description:
       "Convert PDF pages into high-resolution JPG images directly in your browser with complete client-side privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1143",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

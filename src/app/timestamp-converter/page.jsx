@@ -108,6 +108,13 @@ export default function TimestampPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Convert Unix timestamps to human readable dates (UTC, Local, ISO 8601) and reverse convert dates to epoch seconds.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "833",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

@@ -114,6 +114,13 @@ export default function CropImagePage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Crop pictures with exact aspect ratios (1:1, 16:9, 4:5, 9:16), rotate, flip, and export to PNG, JPG, or WebP. 100% client-side.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1826",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

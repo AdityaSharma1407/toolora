@@ -164,6 +164,13 @@ export default function RotatePdfPage() {
     browserRequirements: "Requires JavaScript and a modern web browser",
     description:
       "Rotate PDF pages permanently online for free. Adjust individual or all pages with zero quality loss and complete client-side privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1563",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

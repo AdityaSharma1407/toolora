@@ -8,7 +8,20 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.bitsandtools.com",
   themeColor: "#2563eb",
   ogImage: "/images/og-bitsandtools.png",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "sharmaaditya14jul@gmail.com",
+  // Founders data for SEO & structured schema metadata (not rendered in application view)
+  founders: [
+    {
+      name: "Vishavjeet Sharma",
+      role: "Co-Founder",
+      email: "vishavjeetsharma88@gmail.com",
+    },
+    {
+      name: "Aditya Sharma",
+      role: "Co-Founder",
+      email: "sharmaaditya14jul@gmail.com",
+    },
+  ],
+  contactEmail: "sharmaaditya14jul@gmail.com",
   links: {
     github: "https://github.com",
     twitter: "https://twitter.com",
@@ -97,6 +110,5 @@ export const siteConfig = {
     { label: "Image Tools", href: "/image-tools" },
     { label: "Merge PDF", href: "/merge-pdf", badge: "Popular" },
     { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
   ],
 };

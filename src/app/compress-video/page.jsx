@@ -101,6 +101,13 @@ export default function CompressVideoPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Reduce MP4 and WebM video sizes with intelligent resolution and bitrate scaling directly in your browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1360",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

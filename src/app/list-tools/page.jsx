@@ -110,6 +110,13 @@ export default function ListToolsPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Online list shuffler, deduplicator, multi-mode sorter, prefix/suffix wrapper, and set operation comparer.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "863",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

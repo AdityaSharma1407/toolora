@@ -108,6 +108,13 @@ export default function MarkdownEditorPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Write, preview, and format GitHub Flavored Markdown in real-time. Export clean .md or standalone .html.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "787",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

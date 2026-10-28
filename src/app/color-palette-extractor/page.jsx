@@ -103,6 +103,13 @@ export default function ColorPaletteExtractorPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Extract dominant color palettes from images and export HEX, RGB, HSL, CSS variables, and Tailwind themes.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1591",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

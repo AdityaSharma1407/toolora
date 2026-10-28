@@ -27,8 +27,12 @@ export const metadata = {
     "free file utilities",
     "private pdf merger",
   ],
-  authors: [{ name: siteConfig.displayName || siteConfig.name }],
-  creator: siteConfig.displayName || siteConfig.name,
+  authors: [
+    { name: "Vishavjeet Sharma", url: siteConfig.url },
+    { name: "Aditya Sharma", url: siteConfig.url },
+  ],
+  creator: "Vishavjeet Sharma & Aditya Sharma",
+  publisher: siteConfig.displayName || siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -95,19 +99,71 @@ export default function RootLayout({ children }) {
     alternateName: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
+    author: [
+      {
+        "@type": "Person",
+        name: "Vishavjeet Sharma",
+        jobTitle: "Co-Founder",
+        email: "vishavjeetsharma88@gmail.com",
+      },
+      {
+        "@type": "Person",
+        name: "Aditya Sharma",
+        jobTitle: "Co-Founder",
+        email: "sharmaaditya14jul@gmail.com",
+      },
+    ],
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.displayName || siteConfig.name,
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/images/og-bitsandtools.png`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/#all-tools?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteConfig.displayName || siteConfig.name,
+    alternateName: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/og-bitsandtools.png`,
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: siteConfig.contactEmail,
-      contactType: "Customer Support",
-    },
+    founder: [
+      {
+        "@type": "Person",
+        name: "Vishavjeet Sharma",
+        jobTitle: "Co-Founder",
+        email: "vishavjeetsharma88@gmail.com",
+        url: siteConfig.url,
+      },
+      {
+        "@type": "Person",
+        name: "Aditya Sharma",
+        jobTitle: "Co-Founder",
+        email: "sharmaaditya14jul@gmail.com",
+        url: siteConfig.url,
+      },
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        email: "vishavjeetsharma88@gmail.com",
+        contactType: "Founder",
+      },
+      {
+        "@type": "ContactPoint",
+        email: "sharmaaditya14jul@gmail.com",
+        contactType: "Founder",
+      },
+    ],
   };
 
   return (

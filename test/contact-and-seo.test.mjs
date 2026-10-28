@@ -5,20 +5,29 @@ import sitemap from "../src/app/sitemap.js";
 import robots from "../src/app/robots.js";
 
 describe("Contact Email, Monetization & Technical SEO Verification", () => {
-  test("5. Contact Page and Form use personal email sharmaaditya14jul@gmail.com", () => {
-    assert.equal(siteConfig.contactEmail, "sharmaaditya14jul@gmail.com");
-    assert.ok(!siteConfig.contactEmail.includes("bitsandtools.com"));
-    assert.ok(siteConfig.contactEmail.includes("@gmail.com"));
+  test("5. Founder metadata for SEO configures Vishavjeet Sharma and Aditya Sharma", () => {
+    assert.ok(Array.isArray(siteConfig.founders), "founders must be an array");
+    assert.equal(siteConfig.founders.length, 2);
+
+    const vishavjeet = siteConfig.founders.find((f) => f.name.includes("Vishavjeet"));
+    const aditya = siteConfig.founders.find((f) => f.name.includes("Aditya"));
+
+    assert.ok(vishavjeet, "Vishavjeet Sharma must be listed as founder");
+    assert.equal(vishavjeet.email, "vishavjeetsharma88@gmail.com");
+
+    assert.ok(aditya, "Aditya Sharma must be listed as founder");
+    assert.equal(aditya.email, "sharmaaditya14jul@gmail.com");
   });
 
-  test("6. Sitemap.xml produces clean canonical URLs without duplicates or broken pages", () => {
+  test("6. Sitemap.xml produces clean canonical URLs without contact page", () => {
     const entries = sitemap();
     assert.ok(Array.isArray(entries));
-    assert.equal(entries.length, 64);
+    assert.equal(entries.length, 63);
 
     const urls = entries.map((e) => e.url);
     const expectedBase = "https://www.bitsandtools.com";
 
+    assert.ok(!urls.includes(`${expectedBase}/contact`), "Sitemap must not contain /contact");
     assert.ok(urls.includes(expectedBase));
     // PDF Tools
     assert.ok(urls.includes(`${expectedBase}/merge-pdf`));
@@ -93,7 +102,6 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
 
     // Static Pages
     assert.ok(urls.includes(`${expectedBase}/about`));
-    assert.ok(urls.includes(`${expectedBase}/contact`));
     assert.ok(urls.includes(`${expectedBase}/privacy-policy`));
     assert.ok(urls.includes(`${expectedBase}/terms`));
 

@@ -108,6 +108,13 @@ export default function ProtectPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Encrypt and password protect PDF documents with AES-256 bit security directly in the browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1286",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

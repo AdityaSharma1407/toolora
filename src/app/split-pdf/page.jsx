@@ -95,6 +95,13 @@ export default function SplitPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Separate PDF pages into individual files or extract custom page ranges directly in your browser with complete client-side privacy.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1560",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

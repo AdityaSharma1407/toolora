@@ -407,12 +407,6 @@ export default function Header() {
             >
               About {siteConfig.displayName || "Bits & Tools"}
             </Link>
-            <Link
-              href="/contact"
-              className="min-h-[44px] flex items-center px-3.5 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100/80 transition-colors"
-            >
-              Contact Support
-            </Link>
           </div>
         </div>
       )}

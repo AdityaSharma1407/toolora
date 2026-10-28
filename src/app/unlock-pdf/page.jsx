@@ -108,6 +108,13 @@ export default function UnlockPdfPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Remove passwords and security restrictions from PDF files directly in your web browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1067",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

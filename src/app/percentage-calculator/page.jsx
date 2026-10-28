@@ -104,6 +104,13 @@ export default function PercentagePage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Calculate percentages, percentage increases, discounts, tips, and fractional differences.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1691",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",

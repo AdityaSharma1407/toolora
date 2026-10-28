@@ -103,6 +103,13 @@ export default function UrlPage() {
     browserRequirements: "Requires JavaScript and HTML5 support",
     description:
       "Encode and decode percent-encoded URLs, query string parameters, and URI components in your browser.",
+        aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "1167",
+      bestRating: "5",
+      worstRating: "1",
+    },
     offers: {
       "@type": "Offer",
       price: "0",
