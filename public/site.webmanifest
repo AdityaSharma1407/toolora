@@ -1,26 +1,62 @@
 {
-  "name": "Bits & Tools",
-  "short_name": "Bits&Tools",
-  "description": "Fast, private, and free online utilities for PDF, images, and documents.",
-  "start_url": "/",
+  "name": "Bits & Tools - Free, Fast & Private Online Tools",
+  "short_name": "Bits & Tools",
+  "description": "Fast, 100% private in-browser utilities for PDF, images, conversions, media, and code with zero server uploads.",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#fbfbfd",
+  "orientation": "any",
+  "background_color": "#ffffff",
   "theme_color": "#2563eb",
+  "categories": ["utilities", "productivity", "developer"],
   "icons": [
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Merge PDF",
+      "short_name": "Merge",
+      "description": "Combine multiple PDF documents into one cleanly",
+      "url": "/merge-pdf",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Compress PDF",
+      "short_name": "Compress",
+      "description": "Optimize and reduce PDF file size in browser",
+      "url": "/compress-pdf",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Markdown Editor",
+      "short_name": "Markdown",
+      "description": "Write and preview GitHub-flavored Markdown live",
+      "url": "/markdown-editor",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "JSON Formatter",
+      "short_name": "JSON",
+      "description": "Format, validate, and minify JSON data",
+      "url": "/json-formatter",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }

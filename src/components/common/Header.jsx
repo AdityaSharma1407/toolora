@@ -15,7 +15,9 @@ import {
   Sparkles,
   Search as SearchIcon,
   ArrowRight,
+  Download,
 } from "lucide-react";
+import { usePwaInstall } from "@/hooks/usePwaInstall";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,6 +25,7 @@ export default function Header() {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef(null);
+  const { canInstall, promptInstall } = usePwaInstall();
 
   const tools = getAllTools();
 
@@ -230,6 +233,20 @@ export default function Header() {
               </kbd>
             </button>
 
+            {/* PWA Native Install Button */}
+            {canInstall && (
+              <button
+                type="button"
+                onClick={promptInstall}
+                aria-label="Install Bits & Tools App"
+                title="Install Bits & Tools App to Desktop or Home Screen"
+                className="hidden xl:inline-flex items-center gap-1.5 min-h-[36px] px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              >
+                <Download className="w-3.5 h-3.5 text-brand-600" />
+                <span>Install</span>
+              </button>
+            )}
+
             {/* Quick Action Link */}
             <Link
               href="/merge-pdf"
@@ -356,6 +373,20 @@ export default function Header() {
               22 tools
             </span>
           </Link>
+
+          {canInstall && (
+            <button
+              type="button"
+              onClick={() => {
+                promptInstall();
+                setMobileMenuOpen(false);
+              }}
+              className="w-full min-h-[44px] flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-brand-700 bg-brand-50/80 hover:bg-brand-100 transition-colors"
+            >
+              <Download className="w-4 h-4 text-brand-600" />
+              <span>Install Bits & Tools App</span>
+            </button>
+          )}
 
           <div className="pt-2 border-t border-slate-100">
             <Link

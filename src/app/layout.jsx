@@ -3,6 +3,8 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import CookieConsentBanner from "@/components/common/CookieConsentBanner";
 import AdSenseScript from "@/components/ads/AdSenseScript";
+import PwaRegister from "@/components/pwa/PwaRegister";
+import InstallPwaBanner from "@/components/pwa/InstallPwaBanner";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
@@ -59,6 +61,11 @@ export const metadata = {
     ],
   },
   manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: siteConfig.displayName || siteConfig.name,
+  },
 };
 
 export const viewport = {
@@ -108,6 +115,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
         <AdSenseScript />
+        <PwaRegister />
+        <InstallPwaBanner />
         {/* Skip to Main Content Link for Keyboard Accessibility */}
         <a
           href="#main-content"
