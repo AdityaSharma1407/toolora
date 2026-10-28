@@ -11,11 +11,18 @@ import { siteConfig } from "@/config/site";
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.displayName || siteConfig.name} - Free, Fast & Private Online Tools`,
+    default: `${siteConfig.displayName || siteConfig.name} (BitsAndTools) - Free, Fast & Private Online Tools`,
     template: `%s | ${siteConfig.displayName || siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
+    "bitsandtools",
+    "BitsAndTools",
+    "bits and tools",
+    "Bits & Tools",
+    "bitsandtools.com",
+    "vishavjeet sharma",
+    "aditya sharma",
     "online tools",
     "pdf tools",
     "merge pdf",
@@ -96,7 +103,13 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.displayName || siteConfig.name,
-    alternateName: siteConfig.name,
+    alternateName: [
+      "BitsAndTools",
+      "bitsandtools",
+      "Bits and Tools",
+      "bits and tools",
+      "bitsandtools.com",
+    ],
     url: siteConfig.url,
     description: siteConfig.description,
     author: [
@@ -113,9 +126,27 @@ export default function RootLayout({ children }) {
         email: "sharmaaditya14jul@gmail.com",
       },
     ],
+    creator: [
+      {
+        "@type": "Person",
+        name: "Vishavjeet Sharma",
+        jobTitle: "Co-Founder",
+      },
+      {
+        "@type": "Person",
+        name: "Aditya Sharma",
+        jobTitle: "Co-Founder",
+      },
+    ],
     publisher: {
       "@type": "Organization",
       name: siteConfig.displayName || siteConfig.name,
+      alternateName: [
+        "BitsAndTools",
+        "bitsandtools",
+        "Bits and Tools",
+        "bitsandtools.com",
+      ],
       url: siteConfig.url,
       logo: `${siteConfig.url}/images/og-bitsandtools.png`,
     },
@@ -133,7 +164,12 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteConfig.displayName || siteConfig.name,
-    alternateName: siteConfig.name,
+    alternateName: [
+      "BitsAndTools",
+      "bitsandtools",
+      "Bits and Tools",
+      "bitsandtools.com",
+    ],
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/og-bitsandtools.png`,
     founder: [

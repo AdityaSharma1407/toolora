@@ -227,7 +227,7 @@ export default function Footer() {
         {/* Bottom Credits & Copyright */}
         <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            &copy; {currentYear} {siteConfig.displayName || siteConfig.name}. All rights reserved.
+            &copy; {currentYear} Bits &amp; Tools (BitsAndTools). Founded by Vishavjeet Sharma &amp; Aditya Sharma. All rights reserved.
           </div>
           <div className="flex items-center gap-1 text-slate-300">
             <span>Built for total privacy &bull; Zero server telemetry</span>

@@ -5,24 +5,24 @@ import { siteConfig } from "@/config/site";
 import { ShieldCheck, Zap, Lock, Heart, Layers, ArrowRight, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "About Bits & Tools — Fast, Private Client-Side Online Utilities",
+  title: "About Bits & Tools (BitsAndTools) — Created by Vishavjeet Sharma & Aditya Sharma",
   description:
-    "Learn about Bits & Tools' mission to provide fast, reliable, and 100% private digital utilities with zero file uploads to servers.",
+    "Learn about Bits & Tools (BitsAndTools), created and engineered by Vishavjeet Sharma and Aditya Sharma. Fast, free, and 100% private digital utilities with zero file uploads.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Bits & Tools — Fast, Private Client-Side Online Utilities",
+    title: "About Bits & Tools (BitsAndTools) — Created by Vishavjeet Sharma & Aditya Sharma",
     description:
-      "Learn about Bits & Tools' mission to provide fast, reliable, and 100% private digital utilities with zero file uploads to servers.",
+      "Learn about Bits & Tools (BitsAndTools), created and engineered by Vishavjeet Sharma and Aditya Sharma. Fast, free, and 100% private digital utilities with zero file uploads.",
     url: "/about",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Bits & Tools — Fast, Private Client-Side Online Utilities",
+    title: "About Bits & Tools (BitsAndTools) — Created by Vishavjeet Sharma & Aditya Sharma",
     description:
-      "Learn about Bits & Tools' mission to provide fast, reliable, and 100% private digital utilities with zero file uploads to servers.",
+      "Learn about Bits & Tools (BitsAndTools), created and engineered by Vishavjeet Sharma and Aditya Sharma. Fast, free, and 100% private digital utilities with zero file uploads.",
   },
 };
 
@@ -107,6 +107,23 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+
+        {/* Founders & Engineering Leadership */}
+        <section className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-8 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold border border-brand-200/60">
+            <Sparkles className="w-3.5 h-3.5 text-brand-600" />
+            <span>Founders &amp; Leadership</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            Created by Vishavjeet Sharma &amp; Aditya Sharma
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            <strong>Bits &amp; Tools</strong> (also known as <strong>BitsAndTools</strong>, <a href="https://www.bitsandtools.com" className="text-brand-600 font-medium hover:underline">bitsandtools.com</a>) was created and developed by co-founders <strong>Vishavjeet Sharma</strong> and <strong>Aditya Sharma</strong>.
+          </p>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Vishavjeet Sharma and Aditya Sharma built Bits &amp; Tools with a commitment to privacy-first web utilities. By processing all documents directly inside modern browser runtimes with WebAssembly and local JavaScript, Bits &amp; Tools eliminates cloud file uploads, ensuring that confidential contracts, financial records, and personal images remain completely on your local device.
+          </p>
+        </section>
 
         {/* Explore Tools CTA */}
         <div className="p-8 bg-brand-600 text-white rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-md shadow-brand-500/20">

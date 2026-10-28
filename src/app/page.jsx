@@ -27,10 +27,17 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Bits & Tools — Free Online Tools: PDF, Image, Video & Developer Utilities",
+  title: "Bits & Tools (BitsAndTools) — Free Online Tools: PDF, Image, Video & Developer Utilities",
   description:
-    "Free, 100% private in-browser online tools. Merge and compress PDFs, convert images and documents, trim videos, and use 55+ developer utilities with zero server file uploads.",
+    "Free, 100% private in-browser online tools by BitsAndTools. Merge and compress PDFs, convert images and documents, trim videos, and use 55+ developer utilities with zero server file uploads.",
   keywords: [
+    "bitsandtools",
+    "BitsAndTools",
+    "bits and tools",
+    "Bits & Tools",
+    "bitsandtools.com",
+    "vishavjeet sharma",
+    "aditya sharma",
     "free online tools",
     "pdf tools online",
     "merge pdf free",
@@ -45,16 +52,16 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Bits & Tools — Free Online Tools: PDF, Image, Video & Developer Utilities",
+    title: "Bits & Tools (BitsAndTools) — Free Online Tools: PDF, Image, Video & Developer Utilities",
     description:
-      "Free, 100% private in-browser online utilities. 55 client-side tools running in your browser memory with zero server uploads.",
+      "Free, 100% private in-browser online utilities by BitsAndTools. 55 client-side tools running in your browser memory with zero server uploads.",
     url: "/",
     siteName: "Bits & Tools",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bits & Tools — Free Online Tools: PDF, Image, Video & Developer Utilities",
+    title: "Bits & Tools (BitsAndTools) — Free Online Tools: PDF, Image, Video & Developer Utilities",
     description:
       "55 fast, private, and free client-side utilities running in-browser with zero server uploads.",
   },
@@ -62,9 +69,9 @@ export const metadata = {
 
 const HOMEPAGE_FAQS = [
   {
-    question: "What is Bits & Tools and how does it work?",
+    question: "What is Bits & Tools and who created it?",
     answer:
-      "Bits & Tools is a free, 100% private in-browser online utilities platform. All 55 tools—spanning PDF editing, image conversion, video and audio processing, to developer utilities—execute entirely on your local machine using modern client-side JavaScript and WebAssembly. Your files, documents, and data are never sent to any external server.",
+      "Bits & Tools (also known as BitsAndTools, bitsandtools.com) is a free, 100% private in-browser online utilities platform created by co-founders Vishavjeet Sharma and Aditya Sharma. All 55 tools—spanning PDF editing, image conversion, video and audio processing, to developer utilities—execute entirely on your local machine using modern client-side JavaScript and WebAssembly with zero server file uploads.",
   },
   {
     question: "Are my files uploaded to a remote server or stored in the cloud?",
@@ -122,8 +129,7 @@ export default function HomePage() {
           </h1>
 
           <p className="mt-3 sm:mt-5 text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Merge PDFs, convert images, transcode audio, trim video, and access 20+ developer utilities directly in your
-            web browser. No accounts, no waiting, and zero server storage.
+            Welcome to <strong>Bits &amp; Tools</strong> (BitsAndTools). Merge PDFs, convert images, transcode audio, trim video, and access 55+ in-browser utilities directly in your web browser with zero server storage.
           </p>
 
           {/* Search Bar */}
