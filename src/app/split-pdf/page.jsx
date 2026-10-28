@@ -5,10 +5,14 @@ import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
+import NextIntentSection from "@/components/common/NextIntentSection";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
 import { ShieldCheck, Zap, Lock, Sparkles, Scissors } from "lucide-react";
+
+const temporal = resolveTemporalParity("/split-pdf");
 
 export const metadata = {
   title: "Split PDF Files Online — Separate & Extract PDF Pages",
@@ -22,13 +26,19 @@ export const metadata = {
     description:
       "Separate PDF pages into individual files or extract custom page ranges. Fast, free, and secure client-side PDF splitter.",
     url: "/split-pdf",
-    type: "website",
+    type: "article",
+    publishedTime: temporal.isoPublished,
+    modifiedTime: temporal.isoModified,
   },
   twitter: {
     card: "summary_large_image",
     title: "Split PDF Files Online — Separate & Extract PDF Pages | Bits & Tools",
     description:
       "Separate PDF pages into individual files or extract custom page ranges. Fast, free, and secure client-side PDF splitter.",
+  },
+  other: {
+    "article:published_time": temporal.isoPublished,
+    "article:modified_time": temporal.isoModified,
   },
 };
 
@@ -180,6 +190,9 @@ export default function SplitPdfPage() {
         subtitle="Helpful answers about page ranges, ZIP packaging, and limits"
         items={SPLIT_PDF_FAQS}
       />
+
+      {/* "Session-Terminator" Layout Component for Peripheral Doubt & Secondary Intent Resolution */}
+      <NextIntentSection currentToolId="split-pdf" />
 
       {/* Related Working Tools */}
       <RelatedTools currentToolId="split-pdf" />

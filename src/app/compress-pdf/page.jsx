@@ -5,10 +5,14 @@ import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
+import NextIntentSection from "@/components/common/NextIntentSection";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
 import { ShieldCheck, Zap, Lock, Sparkles, Minimize2 } from "lucide-react";
+
+const temporal = resolveTemporalParity("/compress-pdf");
 
 export const metadata = {
   title: "Compress PDF Files Online — Reduce PDF Size Free",
@@ -22,13 +26,19 @@ export const metadata = {
     description:
       "Reduce PDF file size with a simple, browser-based compression workflow. Free, secure, client-side PDF optimizer.",
     url: "/compress-pdf",
-    type: "website",
+    type: "article",
+    publishedTime: temporal.isoPublished,
+    modifiedTime: temporal.isoModified,
   },
   twitter: {
     card: "summary_large_image",
     title: "Compress PDF Files Online — Reduce PDF Size Free | Bits & Tools",
     description:
       "Reduce PDF file size with a simple, browser-based compression workflow. Free, secure, client-side PDF optimizer.",
+  },
+  other: {
+    "article:published_time": temporal.isoPublished,
+    "article:modified_time": temporal.isoModified,
   },
 };
 
@@ -180,6 +190,9 @@ export default function CompressPdfPage() {
         subtitle="Everything you need to know about browser-based PDF compression"
         items={COMPRESS_PDF_FAQS}
       />
+
+      {/* "Session-Terminator" Layout Component for Peripheral Doubt & Secondary Intent Resolution */}
+      <NextIntentSection currentToolId="compress-pdf" />
 
       {/* Related Working Tools */}
       <RelatedTools currentToolId="compress-pdf" />

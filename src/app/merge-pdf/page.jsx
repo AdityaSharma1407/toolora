@@ -5,10 +5,14 @@ import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
+import NextIntentSection from "@/components/common/NextIntentSection";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
 import { ShieldCheck, Zap, Lock, Sparkles } from "lucide-react";
+
+const temporal = resolveTemporalParity("/merge-pdf");
 
 export const metadata = {
   title: "Merge PDF Files Online — Free PDF Merger",
@@ -22,13 +26,19 @@ export const metadata = {
     description:
       "Combine multiple PDF files into one document in seconds. Free, simple, and secure client-side PDF merger.",
     url: "/merge-pdf",
-    type: "website",
+    type: "article",
+    publishedTime: temporal.isoPublished,
+    modifiedTime: temporal.isoModified,
   },
   twitter: {
     card: "summary_large_image",
     title: "Merge PDF Files Online — Free PDF Merger | Bits & Tools",
     description:
       "Combine multiple PDF files into one document in seconds. Free, simple, and secure client-side PDF merger.",
+  },
+  other: {
+    "article:published_time": temporal.isoPublished,
+    "article:modified_time": temporal.isoModified,
   },
 };
 
@@ -164,6 +174,9 @@ export default function MergePdfPage() {
         subtitle="Clear answers about privacy, compatibility, and file limits"
         items={MERGE_PDF_FAQS}
       />
+
+      {/* "Session-Terminator" Layout Component for Peripheral Doubt & Secondary Intent Resolution */}
+      <NextIntentSection currentToolId="merge-pdf" />
 
       {/* Related Working Tools Siloed to PDF Suite */}
       <RelatedTools currentToolId="merge-pdf" />

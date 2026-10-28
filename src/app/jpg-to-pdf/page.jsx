@@ -5,10 +5,14 @@ import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
+import NextIntentSection from "@/components/common/NextIntentSection";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
 import { ShieldCheck, Zap, Lock, Sparkles, Image as ImageIcon } from "lucide-react";
+
+const temporal = resolveTemporalParity("/jpg-to-pdf");
 
 export const metadata = {
   title: "JPG to PDF Converter Online — Convert Images to PDF",
@@ -22,13 +26,19 @@ export const metadata = {
     description:
       "Convert JPG, JPEG, and PNG images into a single PDF document. Free, secure, client-side image converter.",
     url: "/jpg-to-pdf",
-    type: "website",
+    type: "article",
+    publishedTime: temporal.isoPublished,
+    modifiedTime: temporal.isoModified,
   },
   twitter: {
     card: "summary_large_image",
     title: "JPG to PDF Converter Online — Convert Images to PDF | Bits & Tools",
     description:
       "Convert JPG, JPEG, and PNG images into a single PDF document. Free, secure, client-side image converter.",
+  },
+  other: {
+    "article:published_time": temporal.isoPublished,
+    "article:modified_time": temporal.isoModified,
   },
 };
 
@@ -180,6 +190,9 @@ export default function JpgToPdfPage() {
         subtitle="Answers regarding formats, page dimensions, and compression"
         items={JPG_TO_PDF_FAQS}
       />
+
+      {/* "Session-Terminator" Layout Component for Peripheral Doubt & Secondary Intent Resolution */}
+      <NextIntentSection currentToolId="jpg-to-pdf" />
 
       {/* Related Working Tools */}
       <RelatedTools currentToolId="jpg-to-pdf" />

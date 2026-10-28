@@ -1,4 +1,5 @@
 import { siteConfig } from "../../config/site.js";
+import { resolveTemporalParity } from "./temporal-engine.js";
 
 /**
  * Enterprise Schema Engine
@@ -275,6 +276,8 @@ export function buildToolPageGraphSchema({
     ],
   });
 
+  const temporal = resolveTemporalParity(tool.route);
+
   // 2. TechArticle entity linking context to the tool
   graph.push({
     "@type": "TechArticle",
@@ -284,8 +287,8 @@ export function buildToolPageGraphSchema({
     url: fullUrl,
     mainEntityOfPage: fullUrl,
     inLanguage: "en-US",
-    datePublished: tool.datePublished || "2026-10-24T00:00:00Z",
-    dateModified: tool.dateModified || new Date().toISOString(),
+    datePublished: temporal.isoPublished || tool.datePublished,
+    dateModified: temporal.isoModified || tool.dateModified,
     publisher: { "@id": ENTITY_IDS.ORGANIZATION },
     author: [
       { "@id": ENTITY_IDS.AUTHOR_VISHAVJEET },
@@ -352,6 +355,8 @@ export function buildContentPageGraphSchema({
 
   const graph = [];
 
+  const temporal = resolveTemporalParity(slug);
+
   const mainEntity = {
     "@type": type,
     "@id": entityId,
@@ -361,8 +366,8 @@ export function buildContentPageGraphSchema({
     url: fullUrl,
     mainEntityOfPage: fullUrl,
     inLanguage: "en-US",
-    datePublished: datePublished || "2026-10-24T00:00:00Z",
-    dateModified: dateModified || new Date().toISOString(),
+    datePublished: datePublished || temporal.isoPublished,
+    dateModified: dateModified || temporal.isoModified,
     publisher: { "@id": ENTITY_IDS.ORGANIZATION },
     author: [
       { "@id": ENTITY_IDS.AUTHOR_VISHAVJEET },

@@ -1,65 +1,11 @@
 import { siteConfig } from "../../config/site.js";
+import { getAllVerifiedModDates } from "./temporal-engine.js";
 
 /**
  * Verified last-modified timestamps for Bits & Tools routes.
+ * Synchronized with the Centralized Temporal Engine.
  */
-export const VERIFIED_MOD_DATES = {
-  "/": "2026-10-27T18:00:00.000Z",
-  "/word-counter": "2026-10-27T18:00:00.000Z",
-  "/case-converter": "2026-10-27T18:00:00.000Z",
-  "/json-formatter": "2026-10-27T18:00:00.000Z",
-  "/base64-encoder-decoder": "2026-10-27T18:00:00.000Z",
-  "/url-encoder-decoder": "2026-10-27T18:00:00.000Z",
-  "/percentage-calculator": "2026-10-27T18:00:00.000Z",
-  "/age-calculator": "2026-10-27T18:00:00.000Z",
-  "/uuid-generator": "2026-10-27T18:00:00.000Z",
-  "/hash-generator": "2026-10-27T18:00:00.000Z",
-  "/text-diff": "2026-10-27T18:00:00.000Z",
-  "/slug-generator": "2026-10-27T18:00:00.000Z",
-  "/qr-code-generator": "2026-10-27T18:00:00.000Z",
-  "/json-to-csv": "2026-10-27T18:00:00.000Z",
-  "/list-tools": "2026-10-27T18:00:00.000Z",
-  "/jwt-decoder": "2026-10-27T18:00:00.000Z",
-  "/timestamp-converter": "2026-10-27T18:00:00.000Z",
-  "/password-generator": "2026-10-27T18:00:00.000Z",
-  "/pdf-to-jpg": "2026-10-25T09:46:12.000Z",
-  "/rotate-pdf": "2026-10-25T09:46:12.000Z",
-  "/delete-pdf-pages": "2026-10-25T09:46:12.000Z",
-  "/reorder-pdf-pages": "2026-10-25T09:46:12.000Z",
-  "/merge-pdf": "2026-10-24T10:51:11.000Z",
-  "/split-pdf": "2026-10-24T10:51:11.000Z",
-  "/compress-pdf": "2026-10-24T10:51:11.000Z",
-  "/jpg-to-pdf": "2026-10-24T10:51:11.000Z",
-  "/add-page-numbers": "2026-10-28T00:00:00.000Z",
-  "/watermark-pdf": "2026-10-28T00:00:00.000Z",
-  "/protect-pdf": "2026-10-28T00:00:00.000Z",
-  "/unlock-pdf": "2026-10-28T00:00:00.000Z",
-  "/resize-image": "2026-10-28T00:00:00.000Z",
-  "/compress-image": "2026-10-28T00:00:00.000Z",
-  "/image-converter": "2026-10-28T00:00:00.000Z",
-  "/jpg-to-png": "2026-10-28T00:00:00.000Z",
-  "/png-to-jpg": "2026-10-28T00:00:00.000Z",
-  "/webp-converter": "2026-10-28T00:00:00.000Z",
-  "/color-palette-extractor": "2026-10-28T00:00:00.000Z",
-  "/svg-to-png": "2026-10-28T00:00:00.000Z",
-  "/crop-image": "2026-10-28T00:00:00.000Z",
-  "/html-to-pdf": "2026-10-28T00:00:00.000Z",
-  "/excel-to-pdf": "2026-10-28T00:00:00.000Z",
-  "/word-to-pdf": "2026-10-28T00:00:00.000Z",
-  "/pdf-to-word": "2026-10-28T00:00:00.000Z",
-  "/pdf-to-excel": "2026-10-28T00:00:00.000Z",
-  "/powerpoint-to-pdf": "2026-10-28T00:00:00.000Z",
-  "/extract-audio": "2026-10-28T00:00:00.000Z",
-  "/mp3-converter": "2026-10-28T00:00:00.000Z",
-  "/video-to-gif": "2026-10-28T00:00:00.000Z",
-  "/trim-video": "2026-10-28T00:00:00.000Z",
-  "/compress-video": "2026-10-28T00:00:00.000Z",
-  "/markdown-editor": "2026-10-28T00:00:00.000Z",
-  "/regex-tester": "2026-10-28T00:00:00.000Z",
-  "/cron-generator": "2026-10-28T00:00:00.000Z",
-  "/curl-converter": "2026-10-28T00:00:00.000Z",
-  "/code-minifier": "2026-10-28T00:00:00.000Z",
-};
+export const VERIFIED_MOD_DATES = getAllVerifiedModDates();
 
 /**
  * Returns all sitemap entries formatted for Next.js and custom XML route handlers.

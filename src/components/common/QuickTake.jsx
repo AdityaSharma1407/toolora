@@ -1,19 +1,25 @@
 import React from "react";
-import { Sparkles, Shield, Cpu, Users, CheckCircle2 } from "lucide-react";
+import { Sparkles, Shield, Cpu, Users, CheckCircle2, Clock } from "lucide-react";
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+import EarlyContentLinks from "./EarlyContentLinks";
 
 /**
  * Standardized "Key Takeaway / Executive Summary" AEO Block
  * Formatted with W3C Digital Publishing semantic markup (`role="doc-abstract"`)
  * for algorithmic re-ranking, visual token weight optimization (18px-20px computed font, maximum contrast),
- * and zero-click AI citation extraction (Google AI Overviews, Perplexity, Gemini, ChatGPT).
+ * temporal tri-date synchronization with <time> element, and zero-click AI citation extraction.
  */
 export default function QuickTake({
   toolName,
+  route,
   actionVerb = "process",
   fileTypes = "files",
   customSummary = null,
   keyHighlights = null,
 }) {
+  const resolvedRoute = route || (toolName ? `/${toolName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` : "/");
+  const temporal = resolveTemporalParity(resolvedRoute);
+
   // Declarative definition statement precisely tuned within the 40–55 word window
   const defaultSummary =
     customSummary ||
@@ -43,15 +49,28 @@ export default function QuickTake({
       aria-label={`Key Takeaways — ${toolName} Summary`}
       className="mt-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-50 via-white to-brand-50/40 border border-slate-200/90 shadow-subtle text-left max-w-3xl mx-auto"
     >
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex flex-wrap items-center justify-between mb-3 gap-2">
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-700">
           <Sparkles className="w-4 h-4 text-brand-600" />
           <span>Key Takeaway &bull; Executive Summary</span>
         </div>
-        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2.5 py-0.5 rounded-full">
-          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-          <span>100% Client-Side In-Memory</span>
-        </span>
+
+        {/* Visual Byline with Synchronized <time> Element */}
+        <div className="flex items-center gap-2">
+          <time
+            dateTime={temporal.isoModified}
+            itemProp="dateModified"
+            className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-700 bg-slate-100/90 border border-slate-200/90 px-2.5 py-0.5 rounded-full"
+          >
+            <Clock className="w-3 h-3 text-slate-500" />
+            <span>Updated {temporal.formattedByline}</span>
+          </time>
+
+          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2.5 py-0.5 rounded-full">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+            <span>100% Client-Side</span>
+          </span>
+        </div>
       </div>
 
       {/* Visual Token Weight: Computed 18px-20px font with maximum contrast (text-slate-900) */}
@@ -84,6 +103,9 @@ export default function QuickTake({
           );
         })}
       </ul>
+
+      {/* Early High-Priority Internal Links (Top 200 Words Anchor Diversification) */}
+      <EarlyContentLinks currentRoute={resolvedRoute} />
     </section>
   );
 }
