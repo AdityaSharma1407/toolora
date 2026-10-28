@@ -36,9 +36,16 @@ describe("Production Readiness & Zero-Issue Audit Verification", () => {
     assert.ok(!imgHub.includes("Image Compression & Format Tools In Development"), "Image hub must not display obsolete in-development banner");
   });
 
-  test("4. robots.js disallows /offline to protect crawl budget", () => {
+  test("4. robots.js and offline metadata prevent GSC 'Indexed, though blocked by robots.txt' issue", () => {
     const robotsCode = fs.readFileSync(path.join(rootDir, "src", "app", "robots.js"), "utf-8");
-    assert.ok(robotsCode.includes('disallow: ["/offline"]'), "robots.js must disallow /offline route");
+    assert.ok(!robotsCode.includes('disallow: ["/offline"]'), "robots.js must allow crawling so search engines can read noindex");
+
+    const offlineCode = fs.readFileSync(path.join(rootDir, "src", "app", "offline", "page.jsx"), "utf-8");
+    assert.ok(offlineCode.includes("index: false"), "offline page metadata must specify noindex");
+    assert.ok(offlineCode.includes("follow: false"), "offline page metadata must specify nofollow");
+
+    const nextConfig = fs.readFileSync(path.join(rootDir, "next.config.mjs"), "utf-8");
+    assert.ok(nextConfig.includes("X-Robots-Tag"), "next.config.mjs must send X-Robots-Tag header");
   });
 
   test("5. Error boundary exists and catches unexpected runtime errors", () => {

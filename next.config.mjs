@@ -26,6 +26,15 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/(offline|contact)",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+        ],
+      },
     ];
   },
   webpack: (config) => {
