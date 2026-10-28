@@ -239,7 +239,7 @@ export default function Header() {
                 <SearchIcon className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-slate-500" />
                 <span className="hidden sm:inline">Search 55 tools...</span>
               </div>
-              <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-white border border-slate-200/90 rounded shadow-2xs font-medium">
+              <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono text-slate-500 bg-white border border-slate-200/90 rounded shadow-2xs font-medium">
                 <span>Ctrl</span> K
               </kbd>
             </button>
@@ -291,14 +291,14 @@ export default function Header() {
                   Quick Tool Palette
                 </span>
                 <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                  55 Tools Live
+                  55 Tools Ready
                 </span>
               </div>
               <button
                 type="button"
                 onClick={() => setSearchModalOpen(false)}
                 aria-label="Close search modal"
-                className="min-w-[32px] min-h-[32px] flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+                className="min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>

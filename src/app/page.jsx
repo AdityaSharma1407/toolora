@@ -132,8 +132,8 @@ export default function HomePage() {
           </div>
 
           {/* Quick Suggestions */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500">
-            <span className="text-slate-400 font-medium">Popular Tools:</span>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-600">
+            <span className="text-slate-600 font-semibold">Popular Tools:</span>
             <Link
               href="/merge-pdf"
               className="px-2.5 py-1 rounded-lg bg-white border border-slate-200/80 text-slate-700 hover:text-brand-600 hover:border-brand-300 transition-colors"
@@ -199,7 +199,7 @@ export default function HomePage() {
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 Explore All Tools
               </h2>
-              <p className="text-sm text-slate-500 mt-1">
+              <p className="text-sm text-slate-600 mt-1">
                 Browse our complete collection of 55 client-side utilities. Fast, private, and 100% free with zero file uploads.
               </p>
             </div>
@@ -268,7 +268,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-slate-900 tracking-tight">
                     PDF Productivity Suite
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-600">
                     12 client-side tools for merging, splitting, compressing, converting, rotating, protecting, and numbering PDF files.
                   </p>
                 </div>
@@ -300,7 +300,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-slate-900 tracking-tight">
                     Image Conversion Suite
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-600">
                     10 tools for resizing, compressing, converting (JPG, PNG, WebP, SVG), cropping, and extracting color palettes.
                   </p>
                 </div>
@@ -332,7 +332,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-slate-900 tracking-tight">
                     File Conversion Suite
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-600">
                     6 in-browser tools to convert HTML, Excel, Word, and PowerPoint to and from clean PDF documents.
                   </p>
                 </div>
@@ -364,7 +364,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-slate-900 tracking-tight">
                     Video &amp; Audio Suite
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-600">
                     5 in-browser utilities to trim clips, generate GIFs, compress video bitrate, and convert high-fidelity MP3/WAV audio.
                   </p>
                 </div>
@@ -396,7 +396,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-slate-900 tracking-tight">
                     Everyday &amp; Developer Suite
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-600">
                     22 productivity utilities: Markdown live editor, Regex tester, Cron generator, cURL converter, Code minifier, QR code maker, and JSON tools.
                   </p>
                 </div>

@@ -74,7 +74,7 @@ export default function InstallPwaBanner() {
             type="button"
             onClick={dismissPrompt}
             aria-label="Close install prompt"
-            className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-100 transition-colors"
+            className="text-slate-400 hover:text-slate-600 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors"
           >
             <X className="w-4 h-4" />
           </button>

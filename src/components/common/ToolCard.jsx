@@ -18,8 +18,9 @@ export default function ToolCard({ tool }) {
         <div className="flex items-start justify-between mb-4">
           <Link
             href={tool.route}
-            aria-label={`Open ${tool.name} tool`}
-            className="w-11 h-11 rounded-xl bg-brand-50/80 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+            tabIndex={-1}
+            aria-hidden="true"
+            className="w-11 h-11 rounded-xl bg-brand-50/80 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors"
           >
             <DynamicIcon name={tool.icon} className="w-5 h-5" />
           </Link>
@@ -36,7 +37,7 @@ export default function ToolCard({ tool }) {
               onClick={(e) => togglePin(tool.id, e)}
               aria-label={pinned ? `Unpin ${tool.name}` : `Pin ${tool.name} to favorites`}
               title={pinned ? "Unpin from favorites" : "Pin to favorites"}
-              className="p-1 rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             >
               <Star
                 className={`w-4 h-4 transition-all ${
@@ -56,10 +57,10 @@ export default function ToolCard({ tool }) {
         >
           <h3 className="text-base font-semibold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors flex items-center justify-between">
             <span>{tool.name}</span>
-            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition-all" />
+            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition-all" aria-hidden="true" />
           </h3>
 
-          <p className="mt-1.5 text-xs sm:text-sm text-slate-500 line-clamp-2 leading-relaxed flex-1">
+          <p className="mt-1.5 text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed flex-1">
             {tool.description}
           </p>
 

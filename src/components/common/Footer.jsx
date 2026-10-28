@@ -45,7 +45,7 @@ export default function Footer() {
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               {siteConfig.description}
             </p>
-            <div className="pt-2 text-xs text-slate-500">
+            <div className="pt-2 text-xs text-slate-400">
               55 in-browser utilities designed for speed, privacy, and zero server storage.
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 text-emerald-400 text-xs font-semibold border border-slate-700/60">
@@ -208,15 +208,15 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="pt-2 border-t border-slate-800">
-                <Link href="/about" className="text-slate-400 hover:text-slate-200">
+                <Link href="/about" className="text-slate-300 hover:text-white transition-colors">
                   About
                 </Link>
                 {" · "}
-                <Link href="/privacy-policy" className="text-slate-400 hover:text-slate-200">
+                <Link href="/privacy-policy" className="text-slate-300 hover:text-white transition-colors">
                   Privacy
                 </Link>
                 {" · "}
-                <Link href="/terms" className="text-slate-400 hover:text-slate-200">
+                <Link href="/terms" className="text-slate-300 hover:text-white transition-colors">
                   Terms
                 </Link>
               </li>
@@ -225,11 +225,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Credits & Copyright */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             &copy; {currentYear} {siteConfig.displayName || siteConfig.name}. All rights reserved.
           </div>
-          <div className="flex items-center gap-1 text-slate-400">
+          <div className="flex items-center gap-1 text-slate-300">
             <span>Built for total privacy &bull; Zero server telemetry</span>
           </div>
         </div>

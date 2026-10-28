@@ -26,17 +26,17 @@ export default function PinnedToolsBar() {
         <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
           <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
           <span>My Pinned Favorites</span>
-          <span className="text-[10px] font-semibold text-slate-400 font-mono">
+          <span className="text-[10px] font-semibold text-slate-500 font-mono">
             ({pinnedTools.length})
           </span>
         </div>
-        <span className="text-[11px] text-slate-400">
+        <span className="text-[11px] text-slate-500">
           Tip: Click the star icon on any tool card to pin/unpin it
         </span>
       </div>
 
       {pinnedTools.length === 0 ? (
-        <div className="p-4 rounded-2xl border border-dashed border-slate-200 bg-white/60 text-center text-xs text-slate-500 flex items-center justify-center gap-2">
+        <div className="p-4 rounded-2xl border border-dashed border-slate-200 bg-white/60 text-center text-xs text-slate-600 flex items-center justify-center gap-2">
           <span>No tools pinned yet. Star your daily favorites across any category!</span>
         </div>
       ) : (
@@ -62,7 +62,7 @@ export default function PinnedToolsBar() {
                 onClick={(e) => togglePin(tool.id, e)}
                 aria-label={`Unpin ${tool.name}`}
                 title="Unpin tool"
-                className="opacity-40 group-hover:opacity-100 hover:text-rose-600 p-0.5 rounded transition-all"
+                className="min-w-[28px] min-h-[28px] flex items-center justify-center opacity-60 group-hover:opacity-100 hover:text-rose-600 rounded transition-all"
               >
                 <X className="w-3 h-3" />
               </button>
