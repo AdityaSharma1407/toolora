@@ -13,7 +13,10 @@ import {
   CANONICAL_ENTITIES,
   FOUNDERS,
   ENTITY_IDS,
+  buildSiteNavigationSchema,
+  CRITICAL_SITELINKS,
 } from "../src/lib/seo/schema-engine.js";
+import { getSitelinkMetadata, SITELINK_METADATA } from "../src/lib/seo/ab-meta-engine.js";
 import {
   getAllSitemapEntries,
   getFreshSitemapEntries,
@@ -687,4 +690,129 @@ describe("Elite Technical SEO Architecture & Protocol Verification", () => {
       }
     });
   });
+
+  // Phase 9: Organic 2-Column Sitelinks & Heading Hierarchy Accessibility
+  describe("Phase 9: Organic 2-Column Sitelinks & Heading Hierarchy Accessibility", () => {
+    test("SiteNavigationElement schema contains 6 destination tools with name, description, and canonical url", () => {
+      const navSchema = buildSiteNavigationSchema();
+      assert.equal(navSchema["@type"], "ItemList");
+      assert.ok(navSchema["@id"].includes("#site-navigation"));
+      assert.equal(navSchema.numberOfItems, 6);
+      assert.equal(navSchema.itemListElement.length, 6);
+
+      const urls = [
+        "/merge-pdf",
+        "/split-pdf",
+        "/compress-pdf",
+        "/jpg-to-pdf",
+        "/pdf-to-jpg",
+        "/word-counter",
+      ];
+
+      urls.forEach((url, index) => {
+        const item = navSchema.itemListElement[index];
+        assert.equal(item["@type"], "SiteNavigationElement");
+        assert.equal(item.position, index + 1);
+        assert.ok(item.name && item.name.length > 0);
+        assert.ok(item.description && item.description.length > 0);
+        assert.ok(item.url.endsWith(url));
+      });
+    });
+
+    test("Root layout unified @graph schema automatically includes SiteNavigationElement ItemList", () => {
+      const rootSchema = buildRootGraphSchema();
+      const navItem = rootSchema["@graph"].find(
+        (item) => item["@type"] === "ItemList" && item["@id"] && item["@id"].includes("#site-navigation")
+      );
+      assert.ok(navItem, "Root schema must include SiteNavigationElement ItemList");
+      assert.equal(navItem.numberOfItems, 6);
+    });
+
+    test("Top 6 core sitelink landing pages strictly enforce concise title (<= 35 chars) and description (<= 120 chars)", () => {
+      const top6Routes = [
+        "/merge-pdf",
+        "/split-pdf",
+        "/compress-pdf",
+        "/jpg-to-pdf",
+        "/pdf-to-jpg",
+        "/word-counter",
+      ];
+
+      for (const route of top6Routes) {
+        const meta = getSitelinkMetadata(route);
+        assert.ok(meta, `Metadata must exist for sitelink route: ${route}`);
+        assert.ok(
+          meta.title.length <= 35,
+          `Sitelink title for ${route} must be <= 35 characters to prevent SERP truncation, was ${meta.title.length}: "${meta.title}"`
+        );
+        assert.ok(
+          meta.description.length <= 120,
+          `Sitelink description for ${route} must be <= 120 characters for clean 2-column rendering, was ${meta.description.length}: "${meta.description}"`
+        );
+      }
+    });
+
+    test("Primary Header navigation uses semantic HTML5 markup (<nav aria-label...><ul role='list'><li><a...>)", () => {
+      const headerCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "Header.jsx"), "utf-8");
+      assert.ok(headerCode.includes('aria-label="Main Navigation"'), "Header desktop nav must specify aria-label='Main Navigation'");
+      assert.ok(headerCode.includes('aria-label="Mobile Navigation"'), "Header mobile nav must specify aria-label='Mobile Navigation'");
+      assert.ok(headerCode.includes('role="list"'), "Nav links must be structured inside role='list'");
+      assert.ok(headerCode.includes(">Merge PDF<"), "Must include clean anchor 'Merge PDF'");
+      assert.ok(headerCode.includes(">Split PDF<"), "Must include clean anchor 'Split PDF'");
+      assert.ok(headerCode.includes(">Compress PDF<"), "Must include clean anchor 'Compress PDF'");
+      assert.ok(headerCode.includes(">JPG to PDF<"), "Must include clean anchor 'JPG to PDF'");
+    });
+
+    test("Homepage and Footer route direct internal link equity to top 6 flagship tools with exact-match anchors", () => {
+      const pageCode = fs.readFileSync(path.join(rootDir, "src", "app", "page.jsx"), "utf-8");
+      const footerCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "Footer.jsx"), "utf-8");
+
+      const top6Tools = [
+        { path: "/merge-pdf", text: "Merge PDF" },
+        { path: "/split-pdf", text: "Split PDF" },
+        { path: "/compress-pdf", text: "Compress PDF" },
+        { path: "/jpg-to-pdf", text: "JPG to PDF" },
+        { path: "/pdf-to-jpg", text: "PDF to JPG" },
+        { path: "/word-counter", text: "Word Counter" },
+      ];
+
+      for (const tool of top6Tools) {
+        assert.ok(
+          pageCode.includes(`href="${tool.path}"`) && pageCode.includes(tool.text),
+          `Homepage must link to ${tool.path} with exact-match anchor ${tool.text}`
+        );
+        assert.ok(
+          footerCode.includes(`href="${tool.path}"`) && footerCode.includes(tool.text),
+          `Footer must link to ${tool.path} with exact-match anchor ${tool.text}`
+        );
+      }
+    });
+
+    test("Heading hierarchy accessibility: banners and prompts before <main> avoid heading tags (h1-h4)", () => {
+      const bannerFiles = [
+        "src/components/pwa/InstallPwaBanner.jsx",
+        "src/components/common/DirectAccessPrompt.jsx",
+        "src/components/common/CookieConsentBanner.jsx",
+      ];
+
+      for (const relPath of bannerFiles) {
+        const fullPath = path.join(rootDir, relPath);
+        const code = fs.readFileSync(fullPath, "utf-8");
+        assert.ok(!code.includes("<h1"), `${relPath} must not contain <h1>`);
+        assert.ok(!code.includes("<h2"), `${relPath} must not contain <h2>`);
+        assert.ok(!code.includes("<h3"), `${relPath} must not contain <h3>`);
+        assert.ok(!code.includes("<h4"), `${relPath} must not contain <h4>`);
+      }
+    });
+
+    test("Heading hierarchy accessibility: homepage maintains sequentially-descending order (h1 -> h2 -> h3)", () => {
+      const pageCode = fs.readFileSync(path.join(rootDir, "src", "app", "page.jsx"), "utf-8");
+      assert.ok(pageCode.includes("<h1"), "Homepage must contain <h1>");
+      assert.ok(pageCode.includes("<h2"), "Homepage must contain <h2>");
+      assert.ok(pageCode.includes("<h3"), "Homepage must contain <h3>");
+      // Must not contain <h4> directly skipping heading levels
+      assert.ok(!pageCode.includes("<h4"), "Homepage must not contain <h4> without prior structure or skip levels");
+    });
+  });
+
 });

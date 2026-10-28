@@ -58,12 +58,12 @@ export default function CookieConsentBanner() {
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-slate-900 flex flex-wrap items-center gap-2">
+            <p className="text-sm font-semibold text-slate-900 flex flex-wrap items-center gap-2">
               <span>Your Privacy Matters at Bits &amp; Tools</span>
               <span className="text-[11px] font-medium bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full">
                 Zero Server File Storage
               </span>
-            </h3>
+            </p>
             <p className="text-xs text-slate-600 mt-1 leading-relaxed">
               Bits &amp; Tools processes documents locally in your browser memory — your files are never transmitted to our servers.
               We use minimal local browser storage for functional preferences and, with your permission, standard advertising partners to keep our tools free.

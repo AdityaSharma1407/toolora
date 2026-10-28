@@ -18,6 +18,38 @@ export const PSYCHOLOGICAL_TOKENS = {
 };
 
 /**
+ * Clean, Concise Sitelink Metadata for Core Landing Pages
+ * Formatted under 30-35 characters for titles and under 120 characters for descriptions
+ * to enable Google to render an expanded, untruncated 2-Column Sitelinks block.
+ */
+export const SITELINK_METADATA = {
+  "/merge-pdf": {
+    title: "Merge PDF | Bits & Tools", // 23 chars (<= 35)
+    description: "Combine multiple PDF files into one clean document in seconds. 100% free, private in-browser tool with zero uploads.", // 116 chars (<= 120)
+  },
+  "/split-pdf": {
+    title: "Split PDF | Bits & Tools", // 23 chars (<= 35)
+    description: "Extract pages or split PDF documents into separate files in seconds. 100% free, private in-browser utility.", // 110 chars (<= 120)
+  },
+  "/compress-pdf": {
+    title: "Compress PDF | Bits & Tools", // 26 chars (<= 35)
+    description: "Reduce PDF file size with genuine client-side structural optimization. Free in-browser tool with zero uploads.", // 111 chars (<= 120)
+  },
+  "/jpg-to-pdf": {
+    title: "JPG to PDF | Bits & Tools", // 24 chars (<= 35)
+    description: "Convert JPG, PNG, and WebP images into clean, formatted PDF documents. 100% free and private in-browser.", // 107 chars (<= 120)
+  },
+  "/pdf-to-jpg": {
+    title: "PDF to JPG | Bits & Tools", // 24 chars (<= 35)
+    description: "Convert PDF pages into high-resolution JPG images right in your browser. Fast, free, and completely private.", // 109 chars (<= 120)
+  },
+  "/word-counter": {
+    title: "Word Counter | Bits & Tools", // 26 chars (<= 35)
+    description: "Count words, characters, sentences, and paragraphs in real time. Fast, free in-browser text analysis utility.", // 111 chars (<= 120)
+  },
+};
+
+/**
  * Pre-configured SERP Variants for Core Suites
  */
 export const SERP_VARIANTS = {

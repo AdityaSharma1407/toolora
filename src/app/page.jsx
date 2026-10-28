@@ -159,16 +159,22 @@ export default function HomePage() {
               Compress PDF
             </Link>
             <Link
-              href="/html-to-pdf"
+              href="/jpg-to-pdf"
               className="px-2.5 py-1 rounded-lg bg-white border border-slate-200/80 text-slate-700 hover:text-brand-600 hover:border-brand-300 transition-colors"
             >
-              HTML to PDF
+              JPG to PDF
             </Link>
             <Link
-              href="/markdown-editor"
+              href="/pdf-to-jpg"
               className="px-2.5 py-1 rounded-lg bg-white border border-slate-200/80 text-slate-700 hover:text-brand-600 hover:border-brand-300 transition-colors"
             >
-              Markdown Editor
+              PDF to JPG
+            </Link>
+            <Link
+              href="/word-counter"
+              className="px-2.5 py-1 rounded-lg bg-white border border-slate-200/80 text-slate-700 hover:text-brand-600 hover:border-brand-300 transition-colors"
+            >
+              Word Counter
             </Link>
           </div>
 
@@ -444,9 +450,9 @@ export default function HomePage() {
               <div className="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h4 className="text-sm font-bold text-slate-900 mb-1">
+              <h3 className="text-sm font-bold text-slate-900 mb-1">
                 Zero Server Storage
-              </h4>
+              </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Files are never uploaded, logged, or cached on external disks. Document memory is discarded once complete.
               </p>
@@ -456,9 +462,9 @@ export default function HomePage() {
               <div className="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center mb-3">
                 <Cpu className="w-5 h-5" />
               </div>
-              <h4 className="text-sm font-bold text-slate-900 mb-1">
+              <h3 className="text-sm font-bold text-slate-900 mb-1">
                 Client-Side Engine
-              </h4>
+              </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Powered by modern JavaScript and WebAssembly compiled to run right inside your browser window.
               </p>
@@ -468,9 +474,9 @@ export default function HomePage() {
               <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center mb-3">
                 <Zap className="w-5 h-5" />
               </div>
-              <h4 className="text-sm font-bold text-slate-900 mb-1">
+              <h3 className="text-sm font-bold text-slate-900 mb-1">
                 Zero Bandwidth Delay
-              </h4>
+              </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Skip uploading gigabytes over slow internet connections. Processing finishes in seconds regardless of connection speed.
               </p>

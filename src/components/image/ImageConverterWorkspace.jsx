@@ -253,7 +253,7 @@ export default function ImageConverterWorkspace({ defaultTarget = "image/png", t
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-base font-bold text-slate-900">Conversion Successful!</h4>
+                <p className="text-base font-bold text-slate-900">Conversion Successful!</p>
                 <p className="text-xs text-slate-600 mt-0.5">
                   Saved as <strong className="font-mono text-slate-800">{result.fileName}</strong> ({formatBytes(result.newSize)})
                 </p>

@@ -13,21 +13,21 @@ import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
 import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
-import { getSerpVariantMetadata } from "@/lib/seo/ab-meta-engine";
+import { getSitelinkMetadata, getSerpVariantMetadata } from "@/lib/seo/ab-meta-engine";
 import { ShieldCheck, Zap, Lock, Sparkles, Minimize2 } from "lucide-react";
 
 const temporal = resolveTemporalParity("/compress-pdf");
-const serpMeta = getSerpVariantMetadata({ route: "/compress-pdf", toolName: "Compress PDF" });
+const sitelinkMeta = getSitelinkMetadata("/compress-pdf");
 
 export const metadata = {
-  title: serpMeta.title,
-  description: serpMeta.description,
+  title: sitelinkMeta.title,
+  description: sitelinkMeta.description,
   alternates: {
     canonical: "/compress-pdf",
   },
   openGraph: {
-    title: `${serpMeta.title} | Bits & Tools`,
-    description: serpMeta.description,
+    title: `${sitelinkMeta.title} — Fast, Free & Private`,
+    description: sitelinkMeta.description,
     url: "/compress-pdf",
     type: "article",
     publishedTime: temporal.isoPublished,
@@ -35,8 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${serpMeta.title} | Bits & Tools`,
-    description: serpMeta.description,
+    title: `${sitelinkMeta.title} — Fast, Free & Private`,
+    description: sitelinkMeta.description,
   },
   other: {
     "article:published_time": temporal.isoPublished,

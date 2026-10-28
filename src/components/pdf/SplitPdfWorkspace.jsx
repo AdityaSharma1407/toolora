@@ -202,7 +202,7 @@ export default function SplitPdfWorkspace() {
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-red-800">Split Notice</h4>
+              <p className="font-bold text-red-800">Split Notice</p>
               <p className="mt-0.5 text-red-700 leading-relaxed">{errorMessage}</p>
             </div>
           </div>
@@ -234,9 +234,9 @@ export default function SplitPdfWorkspace() {
                 <FileText className="w-6 h-6" />
               </div>
               <div className="min-w-0">
-                <h3 className="text-base font-bold text-slate-900 truncate" title={fileItem.name}>
+                <p className="text-base font-bold text-slate-900 truncate" title={fileItem.name}>
                   {fileItem.name}
-                </h3>
+                </p>
                 <div className="flex items-center gap-3 text-xs text-slate-500 mt-0.5">
                   <span>{formatBytes(fileItem.size)}</span>
                   <span>&bull;</span>
@@ -279,9 +279,9 @@ export default function SplitPdfWorkspace() {
                   <Scissors className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">
+                  <p className="text-sm font-bold text-slate-900">
                     Extract Selected Pages
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                     Choose specific page numbers or ranges to combine into one new PDF document.
                   </p>
@@ -305,9 +305,9 @@ export default function SplitPdfWorkspace() {
                   <Archive className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">
+                  <p className="text-sm font-bold text-slate-900">
                     Split Every Page (ZIP)
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                     Save each page as an individual PDF document, neatly bundled into a ZIP file.
                   </p>
@@ -474,9 +474,9 @@ export default function SplitPdfWorkspace() {
             <CheckCircle2 className="w-8 h-8" />
           </div>
 
-          <h3 className="text-2xl font-extrabold text-slate-900 mb-2">
+          <p className="text-2xl font-extrabold text-slate-900 mb-2">
             {result.type === "zip" ? "PDF Pages Successfully Split!" : "Selected Pages Extracted!"}
-          </h3>
+          </p>
 
           <p className="text-sm text-slate-600 max-w-md mb-8">
             {result.type === "zip"
@@ -538,9 +538,9 @@ export default function SplitPdfWorkspace() {
           <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="w-6 h-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 mb-2">
+          <p className="text-lg font-bold text-slate-900 mb-2">
             Could Not Complete PDF Split
-          </h3>
+          </p>
           <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
             {errorMessage || "The document could not be split. Please check that the file is not password-protected."}
           </p>

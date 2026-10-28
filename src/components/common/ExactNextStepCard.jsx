@@ -84,9 +84,9 @@ export default function ExactNextStepCard({ currentRoute, className = "" }) {
         </span>
       </div>
 
-      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white mb-2">
+      <h2 className="text-lg sm:text-xl font-bold tracking-tight text-white mb-2">
         {scenario.heading}
-      </h3>
+      </h2>
 
       <p className="text-sm text-slate-300 leading-relaxed max-w-3xl font-normal mb-5">
         {scenario.context}

@@ -17,36 +17,35 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+import { getSitelinkMetadata } from "@/lib/seo/ab-meta-engine";
+
+const temporal = resolveTemporalParity("/word-counter");
+const sitelinkMeta = getSitelinkMetadata("/word-counter");
+
 export const metadata = {
-  title: "Word Counter Online — Free Word, Character & Reading Time Analyzer",
-  description:
-    "Count words, characters, sentences, paragraphs, and estimate reading time in real time. 100% free, browser-based, private, and instant text statistics.",
-  keywords: [
-    "word counter",
-    "character counter",
-    "reading time calculator",
-    "word count tool",
-    "count words online",
-    "paragraph counter",
-    "sentence counter",
-    "keyword density checker",
-    "character count without spaces",
-  ],
+  title: sitelinkMeta.title,
+  description: sitelinkMeta.description,
   alternates: {
     canonical: "/word-counter",
   },
   openGraph: {
-    title: "Word Counter Online — Free Text Analyzer | Bits & Tools",
-    description:
-      "Count words, characters, sentences, paragraphs, and calculate reading time in real time. 100% private in-browser text tool.",
+    title: `${sitelinkMeta.title} — Fast, Free & Private`,
+    description: sitelinkMeta.description,
     url: "/word-counter",
-    type: "website",
+    siteName: "Bits & Tools",
+    type: "article",
+    publishedTime: temporal.isoPublished,
+    modifiedTime: temporal.isoModified,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Word Counter Online — Free Text Analyzer | Bits & Tools",
-    description:
-      "Count words, characters, sentences, paragraphs, and reading time in real time.",
+    title: `${sitelinkMeta.title} — Fast, Free & Private`,
+    description: sitelinkMeta.description,
+  },
+  other: {
+    "article:published_time": temporal.isoPublished,
+    "article:modified_time": temporal.isoModified,
   },
 };
 

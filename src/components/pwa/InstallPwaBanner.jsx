@@ -61,9 +61,9 @@ export default function InstallPwaBanner() {
               <Layers className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-slate-900 tracking-tight">
+              <p className="text-sm font-bold text-slate-900 tracking-tight">
                 Install Bits & Tools
-              </h3>
+              </p>
               <p className="text-xs text-slate-500">
                 Offline access & zero upload latency
               </p>

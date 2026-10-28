@@ -5,10 +5,27 @@
  * and outputs psychological high-CTR titles and descriptions.
  */
 
-import { SERP_VARIANTS, transformSerpTitle, transformSerpDescription } from "./serp-transformer.js";
+import { SERP_VARIANTS, SITELINK_METADATA, transformSerpTitle, transformSerpDescription } from "./serp-transformer.js";
+
+export { SITELINK_METADATA };
 
 export const SERP_COOKIE_NAME = "bts_serp_v";
 export const SERP_HEADER_NAME = "x-serp-variant";
+
+/**
+ * Returns concise sitelink metadata (title <= 35 chars, description <= 120 chars)
+ * for 2-column organic sitelinks generation.
+ * 
+ * @param {string} route
+ * @returns {{ title: string, description: string }}
+ */
+export function getSitelinkMetadata(route) {
+  const normalizedRoute = route.startsWith("/") ? route : `/${route}`;
+  return SITELINK_METADATA[normalizedRoute] || {
+    title: "Bits & Tools Online",
+    description: "Free, fast, and 100% private in-browser digital utilities with zero server file uploads.",
+  };
+}
 
 /**
  * Resolves the active SERP variant from request headers, cookies, or query string

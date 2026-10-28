@@ -21,10 +21,15 @@ import {
   Eye,
 } from "lucide-react";
 
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+import { getSitelinkMetadata } from "@/lib/seo/ab-meta-engine";
+
+const temporal = resolveTemporalParity("/pdf-to-jpg");
+const sitelinkMeta = getSitelinkMetadata("/pdf-to-jpg");
+
 export const metadata = {
-  title: "PDF to JPG Converter Online — Free & High Quality (300 DPI)",
-  description:
-    "Convert PDF pages into high-resolution JPG images online for free. Download individual pages or package all images into a single ZIP file. 100% private client-side processing.",
+  title: sitelinkMeta.title,
+  description: sitelinkMeta.description,
   keywords: [
     "pdf to jpg",
     "convert pdf to jpg",
@@ -42,19 +47,18 @@ export const metadata = {
     canonical: "/pdf-to-jpg",
   },
   openGraph: {
-    title: "PDF to JPG Converter Online — Free & High Quality (300 DPI) | Bits & Tools",
-    description:
-      "Convert PDF pages into high-resolution JPG images online for free. Download individual pages or package all images into a ZIP archive. 100% private in-browser rendering.",
+    title: `${sitelinkMeta.title} — Fast, Free & Private`,
+    description: sitelinkMeta.description,
     url: "/pdf-to-jpg",
     siteName: "Bits & Tools",
-    type: "website",
-    locale: "en_US",
+    type: "article",
+    publishedTime: temporal.isoPublished,
+    modifiedTime: temporal.isoModified,
   },
   twitter: {
     card: "summary_large_image",
-    title: "PDF to JPG Converter Online — Free & High Quality (300 DPI) | Bits & Tools",
-    description:
-      "Convert PDF pages into high-resolution JPG images online for free. Download individual pages or package all images into a ZIP archive.",
+    title: `${sitelinkMeta.title} — Fast, Free & Private`,
+    description: sitelinkMeta.description,
   },
   robots: {
     index: true,
@@ -66,6 +70,10 @@ export const metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  other: {
+    "article:published_time": temporal.isoPublished,
+    "article:modified_time": temporal.isoModified,
   },
 };
 

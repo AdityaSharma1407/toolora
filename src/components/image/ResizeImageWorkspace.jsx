@@ -372,7 +372,7 @@ export default function ResizeImageWorkspace() {
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-base font-bold text-slate-900">Image Resized Successfully!</h4>
+                <p className="text-base font-bold text-slate-900">Image Resized Successfully!</p>
                 <p className="text-xs text-slate-600 mt-0.5">
                   New size: <strong className="font-mono text-slate-800">{result.width} × {result.height} px</strong> ({formatBytes(result.size)})
                 </p>

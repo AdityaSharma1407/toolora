@@ -233,7 +233,7 @@ export default function CompressImageWorkspace() {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h4 className="text-base font-bold text-slate-900">Compression Complete!</h4>
+                  <p className="text-base font-bold text-slate-900">Compression Complete!</p>
                   <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-600 text-white">
                     -{result.percentSaved}%
                   </span>

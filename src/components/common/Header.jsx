@@ -121,109 +121,166 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
-              {/* All Tools Mega Dropdown */}
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  type="button"
-                  onClick={() => setAllToolsOpen(!allToolsOpen)}
-                  aria-expanded={allToolsOpen}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
-                    allToolsOpen
-                      ? "text-brand-600 bg-brand-50/80"
-                      : "text-slate-700 hover:text-slate-900 hover:bg-slate-100/70"
-                  }`}
-                >
-                  <span>All Tools</span>
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-150 ${
-                      allToolsOpen ? "rotate-180 text-brand-600" : "text-slate-400"
-                    }`}
-                  />
-                </button>
+            <nav className="hidden lg:flex items-center" aria-label="Main Navigation" role="navigation">
+              <ul className="flex items-center space-x-1" role="list">
+                {/* All Tools Mega Dropdown */}
+                <li>
+                  <div className="relative" ref={dropdownRef}>
+                    <button
+                      type="button"
+                      onClick={() => setAllToolsOpen(!allToolsOpen)}
+                      aria-expanded={allToolsOpen}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
+                        allToolsOpen
+                          ? "text-brand-600 bg-brand-50/80"
+                          : "text-slate-700 hover:text-slate-900 hover:bg-slate-100/70"
+                      }`}
+                    >
+                      <span>All Tools</span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-150 ${
+                          allToolsOpen ? "rotate-180 text-brand-600" : "text-slate-400"
+                        }`}
+                      />
+                    </button>
 
-                {allToolsOpen && (
-                  <div className="absolute left-0 mt-2 w-[760px] max-w-[95vw] bg-white rounded-2xl shadow-modal border border-black/[0.08] p-5 grid grid-cols-1 md:grid-cols-3 gap-5 animate-in fade-in slide-in-from-top-1 max-h-[80vh] overflow-y-auto">
-                    {Object.values(CATEGORIES).map((cat) => {
-                      const catTools = tools.filter((t) => t.category === cat.id);
-                      const hubHref = `/${cat.id}-tools`;
-                      return (
-                        <div key={cat.id} className="space-y-2">
-                          <Link
-                            href={hubHref}
-                            onClick={() => setAllToolsOpen(false)}
-                            className="flex items-center justify-between pb-1.5 border-b border-slate-100 group"
-                          >
-                            <div className="flex items-center gap-2">
-                              <DynamicIcon name={cat.icon} className="w-4 h-4 text-brand-600" />
-                              <span className="text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-brand-600 transition-colors">
-                                {cat.name}
-                              </span>
-                            </div>
-                            <ArrowRight className="w-3 h-3 text-slate-400 group-hover:text-brand-600 transition-colors" />
-                          </Link>
-
-                          <ul className="space-y-1">
-                            {catTools.slice(0, 4).map((tool) => (
-                              <li key={tool.id}>
-                                <Link
-                                  href={tool.route}
-                                  onClick={() => setAllToolsOpen(false)}
-                                  className="flex items-center justify-between px-2 py-1 rounded-md text-xs font-medium text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
-                                >
-                                  <span className="truncate pr-2">{tool.shortName || tool.name}</span>
-                                  <span className="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-medium shrink-0">
-                                    Ready
+                    {allToolsOpen && (
+                      <div className="absolute left-0 mt-2 w-[760px] max-w-[95vw] bg-white rounded-2xl shadow-modal border border-black/[0.08] p-5 grid grid-cols-1 md:grid-cols-3 gap-5 animate-in fade-in slide-in-from-top-1 max-h-[80vh] overflow-y-auto">
+                        {Object.values(CATEGORIES).map((cat) => {
+                          const catTools = tools.filter((t) => t.category === cat.id);
+                          const hubHref = `/${cat.id}-tools`;
+                          return (
+                            <div key={cat.id} className="space-y-2">
+                              <Link
+                                href={hubHref}
+                                onClick={() => setAllToolsOpen(false)}
+                                className="flex items-center justify-between pb-1.5 border-b border-slate-100 group"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <DynamicIcon name={cat.icon} className="w-4 h-4 text-brand-600" />
+                                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-brand-600 transition-colors">
+                                    {cat.name}
                                   </span>
+                                </div>
+                                <ArrowRight className="w-3 h-3 text-slate-400 group-hover:text-brand-600 transition-colors" />
+                              </Link>
+
+                              <ul className="space-y-1">
+                                {catTools.slice(0, 4).map((tool) => (
+                                  <li key={tool.id}>
+                                    <Link
+                                      href={tool.route}
+                                      onClick={() => setAllToolsOpen(false)}
+                                      className="flex items-center justify-between px-2 py-1 rounded-md text-xs font-medium text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
+                                    >
+                                      <span className="truncate pr-2">{tool.shortName || tool.name}</span>
+                                      <span className="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-medium shrink-0">
+                                        Ready
+                                      </span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+
+                              {catTools.length > 4 && (
+                                <Link
+                                  href={hubHref}
+                                  onClick={() => setAllToolsOpen(false)}
+                                  className="inline-block text-[11px] font-semibold text-brand-600 hover:underline pt-0.5"
+                                >
+                                  View all {catTools.length} {cat.name.toLowerCase()} &rarr;
                                 </Link>
-                              </li>
-                            ))}
-                          </ul>
-
-                          {catTools.length > 4 && (
-                            <Link
-                              href={hubHref}
-                              onClick={() => setAllToolsOpen(false)}
-                              className="inline-block text-[11px] font-semibold text-brand-600 hover:underline pt-0.5"
-                            >
-                              View all {catTools.length} {cat.name.toLowerCase()} &rarr;
-                            </Link>
-                          )}
-                        </div>
-                      );
-                    })}
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
+                </li>
 
-              {/* Direct Category Hub Links */}
-              {navCategories.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                    pathname === item.href
-                      ? "text-brand-600 bg-brand-50 font-semibold"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+                {/* Primary Sitelink Core Tools (Clean, Exact-Match Anchors) */}
+                <li>
+                  <Link
+                    href="/merge-pdf"
+                    className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      pathname === "/merge-pdf"
+                        ? "text-brand-600 bg-brand-50 font-semibold"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
+                    }`}
+                  >
+                    Merge PDF
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/split-pdf"
+                    className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      pathname === "/split-pdf"
+                        ? "text-brand-600 bg-brand-50 font-semibold"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
+                    }`}
+                  >
+                    Split PDF
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/compress-pdf"
+                    className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      pathname === "/compress-pdf"
+                        ? "text-brand-600 bg-brand-50 font-semibold"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
+                    }`}
+                  >
+                    Compress PDF
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/jpg-to-pdf"
+                    className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      pathname === "/jpg-to-pdf"
+                        ? "text-brand-600 bg-brand-50 font-semibold"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
+                    }`}
+                  >
+                    JPG to PDF
+                  </Link>
+                </li>
 
-              <div className="h-4 w-px bg-slate-200 mx-1" />
+                {/* Direct Category Hub Links */}
+                {navCategories.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                        pathname === item.href
+                          ? "text-brand-600 bg-brand-50 font-semibold"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
 
-              {/* About Link */}
-              <Link
-                href="/about"
-                className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === "/about"
-                    ? "text-brand-600 bg-brand-50 font-semibold"
-                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
-                }`}
-              >
-                About
-              </Link>
+                <li aria-hidden="true" className="h-4 w-px bg-slate-200 mx-1" />
+
+                {/* About Link */}
+                <li>
+                  <Link
+                    href="/about"
+                    className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      pathname === "/about"
+                        ? "text-brand-600 bg-brand-50 font-semibold"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
+                    }`}
+                  >
+                    About
+                  </Link>
+                </li>
+              </ul>
             </nav>
           </div>
 
@@ -318,91 +375,152 @@ export default function Header() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-black/[0.06] bg-white/95 backdrop-blur-md px-4 pt-2 pb-5 space-y-1 animate-in slide-in-from-top-1 max-h-[85vh] overflow-y-auto">
-          <Link
-            href="/"
-            className="min-h-[44px] flex items-center px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-900 hover:bg-slate-100/80 transition-colors"
-          >
-            Home
-          </Link>
+        <nav
+          aria-label="Mobile Navigation"
+          role="navigation"
+          className="lg:hidden border-b border-black/[0.06] bg-white/95 backdrop-blur-md px-4 pt-2 pb-5 space-y-1 animate-in slide-in-from-top-1 max-h-[85vh] overflow-y-auto"
+        >
+          <ul className="space-y-1" role="list">
+            <li>
+              <Link
+                href="/"
+                className="min-h-[44px] flex items-center px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-900 hover:bg-slate-100/80 transition-colors"
+              >
+                Home
+              </Link>
+            </li>
 
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3.5 pt-2 pb-1">
-            Tool Suites (55 Available)
-          </div>
+            <li className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3.5 pt-2 pb-1">
+              Popular Tools (Sitelinks)
+            </li>
 
-          <Link
-            href="/pdf-tools"
-            className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
-          >
-            <span>PDF Tools Directory</span>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
-              12 tools
-            </span>
-          </Link>
+            <li>
+              <Link
+                href="/merge-pdf"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>Merge PDF</span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-brand-50 text-brand-700">Fast</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/split-pdf"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>Split PDF</span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-brand-50 text-brand-700">Extract</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/compress-pdf"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>Compress PDF</span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-brand-50 text-brand-700">Shrink</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/jpg-to-pdf"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>JPG to PDF</span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-brand-50 text-brand-700">Convert</span>
+              </Link>
+            </li>
 
-          <Link
-            href="/image-tools"
-            className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
-          >
-            <span>Image Tools Directory</span>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
-              10 tools
-            </span>
-          </Link>
+            <li className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3.5 pt-2 pb-1">
+              Tool Suites (55 Available)
+            </li>
 
-          <Link
-            href="/convert-tools"
-            className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
-          >
-            <span>File Conversion Suite</span>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
-              6 tools
-            </span>
-          </Link>
+            <li>
+              <Link
+                href="/pdf-tools"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>PDF Tools Directory</span>
+                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                  12 tools
+                </span>
+              </Link>
+            </li>
 
-          <Link
-            href="/media-tools"
-            className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
-          >
-            <span>Video & Audio Suite</span>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
-              5 tools
-            </span>
-          </Link>
+            <li>
+              <Link
+                href="/image-tools"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>Image Tools Directory</span>
+                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                  10 tools
+                </span>
+              </Link>
+            </li>
 
-          <Link
-            href="/utility-tools"
-            className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
-          >
-            <span>Everyday & Developer Tools</span>
-            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
-              22 tools
-            </span>
-          </Link>
+            <li>
+              <Link
+                href="/convert-tools"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>File Conversion Suite</span>
+                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                  6 tools
+                </span>
+              </Link>
+            </li>
 
-          {canInstall && (
-            <button
-              type="button"
-              onClick={() => {
-                promptInstall();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full min-h-[44px] flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-brand-700 bg-brand-50/80 hover:bg-brand-100 transition-colors"
-            >
-              <Download className="w-4 h-4 text-brand-600" />
-              <span>Install Bits & Tools App</span>
-            </button>
-          )}
+            <li>
+              <Link
+                href="/media-tools"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>Video & Audio Suite</span>
+                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                  5 tools
+                </span>
+              </Link>
+            </li>
 
-          <div className="pt-2 border-t border-slate-100">
-            <Link
-              href="/about"
-              className="min-h-[44px] flex items-center px-3.5 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100/80 transition-colors"
-            >
-              About {siteConfig.displayName || "Bits & Tools"}
-            </Link>
-          </div>
-        </div>
+            <li>
+              <Link
+                href="/utility-tools"
+                className="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium text-slate-800 hover:bg-slate-100/80 transition-colors"
+              >
+                <span>Everyday & Developer Tools</span>
+                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                  22 tools
+                </span>
+              </Link>
+            </li>
+
+            {canInstall && (
+              <li>
+                <button
+                  type="button"
+                  onClick={() => {
+                    promptInstall();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full min-h-[44px] flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-brand-700 bg-brand-50/80 hover:bg-brand-100 transition-colors"
+                >
+                  <Download className="w-4 h-4 text-brand-600" />
+                  <span>Install Bits & Tools App</span>
+                </button>
+              </li>
+            )}
+
+            <li className="pt-2 border-t border-slate-100">
+              <Link
+                href="/about"
+                className="min-h-[44px] flex items-center px-3.5 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100/80 transition-colors"
+              >
+                About {siteConfig.displayName || "Bits & Tools"}
+              </Link>
+            </li>
+          </ul>
+        </nav>
       )}
     </header>
   );

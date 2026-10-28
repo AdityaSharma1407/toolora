@@ -129,7 +129,7 @@ export default function MergePdfWorkspace() {
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-red-800">Merge Notice</h4>
+              <p className="font-bold text-red-800">Merge Notice</p>
               <p className="mt-0.5 text-red-700 leading-relaxed">{errorMessage}</p>
             </div>
           </div>
@@ -179,9 +179,9 @@ export default function MergePdfWorkspace() {
           <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="w-6 h-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 mb-2">
+          <p className="text-lg font-bold text-slate-900 mb-2">
             Could Not Complete PDF Merge
-          </h3>
+          </p>
           <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
             {errorMessage || "One or more of the files could not be processed. Please check that none of the documents are encrypted or password protected."}
           </p>

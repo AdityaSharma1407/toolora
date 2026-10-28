@@ -16,9 +16,9 @@ export default function Footer() {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">
+              <p className="text-sm font-semibold text-white">
                 Browser-Local Document Processing
-              </h4>
+              </p>
               <p className="text-xs text-slate-400">
                 {siteConfig.displayName || "Bits & Tools"} processes your files locally on your device using client-side JavaScript. Your documents and data are never sent to any external server.
               </p>
@@ -56,9 +56,9 @@ export default function Footer() {
 
           {/* PDF Tools */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
               PDF Tools
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/merge-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
@@ -73,6 +73,11 @@ export default function Footer() {
               <li>
                 <Link href="/compress-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
                   Compress PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/jpg-to-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  JPG to PDF
                 </Link>
               </li>
               <li>
@@ -95,9 +100,9 @@ export default function Footer() {
 
           {/* Image & Media Tools */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
               Images &amp; Media
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/resize-image" className="text-slate-300 hover:text-brand-400 transition-colors">
@@ -134,9 +139,9 @@ export default function Footer() {
 
           {/* File Conversion Suite */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
               File Conversion
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/html-to-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
@@ -173,10 +178,15 @@ export default function Footer() {
 
           {/* Developer Tools & Legal */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
               Developer &amp; Legal
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/word-counter" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Word Counter
+                </Link>
+              </li>
               <li>
                 <Link href="/markdown-editor" className="text-slate-300 hover:text-brand-400 transition-colors">
                   Markdown Editor
@@ -190,11 +200,6 @@ export default function Footer() {
               <li>
                 <Link href="/cron-generator" className="text-slate-300 hover:text-brand-400 transition-colors">
                   Cron Generator
-                </Link>
-              </li>
-              <li>
-                <Link href="/curl-converter" className="text-slate-300 hover:text-brand-400 transition-colors">
-                  cURL Converter
                 </Link>
               </li>
               <li>

@@ -29,12 +29,12 @@ export default function PdfFileItem({
 
       {/* File metadata */}
       <div className="flex-1 min-w-0">
-        <h4
+        <p
           className="text-xs sm:text-sm font-semibold text-slate-900 truncate"
           title={item.name}
         >
           {item.name}
-        </h4>
+        </p>
         <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">
           {formatBytes(item.size)}
         </p>

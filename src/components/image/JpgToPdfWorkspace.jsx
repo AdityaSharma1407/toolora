@@ -204,7 +204,7 @@ export default function JpgToPdfWorkspace() {
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-red-800">Upload Notice</h4>
+              <p className="font-bold text-red-800">Upload Notice</p>
               <p className="mt-0.5 text-red-700 leading-relaxed">{errorMessage}</p>
             </div>
           </div>
@@ -251,9 +251,9 @@ export default function JpgToPdfWorkspace() {
             <ImageIcon className="w-7 h-7 sm:w-8 sm:h-8" />
           </div>
 
-          <h3 className="text-base sm:text-xl font-bold text-slate-900 text-center mb-1.5 sm:mb-2">
+          <p className="text-base sm:text-xl font-bold text-slate-900 text-center mb-1.5 sm:mb-2">
             Select or Drop JPG &amp; PNG Images
-          </h3>
+          </p>
 
           <p className="text-xs sm:text-sm text-slate-500 text-center max-w-md mb-5 sm:mb-6 leading-relaxed">
             Choose single or multiple pictures from your computer or phone. Converts directly in your browser.
@@ -288,9 +288,9 @@ export default function JpgToPdfWorkspace() {
           <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-200 gap-3">
               <div>
-                <h3 className="text-base font-bold text-slate-900">
+                <p className="text-base font-bold text-slate-900">
                   Selected Images ({images.length})
-                </h3>
+                </p>
                 <p className="text-xs text-slate-500 mt-0.5">
                   Images will appear as individual PDF pages in the order shown below.
                 </p>
@@ -354,9 +354,9 @@ export default function JpgToPdfWorkspace() {
 
                   {/* File Metadata */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-slate-800 truncate" title={item.name}>
+                    <p className="text-sm font-semibold text-slate-800 truncate" title={item.name}>
                       {item.name}
-                    </h4>
+                    </p>
                     <p className="text-xs text-slate-400 mt-0.5">
                       {formatBytes(item.size)}
                       {item.width > 0 && ` • ${item.width} × ${item.height} px`}
@@ -403,9 +403,9 @@ export default function JpgToPdfWorkspace() {
           <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs space-y-5">
             <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <Sliders className="w-4 h-4 text-brand-600" />
-              <h4 className="text-sm font-bold text-slate-900">
+              <p className="text-sm font-bold text-slate-900">
                 PDF Page Layout Settings
-              </h4>
+              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -514,9 +514,9 @@ export default function JpgToPdfWorkspace() {
             <CheckCircle2 className="w-8 h-8" />
           </div>
 
-          <h3 className="text-2xl font-extrabold text-slate-900 mb-2">
+          <p className="text-2xl font-extrabold text-slate-900 mb-2">
             PDF Generated Successfully!
-          </h3>
+          </p>
 
           <p className="text-sm text-slate-600 max-w-md mb-8">
             Compiled {result.pageCount} {result.pageCount === 1 ? "image" : "images"} into a clean, ready-to-use PDF document.
@@ -576,9 +576,9 @@ export default function JpgToPdfWorkspace() {
           <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="w-6 h-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 mb-2">
+          <p className="text-lg font-bold text-slate-900 mb-2">
             Could Not Convert Images to PDF
-          </h3>
+          </p>
           <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
             {errorMessage || "One or more images could not be processed. Please check file integrity."}
           </p>

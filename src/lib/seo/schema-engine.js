@@ -179,7 +179,65 @@ export function buildRootGraphSchema() {
           "query-input": "required name=search_term_string",
         },
       },
+      buildSiteNavigationSchema(),
     ],
+  };
+}
+
+/**
+ * Critical Destination URLs for 2-Column Organic Sitelinks Generation
+ */
+export const CRITICAL_SITELINKS = [
+  {
+    name: "Merge PDF",
+    description: "Combine multiple PDF documents into a single unified file in seconds.",
+    url: `${BASE_URL}/merge-pdf`,
+  },
+  {
+    name: "Split PDF",
+    description: "Extract specific pages or divide PDF documents with precision.",
+    url: `${BASE_URL}/split-pdf`,
+  },
+  {
+    name: "Compress PDF",
+    description: "Reduce PDF file size with genuine client-side structural optimization.",
+    url: `${BASE_URL}/compress-pdf`,
+  },
+  {
+    name: "JPG to PDF",
+    description: "Convert JPG, PNG, and WebP images into clean, formatted PDF documents.",
+    url: `${BASE_URL}/jpg-to-pdf`,
+  },
+  {
+    name: "PDF to JPG",
+    description: "Convert PDF document pages into high-resolution JPG images.",
+    url: `${BASE_URL}/pdf-to-jpg`,
+  },
+  {
+    name: "Word Counter",
+    description: "Analyze word, character, sentence, and paragraph counts accurately.",
+    url: `${BASE_URL}/word-counter`,
+  },
+];
+
+/**
+ * Builds SiteNavigationElement ItemList Schema to force Google's crawler
+ * to generate an expanded 2-Column Organic Sitelinks block for branded queries.
+ */
+export function buildSiteNavigationSchema() {
+  return {
+    "@type": "ItemList",
+    "@id": `${BASE_URL}/#site-navigation`,
+    name: "Main Site Navigation",
+    description: "Top in-browser digital utilities for PDF, image, and conversion workflows.",
+    numberOfItems: CRITICAL_SITELINKS.length,
+    itemListElement: CRITICAL_SITELINKS.map((item, idx) => ({
+      "@type": "SiteNavigationElement",
+      position: idx + 1,
+      name: item.name,
+      description: item.description,
+      url: item.url,
+    })),
   };
 }
 

@@ -115,7 +115,7 @@ export default function CompressPdfWorkspace() {
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-red-800">Compression Notice</h4>
+              <p className="font-bold text-red-800">Compression Notice</p>
               <p className="mt-0.5 text-red-700 leading-relaxed">{errorMessage}</p>
             </div>
           </div>
@@ -147,9 +147,9 @@ export default function CompressPdfWorkspace() {
                 <FileText className="w-6 h-6" />
               </div>
               <div className="min-w-0">
-                <h3 className="text-base font-bold text-slate-900 truncate" title={fileItem.name}>
+                <p className="text-base font-bold text-slate-900 truncate" title={fileItem.name}>
                   {fileItem.name}
-                </h3>
+                </p>
                 <p className="text-xs text-slate-500 mt-0.5">
                   Original file size: <span className="font-semibold text-slate-800">{formatBytes(fileItem.size)}</span>
                 </p>
@@ -188,9 +188,9 @@ export default function CompressPdfWorkspace() {
                       Fastest
                     </span>
                   </div>
-                  <h4 className="text-sm font-semibold text-slate-800 mb-1">
+                  <p className="text-sm font-semibold text-slate-800 mb-1">
                     Structural Clean
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     Cleans standard metadata and packs objects into streams. Zero risk to formatting or embedded images.
                   </p>
@@ -214,9 +214,9 @@ export default function CompressPdfWorkspace() {
                       Popular
                     </span>
                   </div>
-                  <h4 className="text-sm font-semibold text-slate-800 mb-1">
+                  <p className="text-sm font-semibold text-slate-800 mb-1">
                     Stream Optimization
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     Purges unreferenced XML metadata packages and enables high-efficiency FlateDecode object streams.
                   </p>
@@ -240,9 +240,9 @@ export default function CompressPdfWorkspace() {
                       Deep
                     </span>
                   </div>
-                  <h4 className="text-sm font-semibold text-slate-800 mb-1">
+                  <p className="text-sm font-semibold text-slate-800 mb-1">
                     Full Document Repack
-                  </h4>
+                  </p>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     Rebuilds document pages into a fresh PDF container, dropping old revision histories and orphaned objects.
                   </p>
@@ -293,9 +293,9 @@ export default function CompressPdfWorkspace() {
             <CheckCircle2 className="w-8 h-8" />
           </div>
 
-          <h3 className="text-2xl font-extrabold text-slate-900 mb-2">
+          <p className="text-2xl font-extrabold text-slate-900 mb-2">
             PDF Optimization Complete!
-          </h3>
+          </p>
 
           <p className="text-sm text-slate-600 max-w-md mb-8">
             {result.isSmaller
@@ -373,9 +373,9 @@ export default function CompressPdfWorkspace() {
           <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="w-6 h-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 mb-2">
+          <p className="text-lg font-bold text-slate-900 mb-2">
             Could Not Complete PDF Compression
-          </h3>
+          </p>
           <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
             {errorMessage || "The document could not be compressed. Please check that the file is not password-protected or corrupted."}
           </p>

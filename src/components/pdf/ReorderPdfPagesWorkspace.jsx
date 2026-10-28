@@ -181,7 +181,7 @@ export default function ReorderPdfPagesWorkspace() {
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-red-800">Reorder Notice</h4>
+              <p className="font-bold text-red-800">Reorder Notice</p>
               <p className="mt-0.5 text-red-700 leading-relaxed">{errorMessage}</p>
             </div>
           </div>
