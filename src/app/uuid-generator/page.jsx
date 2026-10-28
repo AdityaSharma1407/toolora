@@ -38,12 +38,23 @@ export const metadata = {
       "Generate cryptographically secure v4 UUIDs in bulk with custom casing, hyphens, and quotes.",
     url: "/uuid-generator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "UUID / GUID Generator Online | Bits & Tools",
     description:
       "Generate cryptographically secure v4 UUIDs in bulk.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

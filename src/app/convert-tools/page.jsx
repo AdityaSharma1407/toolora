@@ -19,12 +19,23 @@ export const metadata = {
       "Convert Word, Excel, PowerPoint, HTML, and CSV documents to and from PDF directly in your browser.",
     url: "/convert-tools",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "File Conversion Tools Directory | Bits & Tools",
     description:
       "Convert Word, Excel, PowerPoint, HTML, and CSV documents to and from PDF directly in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

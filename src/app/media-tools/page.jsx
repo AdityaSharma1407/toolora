@@ -19,12 +19,23 @@ export const metadata = {
       "Trim, compress, convert, and extract audio from media files directly in your web browser.",
     url: "/media-tools",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Video & Audio Media Tools Directory | Bits & Tools",
     description:
       "Trim, compress, convert, and extract audio from media files directly in your web browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

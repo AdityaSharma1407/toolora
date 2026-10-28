@@ -38,12 +38,23 @@ export const metadata = {
       "Generate custom QR codes for URLs, WiFi, and contacts with high-res PNG and vector SVG export.",
     url: "/qr-code-generator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "QR Code Generator Online | Bits & Tools",
     description:
       "Generate custom QR codes for URLs, WiFi, and contacts with high-res PNG and vector SVG export.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

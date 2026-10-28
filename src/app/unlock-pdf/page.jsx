@@ -38,12 +38,23 @@ export const metadata = {
       "Unlock password-protected PDF files and remove security restrictions directly in your web browser.",
     url: "/unlock-pdf",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Unlock PDF Online | Bits & Tools",
     description:
       "Unlock password-protected PDF files and remove security restrictions directly in your web browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

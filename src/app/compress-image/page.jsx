@@ -38,12 +38,23 @@ export const metadata = {
       "Compress JPG, PNG, and WebP images up to 80% without visible quality loss in your browser.",
     url: "/compress-image",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Compress Image Online | Bits & Tools",
     description:
       "Compress JPG, PNG, and WebP images up to 80% without visible quality loss in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

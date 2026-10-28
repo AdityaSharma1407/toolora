@@ -38,12 +38,23 @@ export const metadata = {
       "Convert any title or text into a clean, search engine-optimized URL slug.",
     url: "/slug-generator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "SEO Slug Generator Online | Bits & Tools",
     description:
       "Convert any title or text into a clean URL slug.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

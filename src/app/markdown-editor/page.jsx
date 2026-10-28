@@ -38,12 +38,23 @@ export const metadata = {
       "Write, edit, and preview GitHub Flavored Markdown with real-time HTML rendering and instant export.",
     url: "/markdown-editor",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Markdown Live Editor & Preview | Bits & Tools",
     description:
       "Real-time GFM markdown live editor and HTML exporter running 100% in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

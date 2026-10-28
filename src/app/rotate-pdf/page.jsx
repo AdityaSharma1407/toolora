@@ -48,12 +48,23 @@ export const metadata = {
     siteName: "Bits & Tools",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Rotate PDF Pages Online — Free & Permanent PDF Rotation | Bits & Tools",
     description:
       "Rotate individual pages or entire documents permanently. Free, private, and preserves original vector quality.",
+    images: ["/images/og-bitsandtools.png"],
   },
   robots: {
     index: true,

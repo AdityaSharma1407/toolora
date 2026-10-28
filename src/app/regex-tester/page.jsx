@@ -38,12 +38,23 @@ export const metadata = {
       "Test, debug, and inspect JavaScript regular expressions with real-time match highlighting and capture group inspection.",
     url: "/regex-tester",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Regular Expression Tester & Debugger | Bits & Tools",
     description:
       "Real-time regex tester with instant match highlighting, flags, and capture group inspection.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

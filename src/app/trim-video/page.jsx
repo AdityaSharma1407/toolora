@@ -37,12 +37,23 @@ export const metadata = {
       "Cut out unwanted segments and adjust start and end points of videos directly in your browser.",
     url: "/trim-video",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Trim Video Online — Free Video Cutter | Bits & Tools",
     description:
       "Cut out unwanted segments and adjust start and end points of videos directly in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

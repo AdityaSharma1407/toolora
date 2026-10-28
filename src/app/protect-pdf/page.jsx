@@ -38,12 +38,23 @@ export const metadata = {
       "Secure and encrypt your PDF files with standard AES-256 password protection in your browser.",
     url: "/protect-pdf",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Password Protect PDF Online | Bits & Tools",
     description:
       "Secure and encrypt your PDF files with standard AES-256 password protection in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

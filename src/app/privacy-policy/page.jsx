@@ -17,12 +17,23 @@ export const metadata = {
       "Learn how Bits & Tools protects your privacy with browser-local document processing, zero server uploads, and transparent cookie practices.",
     url: "/privacy-policy",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Privacy Policy — Bits & Tools Client-Side Privacy Protection",
     description:
       "Learn how Bits & Tools protects your privacy with browser-local document processing, zero server uploads, and transparent cookie practices.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

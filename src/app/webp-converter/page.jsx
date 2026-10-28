@@ -38,12 +38,23 @@ export const metadata = {
       "Convert images to and from modern WebP format for smaller file sizes and transparency.",
     url: "/webp-converter",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "WebP Converter Online | Bits & Tools",
     description:
       "Convert images to and from modern WebP format for smaller file sizes and transparency.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

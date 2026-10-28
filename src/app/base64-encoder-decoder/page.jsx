@@ -39,12 +39,23 @@ export const metadata = {
       "Encode and decode Base64 strings and files with full Unicode and URL-safe support.",
     url: "/base64-encoder-decoder",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Base64 Encoder & Decoder Online | Bits & Tools",
     description:
       "Encode and decode Base64 strings and files with full Unicode support.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

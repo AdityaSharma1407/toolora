@@ -61,6 +61,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     title: `${siteConfig.displayName || siteConfig.name} - Free Online Utilities`,
     description: siteConfig.description,
     images: [siteConfig.ogImage || "/images/og-bitsandtools.png"],

@@ -19,12 +19,23 @@ export const metadata = {
       "Explore Bits & Tools' suite of free PDF tools. Merge, split, compress, convert, and manage your PDF documents directly in your web browser with complete privacy.",
     url: "/pdf-tools",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "PDF Tools Directory — Free Online PDF Utilities | Bits & Tools",
     description:
       "Explore Bits & Tools' suite of free PDF tools. Merge, split, compress, convert, and manage your PDF documents directly in your web browser with complete privacy.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

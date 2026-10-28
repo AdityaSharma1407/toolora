@@ -38,12 +38,23 @@ export const metadata = {
       "Safely encode special characters for URLs or decode percent-encoded URI strings with live query parameter editing.",
     url: "/url-encoder-decoder",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "URL Encoder & Decoder Online | Bits & Tools",
     description:
       "Safely encode special characters for URLs or decode percent-encoded URI strings.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

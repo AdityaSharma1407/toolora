@@ -36,12 +36,23 @@ export const metadata = {
       "Convert JPG and JPEG images to lossless PNG format in your browser.",
     url: "/jpg-to-png",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "JPG to PNG Converter Online | Bits & Tools",
     description:
       "Convert JPG and JPEG images to lossless PNG format in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

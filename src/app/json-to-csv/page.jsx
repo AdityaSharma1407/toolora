@@ -38,12 +38,23 @@ export const metadata = {
       "Bi-directional JSON and CSV converter with automatic flattening, custom delimiters, and instant export.",
     url: "/json-to-csv",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "JSON to CSV & CSV to JSON Converter | Bits & Tools",
     description:
       "Bi-directional JSON and CSV converter with automatic flattening, custom delimiters, and instant export.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

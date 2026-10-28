@@ -38,12 +38,23 @@ export const metadata = {
       "Insert custom page numbers, headers, and footers into your PDF documents with full layout and formatting control.",
     url: "/add-page-numbers",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Add Page Numbers to PDF Online | Bits & Tools",
     description:
       "Insert custom page numbers, headers, and footers into your PDF documents with full layout and formatting control.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

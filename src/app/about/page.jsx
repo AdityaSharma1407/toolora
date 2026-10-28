@@ -17,12 +17,23 @@ export const metadata = {
       "Learn about Bits & Tools (BitsAndTools), created and engineered by Vishavjeet Sharma and Aditya Sharma. Fast, free, and 100% private digital utilities with zero file uploads.",
     url: "/about",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "About Bits & Tools (BitsAndTools) — Created by Vishavjeet Sharma & Aditya Sharma",
     description:
       "Learn about Bits & Tools (BitsAndTools), created and engineered by Vishavjeet Sharma and Aditya Sharma. Fast, free, and 100% private digital utilities with zero file uploads.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

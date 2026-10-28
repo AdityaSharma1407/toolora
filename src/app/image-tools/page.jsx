@@ -19,12 +19,23 @@ export const metadata = {
       "Convert, manage, and process images directly in your browser. Convert JPG, JPEG, and PNG to high-quality PDF files with complete client-side privacy.",
     url: "/image-tools",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Image Tools Directory — Free Online Image Utilities | Bits & Tools",
     description:
       "Convert, manage, and process images directly in your browser. Convert JPG, JPEG, and PNG to high-quality PDF files with complete client-side privacy.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

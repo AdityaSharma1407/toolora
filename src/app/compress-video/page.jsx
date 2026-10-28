@@ -36,12 +36,23 @@ export const metadata = {
       "Reduce MP4 and WebM video size without sacrificing playback clarity. 100% private.",
     url: "/compress-video",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Compress Video Online | Bits & Tools",
     description:
       "Reduce MP4 and WebM video size without sacrificing playback clarity. 100% private.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

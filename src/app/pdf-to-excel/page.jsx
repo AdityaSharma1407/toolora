@@ -37,12 +37,23 @@ export const metadata = {
       "Extract tables and data from PDF documents into Excel (.xlsx) and CSV files. 100% private in browser.",
     url: "/pdf-to-excel",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "PDF to Excel Converter Online | Bits & Tools",
     description:
       "Extract tables and data from PDF documents into Excel (.xlsx) and CSV files. 100% private in browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

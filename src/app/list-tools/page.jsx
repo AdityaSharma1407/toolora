@@ -40,12 +40,23 @@ export const metadata = {
       "Shuffle, sort, clean, deduplicate, and compare lists with instant CSPRNG randomness and set operations.",
     url: "/list-tools",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "List Tools: Shuffler, Sorter, Deduplicator & Set Operations | Bits & Tools",
     description:
       "Shuffle, sort, clean, deduplicate, and compare lists with instant CSPRNG randomness and set operations.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

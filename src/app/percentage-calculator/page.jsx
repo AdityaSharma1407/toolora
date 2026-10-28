@@ -39,12 +39,23 @@ export const metadata = {
       "Quickly solve percentage increases, decreases, differences, tips, and fractions with clear explanations.",
     url: "/percentage-calculator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Percentage Calculator Online | Bits & Tools",
     description:
       "Quickly solve percentage increases, decreases, differences, and fractions.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

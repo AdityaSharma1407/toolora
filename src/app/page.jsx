@@ -10,6 +10,9 @@ import ToolCard from "@/components/common/ToolCard";
 import PinnedToolsBar from "@/components/common/PinnedToolsBar";
 import FAQSection from "@/components/common/FAQSection";
 import AdSlot from "@/components/ads/AdSlot";
+import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+
+const temporal = resolveTemporalParity("/");
 import {
   ShieldCheck,
   Zap,
@@ -27,9 +30,9 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Bits & Tools (BitsAndTools) — Free Online Tools: PDF, Image, Video & Developer Utilities",
+  title: "Bits & Tools — Free & Private Online In-Browser Tools",
   description:
-    "Free, 100% private in-browser online tools by BitsAndTools. Merge and compress PDFs, convert images and documents, trim videos, and use 55+ developer utilities with zero server file uploads.",
+    "Free, 100% private in-browser utilities by Bits & Tools. Merge PDFs, convert images, trim video, and access 55+ developer tools with zero server file uploads.",
   keywords: [
     "bitsandtools",
     "BitsAndTools",
@@ -52,18 +55,38 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Bits & Tools (BitsAndTools) — Free Online Tools: PDF, Image, Video & Developer Utilities",
+    title: "Bits & Tools — Free & Private Online In-Browser Tools",
     description:
-      "Free, 100% private in-browser online utilities by BitsAndTools. 55 client-side tools running in your browser memory with zero server uploads.",
+      "Free, 100% private in-browser utilities by Bits & Tools. Merge PDFs, convert images, trim video, and access 55+ developer tools with zero server file uploads.",
     url: "/",
     siteName: "Bits & Tools",
     type: "website",
+    publishedTime: temporal.isoPublished,
+    modifiedTime: temporal.isoModified,
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free & Private Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bits & Tools (BitsAndTools) — Free Online Tools: PDF, Image, Video & Developer Utilities",
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
+    title: "Bits & Tools — Free & Private Online In-Browser Tools",
     description:
-      "55 fast, private, and free client-side utilities running in-browser with zero server uploads.",
+      "Free, 100% private in-browser utilities by Bits & Tools. Merge PDFs, convert images, trim video, and access 55+ developer tools with zero server file uploads.",
+    images: ["/images/og-bitsandtools.png"],
+  },
+  other: {
+    "article:published_time": temporal.isoPublished,
+    "article:modified_time": temporal.isoModified,
+    "publish-date": temporal.isoPublished,
+    "last-modified": temporal.isoModified,
+    date: temporal.isoModified,
   },
 };
 
@@ -119,6 +142,7 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium mb-5 border border-black/[0.04]">
             <Sparkles className="w-3.5 h-3.5 text-brand-600" />
             <span>55 In-Browser Tools &bull; 100% Free &amp; Private</span>
+            <time dateTime={temporal.isoModified} className="sr-only">Updated {temporal.visualDate}</time>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight sm:leading-tight">

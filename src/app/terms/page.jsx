@@ -16,12 +16,23 @@ export const metadata = {
       "Review the Terms of Service governing the use of Bits & Tools' free, browser-based online tools and services.",
     url: "/terms",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Terms of Service — Bits & Tools Online Utilities",
     description:
       "Review the Terms of Service governing the use of Bits & Tools' free, browser-based online tools and services.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

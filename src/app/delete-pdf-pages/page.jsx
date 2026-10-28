@@ -46,12 +46,23 @@ export const metadata = {
     siteName: "Bits & Tools",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Delete PDF Pages Online — Remove Unwanted Pages Free | Bits & Tools",
     description:
       "Remove unwanted, blank, or sensitive pages from any PDF document for free. 100% private and secure.",
+    images: ["/images/og-bitsandtools.png"],
   },
   robots: {
     index: true,

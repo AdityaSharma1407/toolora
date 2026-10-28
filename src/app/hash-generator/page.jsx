@@ -39,12 +39,23 @@ export const metadata = {
       "Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 cryptographic digests for text or files locally in browser.",
     url: "/hash-generator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Hash Generator Online | Bits & Tools",
     description:
       "Generate MD5, SHA-256, SHA-512 cryptographic digests for text or files locally.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

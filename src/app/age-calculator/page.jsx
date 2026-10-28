@@ -39,12 +39,23 @@ export const metadata = {
       "Calculate your exact age in years, months, days, and hours, plus next birthday countdown.",
     url: "/age-calculator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Age Calculator Online | Bits & Tools",
     description:
       "Calculate your exact age in years, months, days, and hours.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

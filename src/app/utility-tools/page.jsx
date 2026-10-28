@@ -19,12 +19,23 @@ export const metadata = {
       "Explore fast, private utilities for text formatting, JSON validation, UUIDs, Base64, and calculations.",
     url: "/utility-tools",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Everyday & Developer Tools Directory | Bits & Tools",
     description:
       "Fast, private utilities for text, JSON, UUIDs, Base64, and calculations.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

@@ -35,12 +35,23 @@ export const metadata = {
       "Convert PowerPoint (.pptx) or outline slides into widescreen 16:9 PDF presentations. 100% private in browser.",
     url: "/powerpoint-to-pdf",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "PowerPoint to PDF Converter Online | Bits & Tools",
     description:
       "Convert PowerPoint (.pptx) or outline slides into widescreen 16:9 PDF presentations. 100% private in browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

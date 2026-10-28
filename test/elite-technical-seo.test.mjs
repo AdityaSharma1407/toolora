@@ -813,6 +813,43 @@ describe("Elite Technical SEO Architecture & Protocol Verification", () => {
       // Must not contain <h4> directly skipping heading levels
       assert.ok(!pageCode.includes("<h4"), "Homepage must not contain <h4> without prior structure or skip levels");
     });
+
+    test("Ahrefs Content Optimization: Homepage title <= 60 chars and description <= 160 chars", () => {
+      const pageCode = fs.readFileSync(path.join(rootDir, "src", "app", "page.jsx"), "utf-8");
+      const titleMatch = pageCode.match(/title:\s*"([^"]+)"/);
+      const descMatch = pageCode.match(/description:\s*\n?\s*"([^"]+)"/);
+
+      assert.ok(titleMatch, "Homepage must define title");
+      assert.ok(descMatch, "Homepage must define description");
+
+      const title = titleMatch[1];
+      const desc = descMatch[1];
+
+      assert.ok(
+        title.length <= 60,
+        `Homepage title must be <= 60 chars for Ahrefs/Google SERP green score, was ${title.length}: "${title}"`
+      );
+      assert.ok(
+        desc.length <= 160,
+        `Homepage description must be <= 160 chars for Ahrefs green score, was ${desc.length}: "${desc}"`
+      );
+    });
+
+    test("Ahrefs Social Tags Optimization: openGraph & twitter configure images and site handle across all pages", () => {
+      const pageCode = fs.readFileSync(path.join(rootDir, "src", "app", "page.jsx"), "utf-8");
+      assert.ok(pageCode.includes("og-bitsandtools.png"), "Homepage must configure og:image");
+      assert.ok(pageCode.includes('site: "@bitsandtools"'), "Homepage must configure twitter:site");
+      assert.ok(pageCode.includes('creator: "@bitsandtools"'), "Homepage must configure twitter:creator");
+      assert.ok(pageCode.includes("publishedTime: temporal.isoPublished"), "Homepage must configure publishedTime");
+      assert.ok(pageCode.includes("modifiedTime: temporal.isoModified"), "Homepage must configure modifiedTime");
+      assert.ok(pageCode.includes("article:published_time"), "Homepage must configure article:published_time");
+      assert.ok(pageCode.includes("article:modified_time"), "Homepage must configure article:modified_time");
+      assert.ok(pageCode.includes("<time dateTime={temporal.isoModified}"), "Homepage must render <time> element for crawler date extraction");
+
+      // Verify layout.jsx also configures twitter.site
+      const layoutCode = fs.readFileSync(path.join(rootDir, "src", "app", "layout.jsx"), "utf-8");
+      assert.ok(layoutCode.includes('site: "@bitsandtools"'), "layout.jsx must configure twitter:site");
+    });
   });
 
 });

@@ -38,12 +38,23 @@ export const metadata = {
       "Generate strong random passwords and passphrases with NIST entropy scoring and zero network transmission.",
     url: "/password-generator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Password & Passphrase Generator | Bits & Tools",
     description:
       "Generate strong random passwords and passphrases with NIST entropy scoring and zero network transmission.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

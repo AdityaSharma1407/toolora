@@ -39,12 +39,23 @@ export const metadata = {
       "Compress or format HTML, CSS, JavaScript, and JSON code with instant byte savings calculation.",
     url: "/code-minifier",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Code Minifier & Beautifier | Bits & Tools",
     description:
       "Client-side HTML, CSS, JS, and JSON minifier and beautifier with zero server uploads.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

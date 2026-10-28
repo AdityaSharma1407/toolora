@@ -37,12 +37,23 @@ export const metadata = {
       "Strip and save audio tracks from video files in your browser. 100% client-side privacy.",
     url: "/extract-audio",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Extract Audio from Video Online | Bits & Tools",
     description:
       "Strip and save audio tracks from video files in your browser. 100% client-side privacy.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

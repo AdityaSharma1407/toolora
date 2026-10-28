@@ -36,12 +36,23 @@ export const metadata = {
       "Convert PNG images to standard JPG format with custom quality and background controls.",
     url: "/png-to-jpg",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "PNG to JPG Converter Online | Bits & Tools",
     description:
       "Convert PNG images to standard JPG format with custom quality and background controls.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

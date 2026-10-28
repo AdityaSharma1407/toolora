@@ -40,12 +40,23 @@ export const metadata = {
       "Transform text between UPPERCASE, lowercase, Title Case, camelCase, and snake_case in one click. 100% private in-browser tool.",
     url: "/case-converter",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Case Converter Online — Change Text Case Free | Bits & Tools",
     description:
       "Transform text between UPPERCASE, lowercase, Title Case, camelCase, and snake_case in one click.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

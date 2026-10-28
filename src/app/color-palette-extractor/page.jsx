@@ -38,12 +38,23 @@ export const metadata = {
       "Extract dominant color palettes from any photo. Generate HEX, RGB, HSL, CSS, and Tailwind themes.",
     url: "/color-palette-extractor",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Color Palette Extractor Online | Bits & Tools",
     description:
       "Extract dominant color palettes from any photo. Generate HEX, RGB, HSL, CSS, and Tailwind themes.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

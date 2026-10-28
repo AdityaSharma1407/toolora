@@ -38,12 +38,23 @@ export const metadata = {
       "Resize images by pixels or percentage with aspect ratio lock, format conversion, and high quality.",
     url: "/resize-image",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Resize Image Online | Bits & Tools",
     description:
       "Resize images by pixels or percentage with aspect ratio lock, format conversion, and high quality.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

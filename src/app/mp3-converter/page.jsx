@@ -37,12 +37,23 @@ export const metadata = {
       "Convert audio files into universal format directly in your browser. 100% private.",
     url: "/mp3-converter",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Universal Audio & MP3 Converter Online | Bits & Tools",
     description:
       "Convert audio files into universal format directly in your browser. 100% private.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

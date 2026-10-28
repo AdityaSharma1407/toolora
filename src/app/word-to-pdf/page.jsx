@@ -36,12 +36,23 @@ export const metadata = {
       "Convert Word documents (.docx) into formatted PDF files directly in your browser. 100% private.",
     url: "/word-to-pdf",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Word to PDF Converter Online | Bits & Tools",
     description:
       "Convert Word documents (.docx) into formatted PDF files directly in your browser. 100% private.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

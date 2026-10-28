@@ -38,12 +38,23 @@ export const metadata = {
       "Build, test, and explain cron expressions with real-time schedule descriptions and upcoming execution dates.",
     url: "/cron-generator",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Cron Expression Generator & Explainer | Bits & Tools",
     description:
       "Visual cron schedule builder and human-readable translator running 100% in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

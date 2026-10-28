@@ -38,12 +38,23 @@ export const metadata = {
       "Convert SVG vector files or code into high-resolution PNG images with custom resolution scaling.",
     url: "/svg-to-png",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "SVG to PNG Converter Online | Bits & Tools",
     description:
       "Convert SVG vector files or code into high-resolution PNG images with custom resolution scaling.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

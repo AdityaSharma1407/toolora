@@ -39,12 +39,23 @@ export const metadata = {
       "Crop pictures with exact aspect ratios, rotation, flipping, and instant export. 100% private in browser.",
     url: "/crop-image",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Crop Image Online — Free Photo Cropper | Bits & Tools",
     description:
       "Crop pictures with exact aspect ratios, rotation, flipping, and instant export. 100% private in browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

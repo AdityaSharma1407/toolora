@@ -38,12 +38,23 @@ export const metadata = {
       "Bi-directional Unix epoch and date converter with live ticking clock, milliseconds support, and UTC formatting.",
     url: "/timestamp-converter",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "Unix Timestamp Converter Online | Bits & Tools",
     description:
       "Bi-directional Unix epoch and date converter with live ticking clock, milliseconds support, and UTC formatting.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

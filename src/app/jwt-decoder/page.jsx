@@ -38,12 +38,23 @@ export const metadata = {
       "Inspect Header, Payload, and Signature with live expiration status and claims decoding. 100% private.",
     url: "/jwt-decoder",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "JWT Decoder & Token Inspector | Bits & Tools",
     description:
       "Inspect Header, Payload, and Signature with live expiration status and claims decoding. 100% private.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

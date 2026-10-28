@@ -36,12 +36,23 @@ export const metadata = {
       "Convert PDF files into editable Microsoft Word documents (.docx) directly in your browser. 100% private.",
     url: "/pdf-to-word",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "PDF to Word Converter Online | Bits & Tools",
     description:
       "Convert PDF files into editable Microsoft Word documents (.docx) directly in your browser. 100% private.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

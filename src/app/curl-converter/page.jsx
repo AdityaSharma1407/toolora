@@ -39,12 +39,23 @@ export const metadata = {
       "Convert cURL terminal commands into ready-to-run JavaScript, Axios, Python, and Go code snippets.",
     url: "/curl-converter",
     type: "website",
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: "cURL to Code Converter | Bits & Tools",
     description:
       "Instant cURL to Fetch, Axios, Python Requests, Node, and Go generator running 100% in your browser.",
+    images: ["/images/og-bitsandtools.png"],
   },
 };
 

@@ -32,15 +32,29 @@ export const metadata = {
     type: "article",
     publishedTime: temporal.isoPublished,
     modifiedTime: temporal.isoModified,
+    images: [
+      {
+        url: "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: "Bits & Tools — Free Online In-Browser Tools",
+      },
+    ],
   },
   twitter: {
+    site: "@bitsandtools",
+    creator: "@bitsandtools",
     card: "summary_large_image",
     title: `${sitelinkMeta.title} — Fast, Free & Private`,
     description: sitelinkMeta.description,
+    images: ["/images/og-bitsandtools.png"],
   },
   other: {
     "article:published_time": temporal.isoPublished,
     "article:modified_time": temporal.isoModified,
+    "publish-date": temporal.isoPublished,
+    "last-modified": temporal.isoModified,
+    date: temporal.isoModified,
   },
 };
 
