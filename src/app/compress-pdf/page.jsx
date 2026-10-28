@@ -6,25 +6,28 @@ import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
 import NextIntentSection from "@/components/common/NextIntentSection";
+import MicroInteractionBar from "@/components/common/MicroInteractionBar";
+import ExactNextStepCard from "@/components/common/ExactNextStepCard";
+import QuickJumpToc from "@/components/common/QuickJumpToc";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
 import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+import { getSerpVariantMetadata } from "@/lib/seo/ab-meta-engine";
 import { ShieldCheck, Zap, Lock, Sparkles, Minimize2 } from "lucide-react";
 
 const temporal = resolveTemporalParity("/compress-pdf");
+const serpMeta = getSerpVariantMetadata({ route: "/compress-pdf", toolName: "Compress PDF" });
 
 export const metadata = {
-  title: "Compress PDF Files Online — Reduce PDF Size Free",
-  description:
-    "Reduce PDF file size with genuine client-side structural optimization. Free, fast, private, and browser-based with zero file uploads.",
+  title: serpMeta.title,
+  description: serpMeta.description,
   alternates: {
     canonical: "/compress-pdf",
   },
   openGraph: {
-    title: "Compress PDF Files Online — Reduce PDF Size Free | Bits & Tools",
-    description:
-      "Reduce PDF file size with a simple, browser-based compression workflow. Free, secure, client-side PDF optimizer.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
     url: "/compress-pdf",
     type: "article",
     publishedTime: temporal.isoPublished,
@@ -32,9 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Compress PDF Files Online — Reduce PDF Size Free | Bits & Tools",
-    description:
-      "Reduce PDF file size with a simple, browser-based compression workflow. Free, secure, client-side PDF optimizer.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
   },
   other: {
     "article:published_time": temporal.isoPublished,
@@ -165,6 +167,9 @@ export default function CompressPdfPage() {
                 Fast in-browser processing
               </span>
             </div>
+
+            {/* Inline Interactive Micro-Utility */}
+            <MicroInteractionBar toolName="Compress PDF" defaultMegabytes={12} />
           </div>
         </div>
       </header>
@@ -173,6 +178,11 @@ export default function CompressPdfPage() {
       <section aria-label="Interactive Compress PDF workspace" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
         <CompressPdfWorkspace />
       </section>
+
+      {/* Algorithmic "Exact Next Step" Intent-Locking Card */}
+      <div className="px-4 sm:px-6 lg:px-8">
+        <ExactNextStepCard currentRoute="/compress-pdf" />
+      </div>
 
       {/* Optional Ad placement */}
       <AdPlacement slotId="compress-pdf-below-workspace" />
@@ -196,6 +206,8 @@ export default function CompressPdfPage() {
 
       {/* Related Working Tools */}
       <RelatedTools currentToolId="compress-pdf" />
+      {/* Contextual Quick-Jump Table of Contents Drawer */}
+      <QuickJumpToc />
     </main>
   );
 }

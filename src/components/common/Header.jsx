@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { CATEGORIES, getAllTools } from "@/data/toolsRegistry";
 import ToolSearch from "./ToolSearch";
+import DirectAccessPrompt from "./DirectAccessPrompt";
 import DynamicIcon from "./DynamicIcon";
 import {
   Menu,
@@ -228,6 +229,9 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Native Direct-Access / Omnibox Bookmark Prompt */}
+            <DirectAccessPrompt />
+
             {/* Search Trigger Button with Hotkey Badge */}
             <button
               type="button"

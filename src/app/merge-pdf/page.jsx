@@ -6,25 +6,28 @@ import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
 import NextIntentSection from "@/components/common/NextIntentSection";
+import MicroInteractionBar from "@/components/common/MicroInteractionBar";
+import ExactNextStepCard from "@/components/common/ExactNextStepCard";
+import QuickJumpToc from "@/components/common/QuickJumpToc";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
 import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+import { getSerpVariantMetadata } from "@/lib/seo/ab-meta-engine";
 import { ShieldCheck, Zap, Lock, Sparkles } from "lucide-react";
 
 const temporal = resolveTemporalParity("/merge-pdf");
+const serpMeta = getSerpVariantMetadata({ route: "/merge-pdf", toolName: "Merge PDF" });
 
 export const metadata = {
-  title: "Merge PDF Files Online — Free PDF Merger",
-  description:
-    "Combine multiple PDF files into one document in seconds. 100% free, browser-based, secure, and private. No installation or registration required.",
+  title: serpMeta.title,
+  description: serpMeta.description,
   alternates: {
     canonical: "/merge-pdf",
   },
   openGraph: {
-    title: "Merge PDF Files Online — Free PDF Merger | Bits & Tools",
-    description:
-      "Combine multiple PDF files into one document in seconds. Free, simple, and secure client-side PDF merger.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
     url: "/merge-pdf",
     type: "article",
     publishedTime: temporal.isoPublished,
@@ -32,9 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Merge PDF Files Online — Free PDF Merger | Bits & Tools",
-    description:
-      "Combine multiple PDF files into one document in seconds. Free, simple, and secure client-side PDF merger.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
   },
   other: {
     "article:published_time": temporal.isoPublished,
@@ -150,6 +152,9 @@ export default function MergePdfPage() {
                 Instant in-memory processing
               </span>
             </div>
+
+            {/* Inline Interactive Micro-Utility (Immediate 100ms NavBoost Engagement) */}
+            <MicroInteractionBar toolName="Merge PDF" defaultMegabytes={6} />
           </div>
         </div>
       </header>
@@ -158,6 +163,11 @@ export default function MergePdfPage() {
       <section aria-label="Interactive Merge PDF workspace" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
         <MergePdfWorkspace />
       </section>
+
+      {/* Algorithmic "Exact Next Step" Intent-Locking Card */}
+      <div className="px-4 sm:px-6 lg:px-8">
+        <ExactNextStepCard currentRoute="/merge-pdf" />
+      </div>
 
       {/* Ad Placement Below Workspace (Disabled by Default) */}
       <AdPlacement slotId="merge-pdf-below-workspace" />
@@ -180,6 +190,8 @@ export default function MergePdfPage() {
 
       {/* Related Working Tools Siloed to PDF Suite */}
       <RelatedTools currentToolId="merge-pdf" />
+      {/* Contextual Quick-Jump Table of Contents Drawer */}
+      <QuickJumpToc />
     </main>
   );
 }

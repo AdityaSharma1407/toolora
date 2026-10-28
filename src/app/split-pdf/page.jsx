@@ -6,25 +6,28 @@ import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
 import NextIntentSection from "@/components/common/NextIntentSection";
+import MicroInteractionBar from "@/components/common/MicroInteractionBar";
+import ExactNextStepCard from "@/components/common/ExactNextStepCard";
+import QuickJumpToc from "@/components/common/QuickJumpToc";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
 import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+import { getSerpVariantMetadata } from "@/lib/seo/ab-meta-engine";
 import { ShieldCheck, Zap, Lock, Sparkles, Scissors } from "lucide-react";
 
 const temporal = resolveTemporalParity("/split-pdf");
+const serpMeta = getSerpVariantMetadata({ route: "/split-pdf", toolName: "Split PDF" });
 
 export const metadata = {
-  title: "Split PDF Files Online — Separate & Extract PDF Pages",
-  description:
-    "Separate PDF pages into individual files or extract custom page ranges. Free, fast, browser-based, and 100% private. No sign-up required.",
+  title: serpMeta.title,
+  description: serpMeta.description,
   alternates: {
     canonical: "/split-pdf",
   },
   openGraph: {
-    title: "Split PDF Files Online — Separate & Extract PDF Pages | Bits & Tools",
-    description:
-      "Separate PDF pages into individual files or extract custom page ranges. Fast, free, and secure client-side PDF splitter.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
     url: "/split-pdf",
     type: "article",
     publishedTime: temporal.isoPublished,
@@ -32,9 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Split PDF Files Online — Separate & Extract PDF Pages | Bits & Tools",
-    description:
-      "Separate PDF pages into individual files or extract custom page ranges. Fast, free, and secure client-side PDF splitter.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
   },
   other: {
     "article:published_time": temporal.isoPublished,
@@ -165,6 +167,9 @@ export default function SplitPdfPage() {
                 Instant in-memory processing
               </span>
             </div>
+
+            {/* Inline Interactive Micro-Utility */}
+            <MicroInteractionBar toolName="Split PDF" defaultMegabytes={8} />
           </div>
         </div>
       </header>
@@ -173,6 +178,11 @@ export default function SplitPdfPage() {
       <section aria-label="Interactive Split PDF workspace" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
         <SplitPdfWorkspace />
       </section>
+
+      {/* Algorithmic "Exact Next Step" Intent-Locking Card */}
+      <div className="px-4 sm:px-6 lg:px-8">
+        <ExactNextStepCard currentRoute="/split-pdf" />
+      </div>
 
       {/* Optional Ad placement */}
       <AdPlacement slotId="split-pdf-below-workspace" />
@@ -196,6 +206,8 @@ export default function SplitPdfPage() {
 
       {/* Related Working Tools */}
       <RelatedTools currentToolId="split-pdf" />
+      {/* Contextual Quick-Jump Table of Contents Drawer */}
+      <QuickJumpToc />
     </main>
   );
 }

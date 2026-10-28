@@ -6,25 +6,28 @@ import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
 import QuickTake from "@/components/common/QuickTake";
 import NextIntentSection from "@/components/common/NextIntentSection";
+import MicroInteractionBar from "@/components/common/MicroInteractionBar";
+import ExactNextStepCard from "@/components/common/ExactNextStepCard";
+import QuickJumpToc from "@/components/common/QuickJumpToc";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
 import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
+import { getSerpVariantMetadata } from "@/lib/seo/ab-meta-engine";
 import { ShieldCheck, Zap, Lock, Sparkles, Image as ImageIcon } from "lucide-react";
 
 const temporal = resolveTemporalParity("/jpg-to-pdf");
+const serpMeta = getSerpVariantMetadata({ route: "/jpg-to-pdf", toolName: "JPG to PDF" });
 
 export const metadata = {
-  title: "JPG to PDF Converter Online — Convert Images to PDF",
-  description:
-    "Convert JPG, JPEG, and PNG images into a single PDF document. Free, fast, private, and client-side with custom page sizes, orientations, and margins.",
+  title: serpMeta.title,
+  description: serpMeta.description,
   alternates: {
     canonical: "/jpg-to-pdf",
   },
   openGraph: {
-    title: "JPG to PDF Converter Online — Convert Images to PDF | Bits & Tools",
-    description:
-      "Convert JPG, JPEG, and PNG images into a single PDF document. Free, secure, client-side image converter.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
     url: "/jpg-to-pdf",
     type: "article",
     publishedTime: temporal.isoPublished,
@@ -32,9 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JPG to PDF Converter Online — Convert Images to PDF | Bits & Tools",
-    description:
-      "Convert JPG, JPEG, and PNG images into a single PDF document. Free, secure, client-side image converter.",
+    title: `${serpMeta.title} | Bits & Tools`,
+    description: serpMeta.description,
   },
   other: {
     "article:published_time": temporal.isoPublished,
@@ -165,6 +167,9 @@ export default function JpgToPdfPage() {
                 Fast in-browser conversion
               </span>
             </div>
+
+            {/* Inline Interactive Micro-Utility */}
+            <MicroInteractionBar toolName="JPG to PDF" defaultMegabytes={10} />
           </div>
         </div>
       </header>
@@ -173,6 +178,11 @@ export default function JpgToPdfPage() {
       <section aria-label="Interactive JPG to PDF workspace" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
         <JpgToPdfWorkspace />
       </section>
+
+      {/* Algorithmic "Exact Next Step" Intent-Locking Card */}
+      <div className="px-4 sm:px-6 lg:px-8">
+        <ExactNextStepCard currentRoute="/jpg-to-pdf" />
+      </div>
 
       {/* Optional Ad placement */}
       <AdPlacement slotId="jpg-to-pdf-below-workspace" />
@@ -196,6 +206,8 @@ export default function JpgToPdfPage() {
 
       {/* Related Working Tools */}
       <RelatedTools currentToolId="jpg-to-pdf" />
+      {/* Contextual Quick-Jump Table of Contents Drawer */}
+      <QuickJumpToc />
     </main>
   );
 }

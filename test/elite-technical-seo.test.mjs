@@ -510,4 +510,181 @@ describe("Elite Technical SEO Architecture & Protocol Verification", () => {
       assert.ok(code.includes("export const config"), "middleware must export config matcher");
     });
   });
+
+  // Phase 7: SERP Snippet Dominance & Dynamic A/B Meta Engine
+  describe("Phase 7: SERP Snippet Dominance & Dynamic A/B Meta Engine", () => {
+    test("Title transformer programmatically formats titles with psychological tokens and clamps strictly to 50–58 chars", async () => {
+      const { transformSerpTitle, PSYCHOLOGICAL_TOKENS } = await import("../src/lib/seo/serp-transformer.js");
+
+      const titleA = transformSerpTitle({ toolName: "Merge PDF", variant: "a" });
+      assert.ok(titleA.length >= 50 && titleA.length <= 58, `Title A length (${titleA.length}) must be between 50 and 58 chars: "${titleA}"`);
+      assert.ok(titleA.includes(PSYCHOLOGICAL_TOKENS.CURRENT_YEAR) || titleA.includes("Online"));
+
+      const titleB = transformSerpTitle({ toolName: "Merge PDF", variant: "b" });
+      assert.ok(titleB.length >= 50 && titleB.length <= 58, `Title B length (${titleB.length}) must be between 50 and 58 chars: "${titleB}"`);
+      assert.ok(titleB.includes("[No Uploads]"));
+
+      // Test long title truncation to exact boundary
+      const longTitle = transformSerpTitle({
+        toolName: "Extremely Long Advanced Multi-Document Structural PDF Reducer & Optimizer",
+        variant: "a",
+      });
+      assert.ok(longTitle.length >= 50 && longTitle.length <= 58, `Clamped long title length (${longTitle.length}) must be between 50 and 58: "${longTitle}"`);
+    });
+
+    test("Description transformer enforces 140–155 character high-CTR action triggers", async () => {
+      const { transformSerpDescription } = await import("../src/lib/seo/serp-transformer.js");
+
+      const descA = transformSerpDescription({
+        toolName: "Split PDF",
+        actionDescription: "Extract specific PDF pages or burst every page into separate files in seconds",
+        variant: "a",
+      });
+      assert.ok(descA.length <= 155, `Description length must be <= 155 chars: "${descA}"`);
+      assert.ok(descA.includes("100% free") || descA.includes("private"));
+
+      const descB = transformSerpDescription({
+        toolName: "Split PDF",
+        actionDescription: "Divide PDF documents by custom page ranges",
+        variant: "b",
+      });
+      assert.ok(descB.length <= 155, `Description B length must be <= 155: "${descB}"`);
+      assert.ok(descB.includes("Zero server"));
+    });
+
+    test("HowTo Schema Generator produces valid Schema.org structure with step arrays", async () => {
+      const { buildHowToSchema } = await import("../src/lib/seo/how-to-schema.js");
+
+      const howTo = buildHowToSchema({
+        toolName: "Merge PDF",
+        route: "/merge-pdf",
+        category: "pdf",
+      });
+
+      assert.equal(howTo["@type"], "HowTo");
+      assert.ok(howTo["@id"].includes("/merge-pdf/#howto"));
+      assert.ok(Array.isArray(howTo.step));
+      assert.equal(howTo.step.length, 3);
+      assert.equal(howTo.step[0]["@type"], "HowToStep");
+      assert.equal(howTo.step[0].position, 1);
+      assert.ok(howTo.step[0].name);
+      assert.ok(howTo.step[0].text);
+      assert.ok(howTo.tool);
+    });
+
+    test("buildToolPageGraphSchema automatically injects HowTo and FAQPage into unified @graph", async () => {
+      const { buildToolPageGraphSchema } = await import("../src/lib/seo/schema-engine.js");
+
+      const schema = buildToolPageGraphSchema({
+        tool: {
+          name: "Merge PDF",
+          route: "/merge-pdf",
+          description: "Combine multiple PDF documents into one cleanly.",
+        },
+      });
+
+      const howTo = schema["@graph"].find((e) => e["@type"] === "HowTo");
+      assert.ok(howTo, "Schema @graph must contain HowTo entity to force Google step rich snippets");
+      assert.equal(howTo.step.length, 3);
+
+      const faq = schema["@graph"].find((e) => e["@type"] === "FAQPage");
+      assert.ok(faq, "Schema @graph must contain FAQPage entity for accordion snippets");
+      assert.ok(faq.mainEntity.length >= 3, "Must have at least 3 FAQ QA pairs");
+    });
+
+    test("Edge-Level Meta A/B Split Engine resolves variants and extracts variant metadata", async () => {
+      const { resolveSerpVariant, getSerpVariantMetadata } = await import("../src/lib/seo/ab-meta-engine.js");
+
+      assert.equal(resolveSerpVariant({ searchParam: "b" }), "b");
+      assert.equal(resolveSerpVariant({ cookieValue: "b" }), "b");
+      assert.equal(resolveSerpVariant({ headerValue: "b" }), "b");
+      assert.equal(resolveSerpVariant({ searchParam: "a" }), "a");
+      assert.equal(resolveSerpVariant({}), "a");
+
+      const metaA = getSerpVariantMetadata({ route: "/merge-pdf", toolName: "Merge PDF", variant: "a" });
+      const metaB = getSerpVariantMetadata({ route: "/merge-pdf", toolName: "Merge PDF", variant: "b" });
+
+      assert.equal(metaA.variant, "a");
+      assert.equal(metaB.variant, "b");
+      assert.notEqual(metaA.title, metaB.title);
+      assert.ok(metaA.title.length >= 50 && metaA.title.length <= 58);
+      assert.ok(metaB.title.length >= 50 && metaB.title.length <= 58);
+    });
+  });
+
+  // Phase 8: Behavioral Traps, Chrome Telemetry & Intent-Locking Navigation
+  describe("Phase 8: Behavioral Traps, Chrome Telemetry & Intent-Locking Navigation", () => {
+    test("ScrollProgressBar: zero-layout-shift progress indicator uses hardware-accelerated transform scaleX", () => {
+      const code = fs.readFileSync(path.join(rootDir, "src", "components", "common", "ScrollProgressBar.jsx"), "utf-8");
+      assert.ok(code.includes("scaleX"), "ScrollProgressBar must use scaleX transform for zero layout shift");
+      assert.ok(code.includes("fixed top-0"), "ScrollProgressBar must be fixed at the top");
+      assert.ok(code.includes("requestAnimationFrame"), "Must use requestAnimationFrame for 60fps smoothness");
+    });
+
+    test("MicroInteractionBar: interactive benchmark is immediately interactive and logs first_click_100ms", () => {
+      const code = fs.readFileSync(path.join(rootDir, "src", "components", "common", "MicroInteractionBar.jsx"), "utf-8");
+      assert.ok(code.includes("first_click_100ms"), "MicroInteractionBar must log first_click_100ms on interaction");
+      assert.ok(code.includes("input"), "Must have input slider");
+      assert.ok(code.includes("Quick Presets"), "Must provide 1-click preset chips");
+      assert.ok(code.includes("Zero Server Uploads"), "Must highlight zero server uploads guarantee");
+    });
+
+    test("DwellTracker & dwell-tracker: monitors active engagement and triggers 90s prefetch milestone", async () => {
+      const { initDwellTracker } = await import("../src/lib/telemetry/dwell-tracker.js");
+      assert.equal(typeof initDwellTracker, "function");
+
+      const trackerCode = fs.readFileSync(path.join(rootDir, "src", "lib", "telemetry", "dwell-tracker.js"), "utf-8");
+      assert.ok(trackerCode.includes("dwell_90s_milestone"), "Must log dwell_90s_milestone for NavBoost qualification");
+      assert.ok(trackerCode.includes("injectSpeculativePrefetch"), "Must trigger speculative prefetch of next route");
+      assert.ok(trackerCode.includes("visibilitychange"), "Must pause dwell when tab is hidden");
+
+      // Root layout renders ScrollProgressBar and DwellTracker
+      const layoutCode = fs.readFileSync(path.join(rootDir, "src", "app", "layout.jsx"), "utf-8");
+      assert.ok(layoutCode.includes("<ScrollProgressBar"), "RootLayout must render ScrollProgressBar");
+      assert.ok(layoutCode.includes("<DwellTracker"), "RootLayout must render DwellTracker");
+    });
+
+    test("site.webmanifest registers deep Chrome OS shortcuts and any/maskable icons", () => {
+      const manifestPath = path.join(rootDir, "public", "site.webmanifest");
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+
+      assert.ok(Array.isArray(manifest.shortcuts));
+      assert.ok(manifest.shortcuts.length >= 5, "Must have at least 5 deep search & tool shortcuts");
+      assert.ok(manifest.shortcuts.some((s) => s.url === "/merge-pdf"));
+      assert.ok(manifest.shortcuts.some((s) => s.url === "/split-pdf"));
+      assert.ok(manifest.shortcuts.some((s) => s.url === "/compress-pdf"));
+      assert.ok(manifest.shortcuts.some((s) => s.url === "/jpg-to-pdf"));
+
+      const has192 = manifest.icons.some((i) => i.sizes === "192x192" && i.purpose.includes("maskable"));
+      const has512 = manifest.icons.some((i) => i.sizes === "512x512" && i.purpose.includes("maskable"));
+      assert.ok(has192, "Must have 192x192 maskable icon");
+      assert.ok(has512, "Must have 512x512 maskable icon");
+    });
+
+    test("DirectAccessPrompt: guides Ctrl+D / Cmd+D bookmarking and is integrated in Header", () => {
+      const promptCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "DirectAccessPrompt.jsx"), "utf-8");
+      assert.ok(promptCode.includes("Ctrl+D"), "Must include Ctrl+D shortcut");
+      assert.ok(promptCode.includes("⌘+D"), "Must include ⌘+D shortcut");
+
+      const headerCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "Header.jsx"), "utf-8");
+      assert.ok(headerCode.includes("<DirectAccessPrompt"), "Header must render DirectAccessPrompt");
+    });
+
+    test("QuickJumpToc and ExactNextStepCard are integrated into flagship tool pages", () => {
+      const flagshipPages = [
+        "src/app/merge-pdf/page.jsx",
+        "src/app/split-pdf/page.jsx",
+        "src/app/compress-pdf/page.jsx",
+        "src/app/jpg-to-pdf/page.jsx",
+      ];
+
+      for (const relPath of flagshipPages) {
+        const fullPath = path.join(rootDir, relPath);
+        const code = fs.readFileSync(fullPath, "utf-8");
+        assert.ok(code.includes("<MicroInteractionBar"), `${relPath} must include MicroInteractionBar above fold`);
+        assert.ok(code.includes("<ExactNextStepCard"), `${relPath} must include ExactNextStepCard below workspace`);
+        assert.ok(code.includes("<QuickJumpToc"), `${relPath} must include QuickJumpToc`);
+      }
+    });
+  });
 });

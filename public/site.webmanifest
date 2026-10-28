@@ -26,7 +26,8 @@
     {
       "src": "/icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
   "shortcuts": [
@@ -38,6 +39,13 @@
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
+      "name": "Split PDF",
+      "short_name": "Split",
+      "description": "Extract specific pages or divide PDF documents",
+      "url": "/split-pdf",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
       "name": "Compress PDF",
       "short_name": "Compress",
       "description": "Optimize and reduce PDF file size in browser",
@@ -45,17 +53,24 @@
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Markdown Editor",
-      "short_name": "Markdown",
-      "description": "Write and preview GitHub-flavored Markdown live",
-      "url": "/markdown-editor",
+      "name": "JPG to PDF",
+      "short_name": "Images to PDF",
+      "description": "Convert JPG, PNG, and WebP pictures to PDF",
+      "url": "/jpg-to-pdf",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "JSON Formatter",
-      "short_name": "JSON",
-      "description": "Format, validate, and minify JSON data",
-      "url": "/json-formatter",
+      "name": "Word Counter",
+      "short_name": "Word Count",
+      "description": "Analyze text statistics, characters, and reading time",
+      "url": "/word-counter",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Search All Tools",
+      "short_name": "Search",
+      "description": "Quick search across all 55+ in-browser utilities",
+      "url": "/?q=search",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ]

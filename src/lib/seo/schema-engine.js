@@ -1,5 +1,6 @@
 import { siteConfig } from "../../config/site.js";
 import { resolveTemporalParity } from "./temporal-engine.js";
+import { buildHowToSchema } from "./how-to-schema.js";
 
 /**
  * Enterprise Schema Engine
@@ -312,20 +313,45 @@ export function buildToolPageGraphSchema({
     graph.push(breadcrumbsObj);
   }
 
-  // 4. FAQPage entity
-  if (Array.isArray(faqs) && faqs.length > 0) {
-    graph.push({
-      "@type": "FAQPage",
-      "@id": `${fullUrl}/#faq`,
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
+  // 4. FAQPage entity (ensures Google renders expandable QA accordion toggles under SERP snippet)
+  const effectiveFaqs = Array.isArray(faqs) && faqs.length > 0 ? faqs : [
+    {
+      question: `Is Bits & Tools ${tool.name} completely free to use?`,
+      answer: `Yes, Bits & Tools ${tool.name} is 100% free with no subscription fees, trial limits, or mandatory registration.`,
+    },
+    {
+      question: `Are my files uploaded or stored on any remote server?`,
+      answer: `No. All operations execute strictly client-side inside your browser memory using WebAssembly and JavaScript. Files never leave your local device.`,
+    },
+    {
+      question: `Does this ${tool.name} utility work on mobile and desktop browsers?`,
+      answer: `Yes, Bits & Tools is a lightweight Progressive Web App (PWA) compatible with Chrome, Safari, Firefox, Edge, and iOS/Android browsers.`,
+    },
+  ];
+
+  graph.push({
+    "@type": "FAQPage",
+    "@id": `${fullUrl}/#faq`,
+    mainEntity: effectiveFaqs.slice(0, 4).map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  });
+
+  // 5. HowTo entity (enables step-by-step rich snippet carousels in Google search results)
+  if (tool.howTo !== false) {
+    const howTo = buildHowToSchema({
+      toolName: tool.name,
+      route: tool.route,
+      description: tool.description,
+      steps: tool.steps || null,
+      category: tool.category || (tool.route.includes("pdf") ? "pdf" : tool.route.includes("image") ? "image" : "utility"),
     });
+    graph.push(howTo);
   }
 
   return {

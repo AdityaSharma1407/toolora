@@ -6,6 +6,8 @@ import AdSenseScript from "@/components/ads/AdSenseScript";
 import GoogleAnalyticsScript from "@/components/analytics/GoogleAnalyticsScript";
 import PwaRegister from "@/components/pwa/PwaRegister";
 import InstallPwaBanner from "@/components/pwa/InstallPwaBanner";
+import ScrollProgressBar from "@/components/common/ScrollProgressBar";
+import DwellTracker from "@/components/common/DwellTracker";
 import { siteConfig } from "@/config/site";
 import { buildRootGraphSchema } from "@/lib/seo/schema";
 
@@ -117,6 +119,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
+        {/* Zero-Layout-Shift Scroll Progress Indicator */}
+        <ScrollProgressBar />
+        {/* Headless Dwell & Active Session Tracker */}
+        <DwellTracker />
         <GoogleAnalyticsScript />
         <AdSenseScript />
         <PwaRegister />

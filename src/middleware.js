@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
 import { evaluateConditionalRequest } from "./lib/seo/edge-cache.js";
+import { SERP_COOKIE_NAME, SERP_HEADER_NAME } from "./lib/seo/ab-meta-engine.js";
 
 /**
- * Edge Middleware for Delta Caching & ETag Validation
+ * Edge Middleware for Delta Caching, ETag Validation & Meta A/B Split Testing
  * 
- * Inspects If-None-Match and If-Modified-Since against the verified temporal engine.
- * Emits 304 Not Modified when fresh, preserving search engine crawl budget.
+ * 1. Inspects If-None-Match and If-Modified-Since against the verified temporal engine.
+ *    Emits 304 Not Modified when fresh, preserving search engine crawl budget.
+ * 2. Assigns & tracks randomized or query-driven SERP meta variants (A/B testing)
+ *    to measure click-through rate performance and dwell-time affinity.
  */
 export function middleware(request) {
   const { pathname } = request.nextUrl;
@@ -19,6 +22,7 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
+  // 1. Edge ETag & 304 Delta Caching Evaluation
   const evaluation = evaluateConditionalRequest(request.headers, pathname);
 
   if (evaluation.status === 304) {
@@ -28,10 +32,35 @@ export function middleware(request) {
     });
   }
 
+  // 2. SERP A/B Variant Resolution (?serp_v=b, cookie bts_serp_v, or balanced split)
+  const queryVariant = request.nextUrl.searchParams.get("serp_v");
+  const cookieVariant = request.cookies.get(SERP_COOKIE_NAME)?.value;
+  let activeVariant = "a";
+
+  if (queryVariant === "b" || queryVariant === "a") {
+    activeVariant = queryVariant;
+  } else if (cookieVariant === "b" || cookieVariant === "a") {
+    activeVariant = cookieVariant;
+  } else {
+    // Balanced 50/50 split based on client characteristics
+    const seed = request.headers.get("x-forwarded-for") || request.headers.get("user-agent") || "";
+    activeVariant = seed.length % 2 === 0 ? "a" : "b";
+  }
+
   const response = NextResponse.next();
+
+  // Attach temporal caching headers
   for (const [key, value] of Object.entries(evaluation.headers)) {
     response.headers.set(key, value);
   }
+
+  // Attach SERP A/B variant header & cookie
+  response.headers.set(SERP_HEADER_NAME, activeVariant);
+  response.cookies.set(SERP_COOKIE_NAME, activeVariant, {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+    sameSite: "lax",
+  });
 
   return response;
 }
