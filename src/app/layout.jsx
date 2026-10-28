@@ -7,6 +7,7 @@ import GoogleAnalyticsScript from "@/components/analytics/GoogleAnalyticsScript"
 import PwaRegister from "@/components/pwa/PwaRegister";
 import InstallPwaBanner from "@/components/pwa/InstallPwaBanner";
 import { siteConfig } from "@/config/site";
+import { buildRootGraphSchema } from "@/lib/seo/schema";
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -99,108 +100,9 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.displayName || siteConfig.name,
-    alternateName: [
-      "BitsAndTools",
-      "bitsandtools",
-      "Bits and Tools",
-      "bits and tools",
-      "bitsandtools.com",
-    ],
-    url: siteConfig.url,
-    description: siteConfig.description,
-    author: [
-      {
-        "@type": "Person",
-        name: "Vishavjeet Sharma",
-        jobTitle: "Co-Founder",
-        email: "vishavjeetsharma88@gmail.com",
-      },
-      {
-        "@type": "Person",
-        name: "Aditya Sharma",
-        jobTitle: "Co-Founder",
-        email: "sharmaaditya14jul@gmail.com",
-      },
-    ],
-    creator: [
-      {
-        "@type": "Person",
-        name: "Vishavjeet Sharma",
-        jobTitle: "Co-Founder",
-      },
-      {
-        "@type": "Person",
-        name: "Aditya Sharma",
-        jobTitle: "Co-Founder",
-      },
-    ],
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.displayName || siteConfig.name,
-      alternateName: [
-        "BitsAndTools",
-        "bitsandtools",
-        "Bits and Tools",
-        "bitsandtools.com",
-      ],
-      url: siteConfig.url,
-      logo: `${siteConfig.url}/images/og-bitsandtools.png`,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.url}/#all-tools?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
-  };
-
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteConfig.displayName || siteConfig.name,
-    alternateName: [
-      "BitsAndTools",
-      "bitsandtools",
-      "Bits and Tools",
-      "bitsandtools.com",
-    ],
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/images/og-bitsandtools.png`,
-    founder: [
-      {
-        "@type": "Person",
-        name: "Vishavjeet Sharma",
-        jobTitle: "Co-Founder",
-        email: "vishavjeetsharma88@gmail.com",
-        url: siteConfig.url,
-      },
-      {
-        "@type": "Person",
-        name: "Aditya Sharma",
-        jobTitle: "Co-Founder",
-        email: "sharmaaditya14jul@gmail.com",
-        url: siteConfig.url,
-      },
-    ],
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        email: "vishavjeetsharma88@gmail.com",
-        contactType: "Founder",
-      },
-      {
-        "@type": "ContactPoint",
-        email: "sharmaaditya14jul@gmail.com",
-        contactType: "Founder",
-      },
-    ],
-  };
+  // Centralized Root Schema.org Graph (WebSite, Organization, Founders, SearchAction)
+  // Configured with co-founders Vishavjeet Sharma (vishavjeetsharma88@gmail.com) and Aditya Sharma (sharmaaditya14jul@gmail.com)
+  const rootGraphSchema = buildRootGraphSchema();
 
   return (
     <html lang="en" className="h-full scroll-smooth">
@@ -211,11 +113,7 @@ export default function RootLayout({ children }) {
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootGraphSchema) }}
         />
       </head>
       <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-brand-500 selection:text-white">

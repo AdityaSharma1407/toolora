@@ -110,14 +110,13 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
     assert.equal(set.size, urls.length);
   });
 
-  test("6. Robots.txt points to correct canonical sitemap", () => {
+  test("6. Robots.txt points to correct canonical sitemap and disallows api", () => {
     const robotsObj = robots();
     assert.equal(robotsObj.rules[0].userAgent, "*");
     assert.equal(robotsObj.rules[0].allow, "/");
-    assert.equal(
-      robotsObj.sitemap,
-      "https://www.bitsandtools.com/sitemap.xml"
-    );
+    assert.deepEqual(robotsObj.rules[0].disallow, ["/api/"]);
+    const sitemaps = Array.isArray(robotsObj.sitemap) ? robotsObj.sitemap : [robotsObj.sitemap];
+    assert.ok(sitemaps.includes("https://www.bitsandtools.com/sitemap.xml"));
   });
 
   test("7. NEXT_PUBLIC_ADS_ENABLED remains strictly false", () => {

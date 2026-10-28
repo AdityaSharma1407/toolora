@@ -8,8 +8,13 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/"],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: [
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/sitemap-fresh.xml`,
+      `${baseUrl}/sitemap-archive.xml`,
+    ],
   };
 }

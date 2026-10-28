@@ -4,8 +4,10 @@ import Breadcrumbs from "@/components/common/Breadcrumbs";
 import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
+import QuickTake from "@/components/common/QuickTake";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
+import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
 import { ShieldCheck, Zap, Lock, Sparkles, Scissors } from "lucide-react";
 
 export const metadata = {
@@ -85,38 +87,36 @@ export default function SplitPdfPage() {
     { label: "Split PDF", href: "/split-pdf" },
   ];
 
-  const toolSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Split PDF Online",
-    url: `${siteConfig.url}/split-pdf`,
-    applicationCategory: "UtilityApplication",
-    operatingSystem: "All",
-    browserRequirements: "Requires JavaScript and HTML5 support",
-    description:
-      "Separate PDF pages into individual files or extract custom page ranges directly in your browser with complete client-side privacy.",
-        aggregateRating: {
+  const toolSchema = buildToolPageGraphSchema({
+    tool: {
+      name: "Split PDF Online",
+      route: "/split-pdf",
+      description:
+        "Separate PDF pages into individual files or extract custom page ranges directly in your browser with complete client-side privacy.",
+      applicationCategory: "UtilitiesApplication",
+      datePublished: "2026-10-24T10:51:11.000Z",
+      dateModified: "2026-10-28T00:00:00.000Z",
+    },
+    breadcrumbs,
+    faqs: SPLIT_PDF_FAQS,
+    aboutEntities: [CANONICAL_ENTITIES.PDF],
+    aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
       ratingCount: "1560",
       bestRating: "5",
       worstRating: "1",
     },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-  };
+  });
 
   return (
-    <div className="flex flex-col min-h-screen bg-canvas">
+    <main className="flex flex-col min-h-screen bg-canvas">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
       />
       {/* Hero Header */}
-      <div className="border-b border-black/[0.06] bg-white">
+      <header className="border-b border-black/[0.06] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-8 sm:pb-10">
           <Breadcrumbs items={breadcrumbs} />
 
@@ -134,6 +134,13 @@ export default function SplitPdfPage() {
               Separate PDF pages into individual files or extract the pages you need with zero server uploads.
             </p>
 
+            {/* Quick Take / TL;DR */}
+            <QuickTake
+              toolName="Split PDF"
+              actionVerb="extract specific pages or burst into individual files from"
+              fileTypes="PDF documents"
+            />
+
             <div className="mt-5 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -150,10 +157,10 @@ export default function SplitPdfPage() {
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Main Workspace */}
-      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
+      <section aria-label="Interactive Split PDF workspace" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
         <SplitPdfWorkspace />
       </section>
 
@@ -176,6 +183,6 @@ export default function SplitPdfPage() {
 
       {/* Related Working Tools */}
       <RelatedTools currentToolId="split-pdf" />
-    </div>
+    </main>
   );
 }

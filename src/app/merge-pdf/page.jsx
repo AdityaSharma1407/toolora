@@ -4,8 +4,10 @@ import Breadcrumbs from "@/components/common/Breadcrumbs";
 import HowItWorks from "@/components/common/HowItWorks";
 import FAQSection from "@/components/common/FAQSection";
 import RelatedTools from "@/components/common/RelatedTools";
+import QuickTake from "@/components/common/QuickTake";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
+import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
 import { ShieldCheck, Zap, Lock, Sparkles } from "lucide-react";
 
 export const metadata = {
@@ -69,38 +71,36 @@ export default function MergePdfPage() {
     { label: "Merge PDF", href: "/merge-pdf" },
   ];
 
-  const toolSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Merge PDF Online",
-    url: `${siteConfig.url}/merge-pdf`,
-    applicationCategory: "UtilityApplication",
-    operatingSystem: "All",
-    browserRequirements: "Requires JavaScript and HTML5 support",
-    description:
-      "Combine multiple PDF files into one document in seconds. 100% free, browser-based, secure, and private with zero server file uploads.",
-        aggregateRating: {
+  const toolSchema = buildToolPageGraphSchema({
+    tool: {
+      name: "Merge PDF Online",
+      route: "/merge-pdf",
+      description:
+        "Combine multiple PDF files into one document in seconds. 100% free, browser-based, secure, and private with zero server file uploads.",
+      applicationCategory: "UtilitiesApplication",
+      datePublished: "2026-10-24T10:51:11.000Z",
+      dateModified: "2026-10-28T00:00:00.000Z",
+    },
+    breadcrumbs,
+    faqs: MERGE_PDF_FAQS,
+    aboutEntities: [CANONICAL_ENTITIES.PDF],
+    aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
       ratingCount: "1028",
       bestRating: "5",
       worstRating: "1",
     },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-  };
+  });
 
   return (
-    <div className="flex flex-col min-h-screen bg-canvas">
+    <main className="flex flex-col min-h-screen bg-canvas">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
       />
       {/* Top Breadcrumbs & Hero Header */}
-      <div className="border-b border-black/[0.06] bg-white">
+      <header className="border-b border-black/[0.06] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-8 sm:pb-10">
           <Breadcrumbs items={breadcrumbs} />
 
@@ -117,6 +117,13 @@ export default function MergePdfPage() {
             <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Combine multiple PDF files into one document in seconds. Free, simple, and secure.
             </p>
+
+            {/* Quick Take / TL;DR for AI Extractors & Users */}
+            <QuickTake
+              toolName="Merge PDF"
+              actionVerb="combine and reorder"
+              fileTypes="multiple PDF documents"
+            />
 
             {/* Quick Guarantees */}
             <div className="mt-5 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600">
@@ -135,10 +142,10 @@ export default function MergePdfPage() {
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Main Interactive Tool Workspace */}
-      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
+      <section aria-label="Interactive Merge PDF workspace" className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
         <MergePdfWorkspace />
       </section>
 
@@ -158,8 +165,8 @@ export default function MergePdfPage() {
         items={MERGE_PDF_FAQS}
       />
 
-      {/* Related Working Tools */}
+      {/* Related Working Tools Siloed to PDF Suite */}
       <RelatedTools currentToolId="merge-pdf" />
-    </div>
+    </main>
   );
 }
