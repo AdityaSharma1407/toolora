@@ -414,7 +414,7 @@ describe("19. Option 3 Tools Registry & Page Metadata Verification", () => {
   test("Option 3 tools are active, available, and registered in toolsRegistry", async () => {
     const { getAvailableTools, getToolById } = await import("../src/data/toolsRegistry.js");
     const available = getAvailableTools();
-    assert.equal(available.length, 39);
+    assert.equal(available.length, 55);
 
     const option3Ids = [
       "qr-code-generator",

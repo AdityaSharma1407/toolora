@@ -50,6 +50,22 @@ const VERIFIED_MOD_DATES = {
   "/color-palette-extractor": "2026-10-28T00:00:00.000Z",
   "/svg-to-png": "2026-10-28T00:00:00.000Z",
   "/crop-image": "2026-10-28T00:00:00.000Z",
+  "/html-to-pdf": "2026-10-28T00:00:00.000Z",
+  "/excel-to-pdf": "2026-10-28T00:00:00.000Z",
+  "/word-to-pdf": "2026-10-28T00:00:00.000Z",
+  "/pdf-to-word": "2026-10-28T00:00:00.000Z",
+  "/pdf-to-excel": "2026-10-28T00:00:00.000Z",
+  "/powerpoint-to-pdf": "2026-10-28T00:00:00.000Z",
+  "/extract-audio": "2026-10-28T00:00:00.000Z",
+  "/mp3-converter": "2026-10-28T00:00:00.000Z",
+  "/video-to-gif": "2026-10-28T00:00:00.000Z",
+  "/trim-video": "2026-10-28T00:00:00.000Z",
+  "/compress-video": "2026-10-28T00:00:00.000Z",
+  "/markdown-editor": "2026-10-28T00:00:00.000Z",
+  "/regex-tester": "2026-10-28T00:00:00.000Z",
+  "/cron-generator": "2026-10-28T00:00:00.000Z",
+  "/curl-converter": "2026-10-28T00:00:00.000Z",
+  "/code-minifier": "2026-10-28T00:00:00.000Z",
 };
 
 export default function sitemap() {
@@ -293,7 +309,116 @@ export default function sitemap() {
       changeFrequency: "daily",
       priority: 0.9,
     },
+    // File Conversion Tools
+    {
+      url: `${baseUrl}/html-to-pdf`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/html-to-pdf"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/excel-to-pdf`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/excel-to-pdf"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/word-to-pdf`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/word-to-pdf"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/pdf-to-word`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/pdf-to-word"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/pdf-to-excel`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/pdf-to-excel"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/powerpoint-to-pdf`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/powerpoint-to-pdf"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    // Video & Audio Tools
+    {
+      url: `${baseUrl}/extract-audio`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/extract-audio"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/mp3-converter`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/mp3-converter"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/video-to-gif`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/video-to-gif"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/trim-video`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/trim-video"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/compress-video`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/compress-video"]),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    // Developer Staples
+    {
+      url: `${baseUrl}/markdown-editor`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/markdown-editor"]),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/regex-tester`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/regex-tester"]),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/cron-generator`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/cron-generator"]),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/curl-converter`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/curl-converter"]),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/code-minifier`,
+      lastModified: new Date(VERIFIED_MOD_DATES["/code-minifier"]),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
     // Directory Category Hubs
+    {
+      url: `${baseUrl}/media-tools`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/convert-tools`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
     {
       url: `${baseUrl}/pdf-tools`,
       changeFrequency: "weekly",

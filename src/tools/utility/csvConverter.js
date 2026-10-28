@@ -203,3 +203,69 @@ export function csvToJson(csvText = "", options = {}) {
     columnCount: headers.length,
   };
 }
+
+/**
+ * Parses raw CSV text into a 2D array of string cells.
+ * @param {string} csvText
+ * @param {string} [delimiter=',']
+ * @returns {string[][]}
+ */
+export function parseCsvRows(csvText = "", delimiter = ",") {
+  if (!csvText || !csvText.trim()) return [];
+
+  const rows = [];
+  let currentRow = [];
+  let currentField = "";
+  let inQuotes = false;
+
+  const text = csvText.trim();
+  const len = text.length;
+
+  for (let i = 0; i < len; i++) {
+    const char = text[i];
+    const nextChar = text[i + 1];
+
+    if (inQuotes) {
+      if (char === '"' && nextChar === '"') {
+        currentField += '"';
+        i++;
+      } else if (char === '"') {
+        inQuotes = false;
+      } else {
+        currentField += char;
+      }
+    } else {
+      if (char === '"') {
+        inQuotes = true;
+      } else if (char === delimiter) {
+        currentRow.push(currentField);
+        currentField = "";
+      } else if (char === "\n" || (char === "\r" && nextChar === "\n")) {
+        currentRow.push(currentField);
+        rows.push(currentRow);
+        currentRow = [];
+        currentField = "";
+        if (char === "\r") i++;
+      } else {
+        currentField += char;
+      }
+    }
+  }
+
+  currentRow.push(currentField);
+  if (currentRow.length > 0 && !(currentRow.length === 1 && currentRow[0] === "")) {
+    rows.push(currentRow);
+  }
+
+  return rows;
+}
+
+/**
+ * Formats an array of cell values into an RFC 4180 CSV line.
+ * @param {Array<any>} row
+ * @param {string} [delimiter=',']
+ * @returns {string}
+ */
+export function formatCsvRow(row = [], delimiter = ",") {
+  return row.map((val) => escapeCsvValue(val, delimiter)).join(delimiter);
+}

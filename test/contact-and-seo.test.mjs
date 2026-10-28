@@ -14,7 +14,7 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
   test("6. Sitemap.xml produces clean canonical URLs without duplicates or broken pages", () => {
     const entries = sitemap();
     assert.ok(Array.isArray(entries));
-    assert.equal(entries.length, 46);
+    assert.equal(entries.length, 64);
 
     const urls = entries.map((e) => e.url);
     const expectedBase = "https://www.bitsandtools.com";
@@ -52,6 +52,11 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
     assert.ok(urls.includes(`${expectedBase}/jwt-decoder`));
     assert.ok(urls.includes(`${expectedBase}/timestamp-converter`));
     assert.ok(urls.includes(`${expectedBase}/password-generator`));
+    assert.ok(urls.includes(`${expectedBase}/markdown-editor`));
+    assert.ok(urls.includes(`${expectedBase}/regex-tester`));
+    assert.ok(urls.includes(`${expectedBase}/cron-generator`));
+    assert.ok(urls.includes(`${expectedBase}/curl-converter`));
+    assert.ok(urls.includes(`${expectedBase}/code-minifier`));
 
     // Image Tools
     assert.ok(urls.includes(`${expectedBase}/resize-image`));
@@ -64,7 +69,24 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
     assert.ok(urls.includes(`${expectedBase}/svg-to-png`));
     assert.ok(urls.includes(`${expectedBase}/crop-image`));
 
+    // File Conversion Tools
+    assert.ok(urls.includes(`${expectedBase}/html-to-pdf`));
+    assert.ok(urls.includes(`${expectedBase}/excel-to-pdf`));
+    assert.ok(urls.includes(`${expectedBase}/word-to-pdf`));
+    assert.ok(urls.includes(`${expectedBase}/pdf-to-word`));
+    assert.ok(urls.includes(`${expectedBase}/pdf-to-excel`));
+    assert.ok(urls.includes(`${expectedBase}/powerpoint-to-pdf`));
+
+    // Video & Audio Tools
+    assert.ok(urls.includes(`${expectedBase}/extract-audio`));
+    assert.ok(urls.includes(`${expectedBase}/mp3-converter`));
+    assert.ok(urls.includes(`${expectedBase}/video-to-gif`));
+    assert.ok(urls.includes(`${expectedBase}/trim-video`));
+    assert.ok(urls.includes(`${expectedBase}/compress-video`));
+    assert.ok(urls.includes(`${expectedBase}/media-tools`));
+
     // Directory Hubs
+    assert.ok(urls.includes(`${expectedBase}/convert-tools`));
     assert.ok(urls.includes(`${expectedBase}/pdf-tools`));
     assert.ok(urls.includes(`${expectedBase}/image-tools`));
     assert.ok(urls.includes(`${expectedBase}/utility-tools`));
