@@ -137,8 +137,13 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-canvas pt-12 pb-10 sm:pt-16 sm:pb-14 border-b border-black/[0.06]">
+      <section className="relative overflow-hidden bg-canvas pt-8 pb-10 sm:pt-12 sm:pb-14 border-b border-black/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Search Bar - Moved to top above Release Badge */}
+          <div className="max-w-2xl mx-auto mb-6 sm:mb-8">
+            <ToolSearch />
+          </div>
+
           {/* Release Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium mb-5 border border-black/[0.04]">
             <Sparkles className="w-3.5 h-3.5 text-brand-600" />
@@ -156,11 +161,6 @@ export default function HomePage() {
           <p className="mt-3 sm:mt-5 text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Welcome to <strong>Bits &amp; Tools</strong> (BitsAndTools). Merge PDFs, convert images, transcode audio, trim video, and access 55+ in-browser utilities directly in your web browser with zero server storage.
           </p>
-
-          {/* Search Bar */}
-          <div className="mt-6 sm:mt-8 max-w-2xl mx-auto">
-            <ToolSearch />
-          </div>
 
           {/* Quick Suggestions */}
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-600">

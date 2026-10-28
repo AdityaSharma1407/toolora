@@ -286,24 +286,10 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Native Direct-Access / Omnibox Bookmark Prompt */}
-            <DirectAccessPrompt />
-
-            {/* Search Trigger Button with Hotkey Badge */}
-            <button
-              type="button"
-              onClick={() => setSearchModalOpen(true)}
-              aria-label="Open search (Ctrl+K)"
-              className="min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-[36px] flex items-center justify-between gap-3 px-3 py-1.5 text-xs text-slate-600 bg-slate-100/80 hover:bg-slate-200/70 rounded-xl border border-black/[0.04] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
-            >
-              <div className="flex items-center gap-2">
-                <SearchIcon className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-slate-500" />
-                <span className="hidden sm:inline">Search 55 tools...</span>
-              </div>
-              <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono text-slate-500 bg-white border border-slate-200/90 rounded shadow-2xs font-medium">
-                <span>Ctrl</span> K
-              </kbd>
-            </button>
+            {/* Native Direct-Access / Omnibox Bookmark Prompt (Hidden from navbar) */}
+            <div className="hidden" aria-hidden="true">
+              <DirectAccessPrompt />
+            </div>
 
             {/* PWA Native Install Button */}
             {canInstall && (
