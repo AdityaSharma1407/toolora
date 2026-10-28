@@ -95,47 +95,25 @@ export default function ImageToolsPage() {
           </section>
         )}
 
-        {/* Notice of Upcoming Utilities */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-brand-50/60 border border-brand-200/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-start gap-3">
-            <div className="p-2 rounded-xl bg-brand-100 text-brand-700 shrink-0">
-              <Layers className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="text-sm font-bold text-slate-900">
-                Image Compression &amp; Format Tools In Development
-              </h3>
-              <p className="text-xs text-slate-600 mt-0.5 max-w-xl">
-                We are finishing testing on our client-side image compressor, cropper, and WebP converter. Use our active JPG to PDF tool above today!
+        {/* Planned Image Utilities Roadmap */}
+        {upcomingTools.length > 0 && (
+          <section>
+            <div className="pb-3 mb-6 border-b border-slate-100">
+              <h2 className="text-xl font-bold text-slate-900">
+                Upcoming Image Utilities Roadmap
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                These utilities are currently scheduled for upcoming release cycles.
               </p>
             </div>
-          </div>
-          <Link
-            href="/jpg-to-pdf"
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-lg text-xs font-semibold shrink-0 transition-colors"
-          >
-            <span>Launch JPG to PDF</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
 
-        {/* Planned Image Utilities Roadmap */}
-        <section>
-          <div className="pb-3 mb-6 border-b border-slate-100">
-            <h2 className="text-xl font-bold text-slate-900">
-              Upcoming Image Utilities Roadmap
-            </h2>
-            <p className="text-xs text-slate-500 mt-0.5">
-              These utilities are currently scheduled for upcoming release cycles.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {upcomingTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-        </section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {upcomingTools.map((tool) => (
+                <ToolCard key={tool.id} tool={tool} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Optional Ad placement */}
         <AdPlacement placement="category-content" />

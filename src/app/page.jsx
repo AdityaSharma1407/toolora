@@ -8,6 +8,7 @@ import {
 import ToolSearch from "@/components/common/ToolSearch";
 import ToolCard from "@/components/common/ToolCard";
 import PinnedToolsBar from "@/components/common/PinnedToolsBar";
+import FAQSection from "@/components/common/FAQSection";
 import AdSlot from "@/components/ads/AdSlot";
 import {
   ShieldCheck,
@@ -47,6 +48,39 @@ export const metadata = {
       "55 client-side utilities running in-browser with zero server uploads.",
   },
 };
+
+const HOMEPAGE_FAQS = [
+  {
+    question: "What is Bits & Tools and how does it work?",
+    answer:
+      "Bits & Tools is a free, 100% private in-browser online utilities platform. All 55 tools—spanning PDF editing, image conversion, video and audio processing, to developer utilities—execute entirely on your local machine using modern client-side JavaScript and WebAssembly. Your files, documents, and data are never sent to any external server.",
+  },
+  {
+    question: "Are my files uploaded to a remote server or stored in the cloud?",
+    answer:
+      "No. Zero bytes of your files are ever transmitted to any remote server or third-party cloud. Everything is processed directly inside your web browser's RAM and saved straight back to your local download folder.",
+  },
+  {
+    question: "Can I use Bits & Tools offline without an internet connection?",
+    answer:
+      "Yes! Bits & Tools is an installable Progressive Web App (PWA). You can install it on your Mac, Windows, Linux, Android, or iOS device. Once cached, all tools operate smoothly without an active internet connection.",
+  },
+  {
+    question: "Is Bits & Tools really free, and are there any usage limits?",
+    answer:
+      "Yes, Bits & Tools is completely free with no subscriptions, trial periods, paywalls, or forced account registration. You can use any of our 55 tools with no restrictions.",
+  },
+  {
+    question: "What categories of tools are available on Bits & Tools?",
+    answer:
+      "Bits & Tools includes 5 suites: PDF Tools (12 tools for merging, splitting, compressing, rotating), Image Tools (10 tools for resizing, cropping, converting), File Converters (6 tools for Word, Excel, PowerPoint, HTML), Media Tools (5 tools for audio extraction, GIF generation, video trimming), and Developer & Everyday Utilities (22 tools for JSON, Regex, Base64, UUIDs, and more).",
+  },
+  {
+    question: "How do I pin my most frequently used tools for fast access?",
+    answer:
+      "Simply click the star icon on any tool card across the directory. Your pinned favorites will immediately appear in your 'My Pinned Favorites' bar at the top of the homepage for instant 1-click access.",
+  },
+];
 
 export default function HomePage() {
   const availableTools = getAvailableTools().filter(
@@ -506,6 +540,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Homepage Platform FAQ with JSON-LD Schema */}
+      <FAQSection
+        faqs={HOMEPAGE_FAQS}
+        title="Frequently Asked Questions"
+        subtitle="Learn more about Bits & Tools, our client-side privacy model, and offline PWA support"
+        className="bg-white border-t border-slate-100"
+      />
 
       {/* Ad Slot: Bottom (Disabled by default) */}
       <AdSlot placement="home-bottom" format="horizontal" />

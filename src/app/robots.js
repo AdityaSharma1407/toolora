@@ -8,6 +8,7 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/offline"],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

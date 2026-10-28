@@ -36,6 +36,18 @@ export default function Header() {
     setSearchModalOpen(false);
   }, [pathname]);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   // Click outside to close desktop dropdown
   useEffect(() => {
     function handleClickOutside(e) {

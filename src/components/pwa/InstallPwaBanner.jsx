@@ -15,9 +15,29 @@ export default function InstallPwaBanner() {
   } = usePwaInstall();
 
   const [showIosGuide, setShowIosGuide] = useState(false);
+  const [cookieConsentResolved, setCookieConsentResolved] = useState(true);
 
-  // If already installed, dismissed, or unsupported, do not display
-  if (isInstalled || isDismissed || (!canInstall && !isIOS)) {
+  React.useEffect(() => {
+    try {
+      const stored = localStorage.getItem("bitsandtools_consent_preferences");
+      if (!stored) {
+        setCookieConsentResolved(false);
+      }
+    } catch {
+      // Ignore localStorage error
+    }
+
+    function handleConsentChange() {
+      setCookieConsentResolved(true);
+    }
+
+    window.addEventListener("bitsandtools-consent-change", handleConsentChange);
+    return () =>
+      window.removeEventListener("bitsandtools-consent-change", handleConsentChange);
+  }, []);
+
+  // If already installed, dismissed, unsupported, or cookie consent is pending, do not display
+  if (isInstalled || isDismissed || (!canInstall && !isIOS) || !cookieConsentResolved) {
     return null;
   }
 

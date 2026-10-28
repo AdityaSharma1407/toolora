@@ -3,6 +3,7 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import CookieConsentBanner from "@/components/common/CookieConsentBanner";
 import AdSenseScript from "@/components/ads/AdSenseScript";
+import GoogleAnalyticsScript from "@/components/analytics/GoogleAnalyticsScript";
 import PwaRegister from "@/components/pwa/PwaRegister";
 import InstallPwaBanner from "@/components/pwa/InstallPwaBanner";
 import { siteConfig } from "@/config/site";
@@ -35,11 +36,20 @@ export const metadata = {
     title: `${siteConfig.displayName || siteConfig.name} - Free Online Utilities`,
     description: siteConfig.description,
     siteName: siteConfig.displayName || siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage || "/images/og-bitsandtools.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.displayName || siteConfig.name} - Free Online Utilities`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.displayName || siteConfig.name} - Free Online Utilities`,
     description: siteConfig.description,
+    images: [siteConfig.ogImage || "/images/og-bitsandtools.png"],
   },
   robots: {
     index: true,
@@ -47,6 +57,9 @@ export const metadata = {
   },
   verification: {
     google: siteConfig.analytics.searchConsoleVerification || undefined,
+    other: {
+      "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION || undefined,
+    },
   },
   other: {
     "google-adsense-account": "ca-pub-8022438675607325",
@@ -104,6 +117,8 @@ export default function RootLayout({ children }) {
           name="google-adsense-account"
           content="ca-pub-8022438675607325"
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8022438675607325"
+          crossorigin="anonymous"></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -114,6 +129,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
+        <GoogleAnalyticsScript />
         <AdSenseScript />
         <PwaRegister />
         <InstallPwaBanner />

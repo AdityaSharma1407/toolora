@@ -96,22 +96,24 @@ export default function PdfToolsPage() {
         <AdPlacement placement="category-content" />
 
         {/* In-Development Roadmap Tools */}
-        <section>
-          <div className="pb-3 mb-6 border-b border-slate-100">
-            <h2 className="text-xl font-bold text-slate-900">
-              Upcoming PDF Tools
-            </h2>
-            <p className="text-xs text-slate-500 mt-0.5">
-              These utilities are currently scheduled for release in upcoming updates.
-            </p>
-          </div>
+        {upcomingTools.length > 0 && (
+          <section>
+            <div className="pb-3 mb-6 border-b border-slate-100">
+              <h2 className="text-xl font-bold text-slate-900">
+                Upcoming PDF Tools
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                These utilities are currently scheduled for release in upcoming updates.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {upcomingTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-        </section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {upcomingTools.map((tool) => (
+                <ToolCard key={tool.id} tool={tool} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Helpful Info Section */}
         <section className="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200/80">

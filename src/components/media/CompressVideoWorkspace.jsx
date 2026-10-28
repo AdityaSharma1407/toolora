@@ -103,9 +103,18 @@ export default function CompressVideoWorkspace() {
         // Fallback without audio if cross-origin or unsupported
       }
 
-      const mimeType = MediaRecorder.isTypeSupported("video/webm;codecs=vp9")
-        ? "video/webm;codecs=vp9"
-        : "video/webm";
+      let mimeType = "video/webm";
+      if (typeof MediaRecorder !== "undefined" && typeof MediaRecorder.isTypeSupported === "function") {
+        if (MediaRecorder.isTypeSupported("video/mp4;codecs=avc1")) {
+          mimeType = "video/mp4;codecs=avc1";
+        } else if (MediaRecorder.isTypeSupported("video/mp4")) {
+          mimeType = "video/mp4";
+        } else if (MediaRecorder.isTypeSupported("video/webm;codecs=vp9")) {
+          mimeType = "video/webm;codecs=vp9";
+        } else if (MediaRecorder.isTypeSupported("video/webm")) {
+          mimeType = "video/webm";
+        }
+      }
 
       const mediaRecorder = new MediaRecorder(stream, {
         mimeType,
@@ -119,7 +128,8 @@ export default function CompressVideoWorkspace() {
 
       const recordPromise = new Promise((resolve) => {
         mediaRecorder.onstop = () => {
-          const blob = new Blob(chunks, { type: "video/webm" });
+          const blobType = mimeType.split(";")[0] || "video/webm";
+          const blob = new Blob(chunks, { type: blobType });
           resolve(blob);
         };
       });
@@ -159,7 +169,8 @@ export default function CompressVideoWorkspace() {
       const compressedBlob = await recordPromise;
       const url = URL.createObjectURL(compressedBlob);
       const baseName = file.name.replace(/\.[^/.]+$/, "");
-      const filename = `${baseName}-compressed.webm`;
+      const ext = mimeType.includes("mp4") ? "mp4" : "webm";
+      const filename = `${baseName}-compressed.${ext}`;
 
       setResult({
         url,

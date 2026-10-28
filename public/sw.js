@@ -11,6 +11,7 @@ const RUNTIME_CACHE = `bitsandtools-runtime-${CACHE_VERSION}`;
 const PRECACHE_ASSETS = [
   '/',
   '/offline',
+  '/pdf.worker.min.js',
   '/site.webmanifest',
   '/favicon.ico',
   '/icon.svg',

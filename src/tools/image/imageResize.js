@@ -111,6 +111,19 @@ export async function resizeImage(source, options = {}) {
   targetW = Math.max(1, Math.round(targetW));
   targetH = Math.max(1, Math.round(targetH));
 
+  // Safeguard against browser tab crash from extreme dimensions
+  const MAX_CANVAS_DIMENSION = 16384;
+  const MAX_CANVAS_PIXELS = 33554432; // 32 Megapixels
+  if (
+    targetW > MAX_CANVAS_DIMENSION ||
+    targetH > MAX_CANVAS_DIMENSION ||
+    targetW * targetH > MAX_CANVAS_PIXELS
+  ) {
+    throw new Error(
+      `Target dimensions (${targetW}x${targetH}) exceed browser memory limits (max 16,384px or 32 MP). Please enter smaller dimensions.`
+    );
+  }
+
   const canvas = document.createElement("canvas");
   canvas.width = targetW;
   canvas.height = targetH;

@@ -74,9 +74,18 @@ export default function TrimVideoWorkspace() {
 
       // Use MediaRecorder on video captureStream
       const stream = video.captureStream ? video.captureStream() : video.mozCaptureStream();
-      const mimeType = MediaRecorder.isTypeSupported("video/webm;codecs=vp9")
-        ? "video/webm;codecs=vp9"
-        : "video/webm";
+      let mimeType = "video/webm";
+      if (typeof MediaRecorder !== "undefined" && typeof MediaRecorder.isTypeSupported === "function") {
+        if (MediaRecorder.isTypeSupported("video/mp4;codecs=avc1")) {
+          mimeType = "video/mp4;codecs=avc1";
+        } else if (MediaRecorder.isTypeSupported("video/mp4")) {
+          mimeType = "video/mp4";
+        } else if (MediaRecorder.isTypeSupported("video/webm;codecs=vp9")) {
+          mimeType = "video/webm;codecs=vp9";
+        } else if (MediaRecorder.isTypeSupported("video/webm")) {
+          mimeType = "video/webm";
+        }
+      }
 
       const mediaRecorder = new MediaRecorder(stream, { mimeType });
       const chunks = [];
@@ -87,7 +96,8 @@ export default function TrimVideoWorkspace() {
 
       const recordPromise = new Promise((resolve) => {
         mediaRecorder.onstop = () => {
-          const blob = new Blob(chunks, { type: "video/webm" });
+          const blobType = mimeType.split(";")[0] || "video/webm";
+          const blob = new Blob(chunks, { type: blobType });
           resolve(blob);
         };
       });
@@ -120,7 +130,8 @@ export default function TrimVideoWorkspace() {
       const trimmedBlob = await recordPromise;
       const url = URL.createObjectURL(trimmedBlob);
       const baseName = file.name.replace(/\.[^/.]+$/, "");
-      const filename = `${baseName}-trimmed.webm`;
+      const ext = mimeType.includes("mp4") ? "mp4" : "webm";
+      const filename = `${baseName}-trimmed.${ext}`;
 
       setResult({
         url,
