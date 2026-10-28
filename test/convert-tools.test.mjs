@@ -11,8 +11,8 @@ import { getToolById, getToolsByCategory, getAvailableTools } from "../src/data/
 
 describe("1. HTML to PDF Core Logic", () => {
   test("cleans HTML tags and entities properly", () => {
-    const raw = "<p>Hello &amp; welcome to &lt;Toolora&gt;&nbsp;suite!</p>";
-    assert.equal(cleanHtmlText(raw), "Hello & welcome to <Toolora> suite!");
+    const raw = "<p>Hello &amp; welcome to &lt;BitsAndTools&gt;&nbsp;suite!</p>";
+    assert.equal(cleanHtmlText(raw), "Hello & welcome to <BitsAndTools> suite!");
   });
 
   test("parses HTML structure into headings, paragraphs, and lists", () => {
@@ -69,7 +69,7 @@ describe("3. Word to PDF Core Logic", () => {
       <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:body>
           <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Executive Summary</w:t></w:r></w:p>
-          <w:p><w:r><w:t>Toolora delivers client-side web utilities.</w:t></w:r></w:p>
+          <w:p><w:r><w:t>Bits & Tools delivers client-side web utilities.</w:t></w:r></w:p>
         </w:body>
       </w:document>
     `;

@@ -21,12 +21,12 @@ import {
   Lock,
 } from "lucide-react";
 
-const SAMPLE_CURL = `curl -X POST https://api.toolora.io/v1/tools \\
+const SAMPLE_CURL = `curl -X POST https://api.bitsandtools.com/v1/tools \\
   -H "Content-Type: application/json" \\
   -H "Authorization: Bearer sec_tok_9981248" \\
   -d '{"action": "convert", "format": "pdf", "optimize": true}'`;
 
-const SAMPLE_GET = `curl "https://api.toolora.io/v1/metrics?period=30d&format=json" \\
+const SAMPLE_GET = `curl "https://api.bitsandtools.com/v1/metrics?period=30d&format=json" \\
   -H "Accept: application/json"`;
 
 export default function CurlConverterWorkspace() {

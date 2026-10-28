@@ -23,7 +23,7 @@ const DEFAULT_SAMPLE_HTML = `<!DOCTYPE html>
 </head>
 <body>
   <h1>Executive Summary & Milestones</h1>
-  <p>Toolora delivers high-performance client-side productivity utilities with zero server latency and total privacy.</p>
+  <p>Bits & Tools delivers high-performance client-side productivity utilities with zero server latency and total privacy.</p>
   
   <h2>Key Performance Indicators</h2>
   <ul>

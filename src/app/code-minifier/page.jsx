@@ -34,7 +34,7 @@ export const metadata = {
     canonical: "/code-minifier",
   },
   openGraph: {
-    title: "Code Minifier & Beautifier | Toolora",
+    title: "Code Minifier & Beautifier | Bits & Tools",
     description:
       "Compress or format HTML, CSS, JavaScript, and JSON code with instant byte savings calculation.",
     url: "/code-minifier",
@@ -42,7 +42,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Code Minifier & Beautifier | Toolora",
+    title: "Code Minifier & Beautifier | Bits & Tools",
     description:
       "Client-side HTML, CSS, JS, and JSON minifier and beautifier with zero server uploads.",
   },
@@ -57,7 +57,7 @@ const MINIFIER_FAQS = [
   {
     question: "How does the savings calculation work?",
     answer:
-      "Toolora computes the exact UTF-8 byte sizes of both the original input and the generated output, displaying the delta in bytes along with the percentage reduction or expansion.",
+      "Bits & Tools computes the exact UTF-8 byte sizes of both the original input and the generated output, displaying the delta in bytes along with the percentage reduction or expansion.",
   },
   {
     question: "Is my proprietary source code secure?",

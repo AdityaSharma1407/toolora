@@ -33,7 +33,7 @@ export const metadata = {
     canonical: "/cron-generator",
   },
   openGraph: {
-    title: "Cron Expression Generator & Explainer | Toolora",
+    title: "Cron Expression Generator & Explainer | Bits & Tools",
     description:
       "Build, test, and explain cron expressions with real-time schedule descriptions and upcoming execution dates.",
     url: "/cron-generator",
@@ -41,7 +41,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cron Expression Generator & Explainer | Toolora",
+    title: "Cron Expression Generator & Explainer | Bits & Tools",
     description:
       "Visual cron schedule builder and human-readable translator running 100% in your browser.",
   },
@@ -61,7 +61,7 @@ const CRON_FAQS = [
   {
     question: "How are upcoming execution dates calculated?",
     answer:
-      "Toolora projects forward minute-by-minute according to your cron parameters, checking valid matching sets for each field to give you the precise next 5 trigger timestamps in local time and UTC.",
+      "Bits & Tools projects forward minute-by-minute according to your cron parameters, checking valid matching sets for each field to give you the precise next 5 trigger timestamps in local time and UTC.",
   },
   {
     question: "Is any data sent to a server?",

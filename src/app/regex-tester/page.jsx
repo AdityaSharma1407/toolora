@@ -33,7 +33,7 @@ export const metadata = {
     canonical: "/regex-tester",
   },
   openGraph: {
-    title: "Regular Expression Tester & Debugger | Toolora",
+    title: "Regular Expression Tester & Debugger | Bits & Tools",
     description:
       "Test, debug, and inspect JavaScript regular expressions with real-time match highlighting and capture group inspection.",
     url: "/regex-tester",
@@ -41,7 +41,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Regular Expression Tester & Debugger | Toolora",
+    title: "Regular Expression Tester & Debugger | Bits & Tools",
     description:
       "Real-time regex tester with instant match highlighting, flags, and capture group inspection.",
   },

@@ -33,7 +33,7 @@ export const metadata = {
     canonical: "/markdown-editor",
   },
   openGraph: {
-    title: "Markdown Live Editor & Preview | Toolora",
+    title: "Markdown Live Editor & Preview | Bits & Tools",
     description:
       "Write, edit, and preview GitHub Flavored Markdown with real-time HTML rendering and instant export.",
     url: "/markdown-editor",
@@ -41,7 +41,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Markdown Live Editor & Preview | Toolora",
+    title: "Markdown Live Editor & Preview | Bits & Tools",
     description:
       "Real-time GFM markdown live editor and HTML exporter running 100% in your browser.",
   },

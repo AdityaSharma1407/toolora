@@ -34,7 +34,7 @@ export const metadata = {
     canonical: "/curl-converter",
   },
   openGraph: {
-    title: "cURL to Code Converter | Toolora",
+    title: "cURL to Code Converter | Bits & Tools",
     description:
       "Convert cURL terminal commands into ready-to-run JavaScript, Axios, Python, and Go code snippets.",
     url: "/curl-converter",
@@ -42,7 +42,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "cURL to Code Converter | Toolora",
+    title: "cURL to Code Converter | Bits & Tools",
     description:
       "Instant cURL to Fetch, Axios, Python Requests, Node, and Go generator running 100% in your browser.",
   },

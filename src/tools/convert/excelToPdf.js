@@ -349,7 +349,7 @@ export async function convertExcelToPdf(input, options = {}) {
       color: mutedColor,
     });
 
-    page.drawText("Generated with Toolora", {
+    page.drawText("Generated with Bits & Tools", {
       x: margin,
       y: margin / 2,
       size: footerSize,

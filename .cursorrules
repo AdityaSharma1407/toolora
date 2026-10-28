@@ -1,0 +1,10 @@
+# Strict Project Rules for Bits & Tools
+
+## 1. Brand Identity
+- The platform brand name is STRICTLY "Bits & Tools" (display) and "BitsAndTools" / "bitsandtools" (code / identifiers).
+- The official domain is https://www.bitsandtools.com.
+- NEVER use "Toolora" in user-facing text, page titles, OpenGraph, metadata, sample code, docstrings, or schemas.
+
+## 2. Privacy & Architecture
+- 100% client-side browser execution (zero server uploads, zero external telemetry).
+- Apple HIG design system (#fbfbfd canvas, rounded-2xl/3xl, responsive split-screens).

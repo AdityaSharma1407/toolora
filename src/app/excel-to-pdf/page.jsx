@@ -55,7 +55,7 @@ const EXCEL_FAQS = [
   {
     question: "How does pagination work for large spreadsheets?",
     answer:
-      "Toolora automatically computes row heights and page bounds, splitting large tables cleanly across multiple PDF pages while re-drawing the table header at the top of every subsequent page.",
+      "Bits & Tools automatically computes row heights and page bounds, splitting large tables cleanly across multiple PDF pages while re-drawing the table header at the top of every subsequent page.",
   },
   {
     question: "Can I choose between Landscape and Portrait orientation?",

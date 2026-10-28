@@ -55,7 +55,7 @@ const MP3_FAQS = [
   {
     question: "Does conversion degrade audio quality?",
     answer:
-      "No. Toolora uses the browser's native Web Audio API with 32-bit floating point PCM decoding and 16-bit quantization, preserving acoustic frequency clarity.",
+      "No. Bits & Tools uses the browser's native Web Audio API with 32-bit floating point PCM decoding and 16-bit quantization, preserving acoustic frequency clarity.",
   },
   {
     question: "Are my audio recordings uploaded to any server?",

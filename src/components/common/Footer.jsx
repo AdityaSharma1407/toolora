@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { Layers, ShieldCheck, Heart } from "lucide-react";
+import { Layers, ShieldCheck, Heart, Sparkles } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,19 +20,19 @@ export default function Footer() {
                 Browser-Local Document Processing
               </h4>
               <p className="text-xs text-slate-400">
-                {siteConfig.displayName || "Bits & Tools"} processes your PDF files locally on your device using client-side JavaScript. Your documents are never sent to any external server.
+                {siteConfig.displayName || "Bits & Tools"} processes your files locally on your device using client-side JavaScript. Your documents and data are never sent to any external server.
               </p>
             </div>
           </div>
-          <div className="text-xs text-slate-400">
+          <div className="text-xs text-slate-400 font-medium">
             100% Free &bull; No Sign-Up &bull; Zero Server Storage
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Brand info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+          {/* Brand info (spans 2 columns on large screens) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
@@ -46,7 +46,11 @@ export default function Footer() {
               {siteConfig.description}
             </p>
             <div className="pt-2 text-xs text-slate-500">
-              Designed for speed, clarity, and uncompromising privacy.
+              55 in-browser utilities designed for speed, privacy, and zero server storage.
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 text-emerald-400 text-xs font-semibold border border-slate-700/60">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>All 55 Tools Live &amp; Ready</span>
             </div>
           </div>
 
@@ -57,179 +61,190 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link
-                  href="/merge-pdf"
-                  className="text-slate-300 hover:text-brand-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>Merge PDF</span>
-                  <span className="px-1.5 py-0.2 rounded text-[10px] bg-brand-950 text-brand-300 border border-brand-800">
-                    Live
-                  </span>
+                <Link href="/merge-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Merge PDF
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/split-pdf"
-                  className="text-slate-300 hover:text-brand-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>Split PDF</span>
-                  <span className="px-1.5 py-0.2 rounded text-[10px] bg-brand-950 text-brand-300 border border-brand-800">
-                    Live
-                  </span>
+                <Link href="/split-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Split PDF
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/compress-pdf"
-                  className="text-slate-300 hover:text-brand-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>Compress PDF</span>
-                  <span className="px-1.5 py-0.2 rounded text-[10px] bg-brand-950 text-brand-300 border border-brand-800">
-                    Live
-                  </span>
+                <Link href="/compress-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Compress PDF
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/jpg-to-pdf"
-                  className="text-slate-300 hover:text-brand-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>JPG to PDF</span>
-                  <span className="px-1.5 py-0.2 rounded text-[10px] bg-brand-950 text-brand-300 border border-brand-800">
-                    Live
-                  </span>
+                <Link href="/pdf-to-jpg" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  PDF to JPG
                 </Link>
               </li>
               <li>
-                <Link href="/pdf-tools" className="text-brand-400 hover:underline">
-                  View All PDF Tools &rarr;
+                <Link href="/protect-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Protect PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/pdf-tools" className="text-brand-400 hover:underline font-medium inline-block pt-1">
+                  All 12 PDF Tools &rarr;
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Image Tools */}
+          {/* Image & Media Tools */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Image Tools
+              Images &amp; Media
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link
-                  href="/jpg-to-pdf"
-                  className="text-slate-300 hover:text-brand-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>JPG to PDF</span>
-                  <span className="px-1.5 py-0.2 rounded text-[10px] bg-brand-950 text-brand-300 border border-brand-800">
-                    Live
-                  </span>
+                <Link href="/resize-image" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Resize Image
                 </Link>
               </li>
               <li>
-                <Link href="/image-tools" className="text-brand-400 hover:underline">
-                  View Image Directory &rarr;
+                <Link href="/compress-image" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Compress Image
                 </Link>
               </li>
               <li>
-                <Link href="/#roadmap" className="text-slate-400 hover:text-slate-200">
-                  Upcoming Image Tools
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Platform & Roadmap */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Platform &amp; Roadmap
-            </h4>
-            <ul className="space-y-2 text-xs text-slate-400">
-              <li>
-                <Link href="/#roadmap" className="hover:text-slate-200 transition-colors">
-                  Engineering Roadmap
+                <Link href="/video-to-gif" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Video to GIF
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-slate-200 transition-colors">
-                  Privacy Architecture
+                <Link href="/trim-video" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Trim Video
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-slate-200 transition-colors">
-                  Request a Tool
+                <Link href="/extract-audio" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Extract Audio
+                </Link>
+              </li>
+              <li>
+                <Link href="/media-tools" className="text-brand-400 hover:underline font-medium inline-block pt-1">
+                  All Media Tools &rarr;
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Company & Legal */}
+          {/* File Conversion Suite */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Company &amp; Legal
+              File Conversion
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400">
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/about" className="hover:text-slate-200 transition-colors">
-                  About {siteConfig.displayName || "Bits & Tools"}
+                <Link href="/html-to-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  HTML to PDF
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-slate-200 transition-colors">
+                <Link href="/word-to-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Word to PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/excel-to-pdf" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Excel to PDF
+                </Link>
+              </li>
+              <li>
+                <Link href="/pdf-to-word" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  PDF to Word
+                </Link>
+              </li>
+              <li>
+                <Link href="/pdf-to-excel" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  PDF to Excel
+                </Link>
+              </li>
+              <li>
+                <Link href="/convert-tools" className="text-brand-400 hover:underline font-medium inline-block pt-1">
+                  All Convert Tools &rarr;
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Developer Tools & Legal */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+              Developer &amp; Legal
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/markdown-editor" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Markdown Editor
+                </Link>
+              </li>
+              <li>
+                <Link href="/regex-tester" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Regex Tester
+                </Link>
+              </li>
+              <li>
+                <Link href="/cron-generator" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Cron Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/curl-converter" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  cURL Converter
+                </Link>
+              </li>
+              <li>
+                <Link href="/code-minifier" className="text-slate-300 hover:text-brand-400 transition-colors">
+                  Code Minifier
+                </Link>
+              </li>
+              <li>
+                <Link href="/utility-tools" className="text-brand-400 hover:underline font-medium inline-block pt-1">
+                  All 22 Developer Tools &rarr;
+                </Link>
+              </li>
+              <li className="pt-2 border-t border-slate-800">
+                <Link href="/about" className="text-slate-400 hover:text-slate-200">
+                  About
+                </Link>
+                {" · "}
+                <Link href="/privacy-policy" className="text-slate-400 hover:text-slate-200">
+                  Privacy
+                </Link>
+                {" · "}
+                <Link href="/terms" className="text-slate-400 hover:text-slate-200">
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-slate-400 hover:text-slate-200">
                   Contact Support
                 </Link>
               </li>
               <li>
                 <a
                   href={`mailto:${siteConfig.contactEmail}`}
-                  className="hover:text-slate-200 transition-colors truncate block"
+                  className="text-slate-400 hover:text-slate-200 truncate block text-[11px]"
                   title={`Email: ${siteConfig.contactEmail}`}
                 >
                   {siteConfig.contactEmail}
-                </a>
-              </li>
-              <li>
-                <Link href="/privacy-policy" className="hover:text-slate-200 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="hover:text-slate-200 transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={siteConfig.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-slate-200 transition-colors"
-                >
-                  Open Source Updates
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom copyright & legal bar */}
-        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        {/* Bottom Credits & Copyright */}
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; {currentYear} {siteConfig.displayName || siteConfig.name}. All rights reserved. Built with precision for the modern web.
+            &copy; {currentYear} {siteConfig.displayName || siteConfig.name}. All rights reserved.
           </div>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link href="/privacy-policy" className="hover:text-slate-400">
-              Privacy
-            </Link>
-            <span>&bull;</span>
-            <Link href="/terms" className="hover:text-slate-400">
-              Terms
-            </Link>
-            <span>&bull;</span>
-            <Link href="/contact" className="hover:text-slate-400">
-              Contact
-            </Link>
-            <span>&bull;</span>
-            <span>Client-side utility platform</span>
+          <div className="flex items-center gap-1 text-slate-400">
+            <span>Built for total privacy &bull; Zero server telemetry</span>
           </div>
         </div>
       </div>

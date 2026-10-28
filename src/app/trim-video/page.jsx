@@ -50,7 +50,7 @@ const TRIM_FAQS = [
   {
     question: "How accurate is the video trimmer?",
     answer:
-      "Toolora provides sub-second timeline sliders and exact timecode indicators, allowing you to isolate clips down to tenths of a second.",
+      "Bits & Tools provides sub-second timeline sliders and exact timecode indicators, allowing you to isolate clips down to tenths of a second.",
   },
   {
     question: "What output format is generated after trimming?",

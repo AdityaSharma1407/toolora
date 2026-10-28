@@ -14,9 +14,9 @@ import {
   Layers,
 } from "lucide-react";
 
-const SAMPLE_TEXT = `Welcome to Toolora Developer Tools Suite!
-Contact support at support@toolora.io or sales@toolora.com for inquiries.
-Documentation is accessible at https://toolora.io/docs and https://github.com/toolora/core.
+const SAMPLE_TEXT = `Welcome to Bits & Tools Developer Tools Suite!
+Contact support at support@bitsandtools.com or sales@bitsandtools.com for inquiries.
+Documentation is accessible at https://bitsandtools.com/docs and https://github.com/bitsandtools/core.
 Primary server IP is 192.168.1.1, fallback at 10.0.0.254.
 Release tagged 2026-10-28 with build ID 550e8400-e29b-41d4-a716-446655440000.
 Brand accent color: #3b82f6 or #0f172a.`;

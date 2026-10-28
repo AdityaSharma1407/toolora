@@ -244,7 +244,7 @@ export async function convertPowerpointToPdf(input, options = {}) {
     }
 
     // Slide Footer
-    page.drawText("Toolora Presentation Converter", {
+    page.drawText("Bits & Tools Presentation Converter", {
       x: margin,
       y: 35,
       size: 9,

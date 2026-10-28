@@ -22,9 +22,9 @@ import {
   CheckSquare,
 } from "lucide-react";
 
-const SAMPLE_MARKDOWN = `# Welcome to Toolora Markdown Editor 🚀
+const SAMPLE_MARKDOWN = `# Welcome to Bits & Tools Markdown Editor 🚀
 
-Toolora's Markdown Editor gives you **real-time live preview**, rich formatting tools, and instant export options.
+Bits & Tools Markdown Editor gives you **real-time live preview**, rich formatting tools, and instant export options.
 
 ## Key Features
 
@@ -38,7 +38,7 @@ Toolora's Markdown Editor gives you **real-time live preview**, rich formatting 
 - [ ] Try creating your own document
 
 ### Performance Benchmark Table
-| Metric | Toolora | Traditional Web Tools |
+| Metric | Bits & Tools | Traditional Web Tools |
 | :--- | :--- | :--- |
 | Latency | < 5ms | > 800ms |
 | Server Uploads | Zero | Yes |

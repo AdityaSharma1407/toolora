@@ -50,7 +50,7 @@ const EXTRACT_FAQS = [
   {
     question: "What video formats can I extract sound from?",
     answer:
-      "Toolora supports all standard video formats playable in modern browsers, including MP4, WebM, MOV, and MKV.",
+      "Bits & Tools supports all standard video formats playable in modern browsers, including MP4, WebM, MOV, and MKV.",
   },
   {
     question: "What audio output format is generated?",

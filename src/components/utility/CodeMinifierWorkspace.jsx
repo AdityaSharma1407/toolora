@@ -17,7 +17,7 @@ import {
 
 const SAMPLES = {
   json: `{
-  "appName": "Toolora",
+  "appName": "Bits & Tools",
   "version": "2.0.0",
   "privacy": {
     "zeroServerUploads": true,
@@ -25,7 +25,7 @@ const SAMPLES = {
   },
   "modules": ["pdf", "image", "media", "dev"]
 }`,
-  css: `/* Toolora Global Theme */
+  css: `/* Bits & Tools Global Theme */
 .card-container {
   display: flex;
   flex-direction: column;
@@ -46,11 +46,11 @@ const SAMPLES = {
   <head>
     <!-- Meta Configuration -->
     <meta charset="UTF-8" />
-    <title>Toolora - Developer Suite</title>
+    <title>Bits & Tools - Developer Suite</title>
   </head>
   <body>
     <header class="navbar">
-      <h1>Toolora</h1>
+      <h1>Bits & Tools</h1>
     </header>
   </body>
 </html>`,
