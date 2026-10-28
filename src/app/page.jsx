@@ -7,6 +7,7 @@ import {
 } from "@/data/toolsRegistry";
 import ToolSearch from "@/components/common/ToolSearch";
 import ToolCard from "@/components/common/ToolCard";
+import PinnedToolsBar from "@/components/common/PinnedToolsBar";
 import AdSlot from "@/components/ads/AdSlot";
 import {
   ShieldCheck,
@@ -135,6 +136,9 @@ export default function HomePage() {
               <span>Zero Upload Latency</span>
             </div>
           </div>
+
+          {/* User's Pinned Favorites */}
+          <PinnedToolsBar />
         </div>
       </section>
 
