@@ -12,7 +12,6 @@ import {
   X,
   ChevronDown,
   Layers,
-  Sparkles,
   Search as SearchIcon,
   ArrowRight,
   Download,
@@ -252,21 +251,12 @@ export default function Header() {
                 onClick={promptInstall}
                 aria-label="Install Bits & Tools App"
                 title="Install Bits & Tools App to Desktop or Home Screen"
-                className="hidden xl:inline-flex items-center gap-1.5 min-h-[36px] px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+                className="hidden sm:inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 bg-brand-50 hover:bg-brand-100 text-brand-700 border border-brand-200/60 rounded-xl text-xs font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 shadow-2xs"
               >
                 <Download className="w-3.5 h-3.5 text-brand-600" />
-                <span>Install</span>
+                <span>Install App</span>
               </button>
             )}
-
-            {/* Quick Action Link */}
-            <Link
-              href="/merge-pdf"
-              className="hidden sm:inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white rounded-xl text-xs font-semibold shadow-subtle transition-all"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Merge PDF</span>
-            </Link>
 
             {/* Mobile Menu Toggle Button */}
             <button

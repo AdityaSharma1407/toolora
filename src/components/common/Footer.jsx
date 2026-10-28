@@ -49,8 +49,8 @@ export default function Footer() {
               55 in-browser utilities designed for speed, privacy, and zero server storage.
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 text-emerald-400 text-xs font-semibold border border-slate-700/60">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>All 55 Tools Live &amp; Ready</span>
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>100% Client-Side Privacy</span>
             </div>
           </div>
 

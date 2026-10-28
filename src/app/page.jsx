@@ -192,15 +192,15 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-slate-100 gap-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-600 mb-1">
-                <CheckCircle className="w-3.5 h-3.5" />
-                <span>All 55 Tools Active &amp; Ready</span>
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600 mb-1">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Fast &amp; Free In-Browser Suite</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Live Online Tools
+                Explore All Tools
               </h2>
               <p className="text-sm text-slate-500 mt-1">
-                Explore all 55 tools that are fully functional, thoroughly tested, and ready to execute locally right now.
+                Browse our complete collection of 55 client-side utilities. Fast, private, and 100% free with zero file uploads.
               </p>
             </div>
 
@@ -269,7 +269,7 @@ export default function HomePage() {
                     PDF Productivity Suite
                   </h3>
                   <p className="text-xs text-slate-500">
-                    12 live client-side tools for merging, splitting, compressing, converting, rotating, protecting, and numbering PDF files.
+                    12 client-side tools for merging, splitting, compressing, converting, rotating, protecting, and numbering PDF files.
                   </p>
                 </div>
               </div>
@@ -494,7 +494,7 @@ export default function HomePage() {
                 <FileText className="w-5 h-5" />
               </div>
               <div className="text-sm font-bold text-slate-900">PDF Suite</div>
-              <div className="text-xs text-emerald-600 font-semibold">12 of 12 Live</div>
+              <div className="text-xs text-slate-500 font-medium">12 Tools</div>
             </Link>
 
             <Link
@@ -505,7 +505,7 @@ export default function HomePage() {
                 <ImageIcon className="w-5 h-5" />
               </div>
               <div className="text-sm font-bold text-slate-900">Image Suite</div>
-              <div className="text-xs text-emerald-600 font-semibold">10 of 10 Live</div>
+              <div className="text-xs text-slate-500 font-medium">10 Tools</div>
             </Link>
 
             <Link
@@ -516,7 +516,7 @@ export default function HomePage() {
                 <Repeat className="w-5 h-5" />
               </div>
               <div className="text-sm font-bold text-slate-900">File Conversion</div>
-              <div className="text-xs text-emerald-600 font-semibold">6 of 6 Live</div>
+              <div className="text-xs text-slate-500 font-medium">6 Tools</div>
             </Link>
 
             <Link
@@ -527,7 +527,7 @@ export default function HomePage() {
                 <Film className="w-5 h-5" />
               </div>
               <div className="text-sm font-bold text-slate-900">Media Suite</div>
-              <div className="text-xs text-emerald-600 font-semibold">5 of 5 Live</div>
+              <div className="text-xs text-slate-500 font-medium">5 Tools</div>
             </Link>
 
             <Link
@@ -538,7 +538,7 @@ export default function HomePage() {
                 <Wrench className="w-5 h-5" />
               </div>
               <div className="text-sm font-bold text-slate-900">Developer Suite</div>
-              <div className="text-xs text-emerald-600 font-semibold">22 of 22 Live</div>
+              <div className="text-xs text-slate-500 font-medium">22 Tools</div>
             </Link>
           </div>
         </div>

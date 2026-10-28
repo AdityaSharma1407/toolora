@@ -72,17 +72,16 @@ export default function ImageToolsPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-        {/* Available Live Image Tools */}
+        {/* Image Tools */}
         {availableTools.length > 0 && (
           <section>
             <div className="flex items-center justify-between pb-3 mb-6 border-b border-slate-100">
               <div>
-                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-600" />
-                  <span>Ready to Use Now</span>
+                <h2 className="text-xl font-bold text-slate-900">
+                  Image Utilities ({availableTools.length})
                 </h2>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  These image tools are fully functional and execute locally in your web browser.
+                  Fast, private image editing and conversion utilities running locally in your browser.
                 </p>
               </div>
             </div>
@@ -95,15 +94,15 @@ export default function ImageToolsPage() {
           </section>
         )}
 
-        {/* Planned Image Utilities Roadmap */}
+        {/* Additional Image Utilities */}
         {upcomingTools.length > 0 && (
           <section>
             <div className="pb-3 mb-6 border-b border-slate-100">
               <h2 className="text-xl font-bold text-slate-900">
-                Upcoming Image Utilities Roadmap
+                More Image Tools
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                These utilities are currently scheduled for upcoming release cycles.
+                Additional utilities currently being added.
               </p>
             </div>
 

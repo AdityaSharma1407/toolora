@@ -71,21 +71,17 @@ export default function UtilityToolsPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-        {/* Available Live Tools */}
+        {/* Available Tools */}
         <section>
           <div className="flex items-center justify-between pb-3 mb-6 border-b border-slate-100">
             <div>
-              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-emerald-600" />
-                <span>Ready to Use Now</span>
+              <h2 className="text-xl font-bold text-slate-900">
+                Developer &amp; Everyday Utilities ({availableTools.length})
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                Full-featured utilities running directly inside your browser.
+                Client-side productivity utilities running directly inside your browser.
               </p>
             </div>
-            <span className="text-xs font-semibold px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200/60 rounded-full">
-              {availableTools.length} Tools Ready
-            </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -95,13 +91,13 @@ export default function UtilityToolsPage() {
           </div>
         </section>
 
-        {/* Coming Soon Tools */}
+        {/* Additional Tools */}
         {upcomingTools.length > 0 && (
           <section className="pt-6">
             <div className="pb-3 mb-6 border-b border-slate-100">
-              <h2 className="text-lg font-bold text-slate-700">In Development</h2>
+              <h2 className="text-lg font-bold text-slate-700">More Utilities</h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                Additional utilities in active development.
+                Additional utilities currently being added.
               </p>
             </div>
 

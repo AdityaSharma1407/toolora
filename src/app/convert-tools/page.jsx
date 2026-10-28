@@ -80,7 +80,7 @@ export default function ConvertToolsPage() {
         <div>
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
-              Active Converters ({availableTools.length})
+              Document Converters ({availableTools.length})
             </h2>
           </div>
 

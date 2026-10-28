@@ -80,7 +80,7 @@ export default function MediaToolsPage() {
         <div>
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
-              Active Media Tools ({availableTools.length})
+              Audio &amp; Video Utilities ({availableTools.length})
             </h2>
           </div>
 

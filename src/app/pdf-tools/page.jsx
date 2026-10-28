@@ -75,12 +75,11 @@ export default function PdfToolsPage() {
         <section>
           <div className="flex items-center justify-between pb-3 mb-6 border-b border-slate-100">
             <div>
-              <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-emerald-600" />
-                <span>Ready to Use Now</span>
+              <h2 className="text-xl font-bold text-slate-900">
+                PDF Utilities ({availableTools.length})
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                These tools are fully functional and ready to run.
+                Fast, private utilities running directly in your browser.
               </p>
             </div>
           </div>
@@ -95,15 +94,15 @@ export default function PdfToolsPage() {
         {/* Optional Ad placement */}
         <AdPlacement placement="category-content" />
 
-        {/* In-Development Roadmap Tools */}
+        {/* Additional Tools */}
         {upcomingTools.length > 0 && (
           <section>
             <div className="pb-3 mb-6 border-b border-slate-100">
               <h2 className="text-xl font-bold text-slate-900">
-                Upcoming PDF Tools
+                More PDF Tools
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                These utilities are currently scheduled for release in upcoming updates.
+                Additional utilities currently being added.
               </p>
             </div>
 

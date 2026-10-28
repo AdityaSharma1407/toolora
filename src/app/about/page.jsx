@@ -108,36 +108,19 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Ethical Monetization */}
-        <section className="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-6 sm:p-8 space-y-3">
-          <h2 className="text-xl font-bold text-slate-900">
-            Our Monetization Model
-          </h2>
-          <p className="text-sm text-slate-600 leading-relaxed">
-            Bits &amp; Tools is funded through ethical, non-intrusive display advertising (such as Google AdSense).
-            Here is our advertising promise:
-          </p>
-          <ul className="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
-            <li>We never require users to click ads to access tools.</li>
-            <li>We never place deceptive ads that mimic download or upload buttons.</li>
-            <li>We respect your cookie and privacy consent choices at all times.</li>
-            <li>We keep the tool interfaces clean, clear, and distraction-free.</li>
-          </ul>
-        </section>
-
         {/* Explore Tools CTA */}
         <div className="p-8 bg-brand-600 text-white rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-md shadow-brand-500/20">
           <div>
             <h3 className="text-xl font-bold">Ready to try our private tools?</h3>
             <p className="text-xs text-brand-100 mt-1 max-w-md">
-              Start with our popular PDF and Image tools. 100% free with instant browser processing.
+              Start with our popular PDF, image, conversion, and developer tools. 100% free with instant browser processing.
             </p>
           </div>
           <Link
-            href="/pdf-tools"
+            href="/#all-tools"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold bg-white text-brand-600 hover:bg-brand-50 transition-colors shrink-0 shadow-sm"
           >
-            <span>Explore All PDF Tools</span>
+            <span>Explore All 55 Tools</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
