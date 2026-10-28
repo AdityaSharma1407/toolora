@@ -4,7 +4,8 @@ import { Sparkles, Shield, Cpu, Users, CheckCircle2 } from "lucide-react";
 /**
  * Standardized "Key Takeaway / Executive Summary" AEO Block
  * Formatted with W3C Digital Publishing semantic markup (`role="doc-abstract"`)
- * for algorithmic re-ranking and AI extraction (Google AI Overviews, Perplexity, Gemini, ChatGPT).
+ * for algorithmic re-ranking, visual token weight optimization (18px-20px computed font, maximum contrast),
+ * and zero-click AI citation extraction (Google AI Overviews, Perplexity, Gemini, ChatGPT).
  */
 export default function QuickTake({
   toolName,
@@ -40,20 +41,21 @@ export default function QuickTake({
     <section
       role="doc-abstract"
       aria-label={`Key Takeaways — ${toolName} Summary`}
-      className="mt-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-50 via-white to-brand-50/40 border border-slate-200/90 shadow-subtle text-left max-w-3xl mx-auto"
+      className="mt-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-50 via-white to-brand-50/40 border border-slate-200/90 shadow-subtle text-left max-w-3xl mx-auto"
     >
-      <div className="flex items-center justify-between mb-2.5">
+      <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-700">
           <Sparkles className="w-4 h-4 text-brand-600" />
           <span>Key Takeaway &bull; Executive Summary</span>
         </div>
-        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full">
-          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-          <span>Verified Client-Side</span>
+        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2.5 py-0.5 rounded-full">
+          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+          <span>100% Client-Side In-Memory</span>
         </span>
       </div>
 
-      <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+      {/* Visual Token Weight: Computed 18px-20px font with maximum contrast (text-slate-900) */}
+      <p className="text-lg sm:text-[19px] lg:text-xl font-medium text-slate-900 leading-relaxed tracking-normal">
         {defaultSummary}
       </p>
 
@@ -61,18 +63,22 @@ export default function QuickTake({
       <ul
         role="list"
         aria-label="Core Technical Capabilities"
-        className="mt-4 pt-3.5 border-t border-slate-200/70 grid grid-cols-1 sm:grid-cols-3 gap-3.5"
+        className="mt-5 pt-4 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-3 gap-4"
       >
         {highlights.map((h, i) => {
           const Icon = h.icon;
           return (
-            <li key={i} className="flex items-start gap-2.5 text-xs text-slate-600">
-              <div className="p-1.5 rounded-lg bg-brand-50 text-brand-600 shrink-0 mt-0.5">
+            <li key={i} className="flex items-start gap-2.5 text-xs text-slate-700">
+              <div className="p-1.5 rounded-lg bg-brand-50 text-brand-600 shrink-0 mt-0.5 border border-brand-100">
                 <Icon className="w-4 h-4" />
               </div>
               <div>
-                <strong className="font-semibold text-slate-900 block">{h.label}</strong>
-                <span className="text-[11px] leading-snug text-slate-500 block mt-0.5">{h.text}</span>
+                <strong className="font-semibold text-slate-900 block text-xs sm:text-sm">
+                  {h.label}
+                </strong>
+                <span className="text-xs text-slate-700 leading-normal block mt-0.5 font-normal">
+                  {h.text}
+                </span>
               </div>
             </li>
           );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Upload, ArrowUpDown, Download } from "lucide-react";
+import AnchorHeading from "./AnchorHeading";
 
 const DEFAULT_STEPS = [
   {
@@ -35,19 +36,22 @@ export default function HowItWorks({
     <section className={`py-12 bg-canvas border-y border-black/[0.06] ${className}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <AnchorHeading
+            as="h2"
+            className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight justify-center"
+          >
             {title}
-          </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+          </AnchorHeading>
+          <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
             {subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <ol className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 list-none p-0">
           {steps.map((item, idx) => {
             const Icon = item.icon || Upload;
             return (
-              <div
+              <li
                 key={idx}
                 className="relative bg-white p-6 rounded-2xl border border-black/[0.06] shadow-subtle flex flex-col"
               >
@@ -59,16 +63,21 @@ export default function HowItWorks({
                     {item.step}
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-2">
+
+                <AnchorHeading
+                  as="h3"
+                  className="text-lg font-semibold text-slate-900 tracking-tight mb-2"
+                >
                   {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed flex-1">
+                </AnchorHeading>
+
+                <p className="text-sm text-slate-700 leading-relaxed font-normal">
                   {item.description}
                 </p>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ol>
       </div>
     </section>
   );

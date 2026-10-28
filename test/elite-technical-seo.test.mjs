@@ -300,4 +300,38 @@ describe("Elite Technical SEO Architecture & Protocol Verification", () => {
       }
     });
   });
+
+  // Phase 5: Ultra-Low-Level Structural Refinement
+  describe("Phase 5: Ultra-Low-Level Structural Refinement", () => {
+    test("Visual Token Weight: QuickTake mandates 18px-20px computed font and maximum contrast text-slate-900", () => {
+      const code = fs.readFileSync(path.join(rootDir, "src", "components", "common", "QuickTake.jsx"), "utf-8");
+      assert.ok(code.includes("text-lg sm:text-[19px] lg:text-xl"), "QuickTake must enforce 18px-20px font tokens");
+      assert.ok(code.includes("text-slate-900"), "QuickTake must use maximum contrast text-slate-900");
+    });
+
+    test("DOM Content Visibility: FAQSection keeps all answer content in HTML without display:none", () => {
+      const code = fs.readFileSync(path.join(rootDir, "src", "components", "common", "FAQSection.jsx"), "utf-8");
+      assert.ok(code.includes("<details"), "FAQSection must use semantic <details> for native bot indexability");
+      assert.ok(code.includes("<summary"), "FAQSection must use semantic <summary>");
+      assert.ok(!code.includes("display:none"), "No answer content may be buried in display:none");
+      assert.ok(!code.includes("opacity-0"), "No answer content may be buried in opacity-0");
+    });
+
+    test("Deterministic Anchor Graphing: slugifyHeading and injectHeadingAnchors output clean fragment targets", async () => {
+      const { slugifyHeading, injectHeadingAnchors } = await import("../src/lib/seo/anchors.js");
+      assert.equal(slugifyHeading("How to Merge PDF Files Online"), "how-to-merge-pdf-files-online");
+      assert.equal(slugifyHeading("FAQ & System Requirements 2026!"), "faq-system-requirements-2026");
+
+      const rawHtml = "<h2>Frequently Asked Questions</h2><p>Content</p>";
+      const anchored = injectHeadingAnchors(rawHtml);
+      assert.ok(anchored.includes('id="frequently-asked-questions"'));
+      assert.ok(anchored.includes('href="#frequently-asked-questions"'));
+    });
+
+    test("Strict Semantic Silo Enforcement: RelatedTools computes taxonomy affinity without cross-cluster leaks", () => {
+      const code = fs.readFileSync(path.join(rootDir, "src", "components", "common", "RelatedTools.jsx"), "utf-8");
+      assert.ok(code.includes("computeSemanticAffinity"), "RelatedTools must compute taxonomy/keyword vector overlap");
+      assert.ok(!code.includes("displayTools = [...displayTools, ...general"), "Strict siloing must never leak cross-cluster tools");
+    });
+  });
 });

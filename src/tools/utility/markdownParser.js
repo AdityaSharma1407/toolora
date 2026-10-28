@@ -167,6 +167,13 @@ export function compileMarkdownToHtml(md = "") {
       flushList();
       const level = headerMatch[1].length;
       const text = parseInlineMarkdown(headerMatch[2]);
+      const slug = headerMatch[2]
+        .toLowerCase()
+        .replace(/<[^>]*>/g, "")
+        .replace(/[^a-z0-9\s-_]/g, "")
+        .trim()
+        .replace(/[\s_]+/g, "-")
+        .replace(/-+/g, "-");
       const classes = {
         1: "text-2xl font-bold tracking-tight text-gray-900 dark:text-white mt-6 mb-3",
         2: "text-xl font-bold tracking-tight text-gray-900 dark:text-white mt-5 mb-2.5",
@@ -175,7 +182,10 @@ export function compileMarkdownToHtml(md = "") {
         5: "text-sm font-semibold text-gray-900 dark:text-white mt-2 mb-1",
         6: "text-xs font-semibold text-gray-900 dark:text-white mt-2 mb-1",
       }[level];
-      output.push(`<h${level} class="${classes}">${text}</h${level}>`);
+      const anchor = level <= 3 && slug
+        ? ` <a href="#${slug}" class="heading-anchor text-gray-400 hover:text-blue-600 no-underline text-sm opacity-0 group-hover:opacity-100 transition-opacity ml-1.5" aria-label="Direct link to ${slug}">#</a>`
+        : "";
+      output.push(`<h${level} id="${slug}" class="group ${classes}">${text}${anchor}</h${level}>`);
       continue;
     }
 

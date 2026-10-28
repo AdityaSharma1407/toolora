@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import React from "react";
+import { ChevronDown, HelpCircle } from "lucide-react";
+import AnchorHeading from "./AnchorHeading";
+import { slugifyHeading } from "@/lib/seo/anchors";
 
 export default function FAQSection({
   title = "Frequently Asked Questions",
@@ -11,8 +13,6 @@ export default function FAQSection({
   includeSchema = true,
   className = "",
 }) {
-  const [openIndex, setOpenIndex] = useState(0);
-
   const faqList = Array.isArray(items) && items.length > 0 ? items : (Array.isArray(faqs) ? faqs : []);
 
   if (faqList.length === 0) return null;
@@ -31,10 +31,6 @@ export default function FAQSection({
     })),
   };
 
-  const toggle = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
-  };
-
   return (
     <section className={`py-12 ${className}`}>
       {includeSchema && (
@@ -46,55 +42,48 @@ export default function FAQSection({
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+          <AnchorHeading
+            as="h2"
+            className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight justify-center"
+          >
             {title}
-          </h2>
+          </AnchorHeading>
           {subtitle && (
-            <p className="mt-2 text-sm md:text-base text-slate-600">
+            <p className="mt-2 text-sm md:text-base text-slate-700 font-normal">
               {subtitle}
             </p>
           )}
         </div>
 
-        <div className="space-y-3">
+        {/* Semantic Definition List & Accessible Details Elements */}
+        <div className="space-y-3.5">
           {faqList.map((faq, index) => {
-            const isOpen = openIndex === index;
-            const faqId = `faq-content-${index}`;
-            const headerId = `faq-header-${index}`;
+            const questionSlug = slugifyHeading(faq.question);
+            const isInitialOpen = index === 0;
 
             return (
-              <div
+              <details
                 key={index}
-                className="bg-white border border-black/[0.06] rounded-2xl overflow-hidden shadow-subtle transition-all"
+                id={questionSlug}
+                open={isInitialOpen}
+                className="group bg-white border border-black/[0.06] rounded-2xl overflow-hidden shadow-subtle transition-all duration-200 scroll-mt-24"
               >
-                <button
-                  type="button"
-                  id={headerId}
-                  aria-expanded={isOpen}
-                  aria-controls={faqId}
-                  onClick={() => toggle(index)}
-                  className="w-full min-h-[48px] flex items-center justify-between text-left p-4 sm:p-5 text-slate-900 font-semibold text-sm sm:text-base hover:text-brand-600 focus:outline-none focus-visible:bg-slate-50 transition-colors"
-                >
-                  <span className="pr-4">{faq.question}</span>
+                <summary className="w-full min-h-[48px] flex items-center justify-between text-left p-4 sm:p-5 text-slate-900 font-semibold text-sm sm:text-base hover:text-brand-600 focus:outline-none focus-visible:bg-slate-50 transition-colors cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-center gap-2.5 pr-4">
+                    <HelpCircle className="w-4 h-4 text-brand-600 shrink-0" />
+                    <span>{faq.question}</span>
+                  </span>
                   <ChevronDown
-                    className={`w-4 h-4 sm:w-5 sm:h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-brand-600" : ""
-                    }`}
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 shrink-0 transition-transform duration-200 group-open:rotate-180 group-open:text-brand-600"
                     aria-hidden="true"
                   />
-                </button>
+                </summary>
 
-                {isOpen && (
-                  <div
-                    id={faqId}
-                    role="region"
-                    aria-labelledby={headerId}
-                    className="px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100/80 pt-3"
-                  >
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
+                {/* Answer content is strictly preserved in the DOM without hidden CSS for immediate crawler extraction */}
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-slate-800 leading-relaxed border-t border-slate-100/90 pt-3.5 font-normal">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
             );
           })}
         </div>

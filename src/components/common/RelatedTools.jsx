@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { getAvailableTools, getToolById, getToolsByCategory } from "@/data/toolsRegistry";
 import DynamicIcon from "./DynamicIcon";
+import AnchorHeading from "./AnchorHeading";
 import { ArrowRight, Sparkles, FolderTree } from "lucide-react";
 
 const CATEGORY_HUB_MAP = {
@@ -11,6 +12,26 @@ const CATEGORY_HUB_MAP = {
   media: { route: "/media-tools", name: "Media Tools Hub", label: "View all audio & video utilities" },
   utility: { route: "/utility-tools", name: "Developer Tools Hub", label: "View all developer utilities" },
 };
+
+/**
+ * Computes taxonomy & keyword vector overlap between two tools within the same cluster
+ */
+function computeSemanticAffinity(toolA, toolB) {
+  if (!toolA || !toolB) return 0;
+  const keywordsA = new Set(toolA.keywords?.map((k) => k.toLowerCase()) || []);
+  const keywordsB = new Set(toolB.keywords?.map((k) => k.toLowerCase()) || []);
+
+  if (keywordsA.size === 0 || keywordsB.size === 0) return 0;
+
+  let intersection = 0;
+  for (const k of keywordsA) {
+    if (keywordsB.has(k)) intersection++;
+  }
+
+  // Jaccard similarity index
+  const union = new Set([...keywordsA, ...keywordsB]).size;
+  return union > 0 ? intersection / union : 0;
+}
 
 export default function RelatedTools({
   currentToolId,
@@ -22,31 +43,33 @@ export default function RelatedTools({
   const categoryId = currentTool?.category;
   const pillarHub = categoryId ? CATEGORY_HUB_MAP[categoryId] : null;
 
-  // Enforce strict topical siloing: filter siblings strictly within the same category
-  let siblingPool = [];
+  // Strict semantic siloing: candidate tools MUST belong strictly to the same category cluster
+  let candidatePool = [];
   if (categoryId) {
-    siblingPool = getToolsByCategory(categoryId).filter(
+    candidatePool = getToolsByCategory(categoryId).filter(
+      (t) => t.status === "available" && t.id !== currentToolId && (!currentTool || t.route !== currentTool.route)
+    );
+  } else {
+    // If tool has no specific category (e.g. general homepage), use general available pool
+    candidatePool = getAvailableTools().filter(
       (t) => t.status === "available" && t.id !== currentToolId && (!currentTool || t.route !== currentTool.route)
     );
   }
 
-  // Deduplicate sibling tools by route
-  const uniqueSiblings = siblingPool.filter(
+  // Deduplicate sibling candidates by route
+  const uniqueCandidates = candidatePool.filter(
     (tool, idx, arr) => idx === arr.findIndex((t) => t.route === tool.route)
   );
 
-  // Fallback to general available tools only if category has fewer than maxItems siblings
-  let displayTools = uniqueSiblings.slice(0, maxItems);
-  if (displayTools.length < maxItems) {
-    const general = getAvailableTools().filter(
-      (t) =>
-        t.status === "available" &&
-        t.id !== currentToolId &&
-        (!currentTool || t.route !== currentTool.route) &&
-        !displayTools.some((d) => d.route === t.route)
-    );
-    displayTools = [...displayTools, ...general.slice(0, maxItems - displayTools.length)];
-  }
+  // Rank candidate siblings by semantic tag & keyword vector overlap
+  const rankedSiblings = [...uniqueCandidates].sort((a, b) => {
+    const scoreA = computeSemanticAffinity(currentTool, a);
+    const scoreB = computeSemanticAffinity(currentTool, b);
+    return scoreB - scoreA;
+  });
+
+  // Strict Silo: strictly take top items from the ranked cluster candidates. Zero cross-cluster leakage.
+  const displayTools = rankedSiblings.slice(0, maxItems);
 
   if (displayTools.length === 0) return null;
 
@@ -66,11 +89,16 @@ export default function RelatedTools({
               <Sparkles className="w-3.5 h-3.5" />
               <span>{pillarHub ? pillarHub.name : "Client-Side Utilities"}</span>
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-              {displayTitle}
-            </h2>
+            <div>
+              <AnchorHeading
+                as="h2"
+                className="text-2xl font-bold text-slate-900 tracking-tight"
+              >
+                {displayTitle}
+              </AnchorHeading>
+            </div>
             {displaySubtitle && (
-              <p className="mt-2 text-sm text-slate-600 max-w-2xl">
+              <p className="mt-2 text-sm text-slate-700 max-w-2xl font-normal">
                 {displaySubtitle}
               </p>
             )}
@@ -111,13 +139,13 @@ export default function RelatedTools({
                 <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition-all" />
               </h3>
 
-              <p className="mt-1.5 text-xs sm:text-sm text-slate-500 leading-relaxed flex-1">
+              <p className="mt-1.5 text-xs sm:text-sm text-slate-700 leading-relaxed flex-1 font-normal">
                 {tool.description}
               </p>
 
               <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
                 <span>Launch tool free &rarr;</span>
-                <span className="text-[11px] font-normal text-slate-400">100% Private</span>
+                <span className="text-[11px] font-normal text-slate-500">100% Private</span>
               </div>
             </Link>
           ))}
