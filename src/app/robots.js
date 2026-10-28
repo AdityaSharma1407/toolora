@@ -10,6 +10,19 @@ export default function robots() {
         allow: "/",
         disallow: ["/api/"],
       },
+      {
+        userAgent: [
+          "GPTBot",
+          "PerplexityBot",
+          "ClaudeBot",
+          "Claude-Web",
+          "Google-Extended",
+          "OAI-SearchBot",
+          "Amazonbot",
+        ],
+        allow: "/",
+        disallow: ["/api/"],
+      },
     ],
     sitemap: [
       `${baseUrl}/sitemap.xml`,
@@ -17,5 +30,6 @@ export default function robots() {
       `${baseUrl}/sitemap-fresh.xml`,
       `${baseUrl}/sitemap-archive.xml`,
     ],
+    host: baseUrl,
   };
 }

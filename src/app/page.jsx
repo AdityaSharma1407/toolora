@@ -9,6 +9,7 @@ import ToolSearch from "@/components/common/ToolSearch";
 import ToolCard from "@/components/common/ToolCard";
 import PinnedToolsBar from "@/components/common/PinnedToolsBar";
 import FAQSection from "@/components/common/FAQSection";
+import QuickFactsCallout from "@/components/common/QuickFactsCallout";
 import AdSlot from "@/components/ads/AdSlot";
 import { resolveTemporalParity } from "@/lib/seo/temporal-engine";
 
@@ -579,6 +580,17 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Platform Quick Facts & Technical Specifications (<aside role="region" aria-label="Quick Facts">) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <QuickFactsCallout
+          toolName="Platform Suite"
+          route="/"
+          supportedFormats="PDF, JPG, PNG, WebP, MP4, MP3, HTML, Word, Excel, CSV, JSON"
+          category="Client-Side Utilities Suite"
+          processingLatency="< 1.0 seconds in local device memory"
+        />
+      </div>
 
       {/* Homepage Platform FAQ with JSON-LD Schema */}
       <FAQSection

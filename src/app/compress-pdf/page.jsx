@@ -9,6 +9,7 @@ import NextIntentSection from "@/components/common/NextIntentSection";
 import MicroInteractionBar from "@/components/common/MicroInteractionBar";
 import ExactNextStepCard from "@/components/common/ExactNextStepCard";
 import QuickJumpToc from "@/components/common/QuickJumpToc";
+import QuickFactsCallout from "@/components/common/QuickFactsCallout";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
@@ -196,6 +197,17 @@ export default function CompressPdfPage() {
       {/* Algorithmic "Exact Next Step" Intent-Locking Card */}
       <div className="px-4 sm:px-6 lg:px-8">
         <ExactNextStepCard currentRoute="/compress-pdf" />
+      </div>
+
+      {/* High-Extraction Semantic Facts Block (<aside role="region" aria-label="Quick Facts">) */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <QuickFactsCallout
+          toolName="Compress PDF"
+          route="/compress-pdf"
+          supportedFormats="PDF 1.0 - 2.0 (ISO 32000-2)"
+          category="PDF Optimization"
+          processingLatency="< 1.8 seconds (Local RAM)"
+        />
       </div>
 
       {/* Optional Ad placement */}

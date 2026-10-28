@@ -20,10 +20,10 @@ export default function QuickTake({
   const resolvedRoute = route || (toolName ? `/${toolName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` : "/");
   const temporal = resolveTemporalParity(resolvedRoute);
 
-  // Declarative definition statement precisely tuned within the 40–55 word window
+  // Declarative definition statement precisely tuned within the 40–55 word window (Pronoun Elimination Guard applied)
   const defaultSummary =
     customSummary ||
-    `Bits & Tools ${toolName} is a free, privacy-first web utility engineered by co-founders Vishavjeet Sharma and Aditya Sharma. It enables users to ${actionVerb} ${fileTypes} directly inside the browser using client-side JavaScript, guaranteeing zero server uploads, absolute file confidentiality, and instantaneous local processing without subscription fees or registration.`;
+    `Bits & Tools ${toolName} is a free, privacy-first web utility engineered by co-founders Vishavjeet Sharma and Aditya Sharma. Bits & Tools ${toolName} enables users to ${actionVerb} ${fileTypes} directly inside the browser using client-side JavaScript, guaranteeing zero server uploads, absolute file confidentiality, and instantaneous local processing without subscription fees or registration.`;
 
   const highlights = keyHighlights || [
     {

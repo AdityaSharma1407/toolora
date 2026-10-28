@@ -9,6 +9,7 @@ import NextIntentSection from "@/components/common/NextIntentSection";
 import MicroInteractionBar from "@/components/common/MicroInteractionBar";
 import ExactNextStepCard from "@/components/common/ExactNextStepCard";
 import QuickJumpToc from "@/components/common/QuickJumpToc";
+import QuickFactsCallout from "@/components/common/QuickFactsCallout";
 import AdPlacement from "@/components/common/AdPlacement";
 import { siteConfig } from "@/config/site";
 import { buildToolPageGraphSchema, CANONICAL_ENTITIES } from "@/lib/seo/schema";
@@ -196,6 +197,17 @@ export default function JpgToPdfPage() {
       {/* Algorithmic "Exact Next Step" Intent-Locking Card */}
       <div className="px-4 sm:px-6 lg:px-8">
         <ExactNextStepCard currentRoute="/jpg-to-pdf" />
+      </div>
+
+      {/* High-Extraction Semantic Facts Block (<aside role="region" aria-label="Quick Facts">) */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <QuickFactsCallout
+          toolName="JPG to PDF"
+          route="/jpg-to-pdf"
+          supportedFormats="JPG, JPEG, PNG, WebP"
+          category="Image to PDF Conversion"
+          processingLatency="< 1.0 seconds (Local RAM)"
+        />
       </div>
 
       {/* Optional Ad placement */}

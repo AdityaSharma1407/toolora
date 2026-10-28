@@ -78,6 +78,62 @@ export const CANONICAL_ENTITIES = {
       "https://www.wikidata.org/wiki/Q1033878",
     ],
   },
+  LOSSLESS_COMPRESSION: {
+    "@type": "Thing",
+    name: "Lossless Data Compression",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/Lossless_compression",
+      "https://www.wikidata.org/wiki/Q1129599",
+    ],
+  },
+  CRYPTOGRAPHIC_HASH: {
+    "@type": "Thing",
+    name: "Cryptographic Hash Function",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/Cryptographic_hash_function",
+      "https://www.wikidata.org/wiki/Q129746",
+    ],
+  },
+  QR_CODE: {
+    "@type": "Thing",
+    name: "QR Code",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/QR_code",
+      "https://www.wikidata.org/wiki/Q12203",
+    ],
+  },
+  JSON: {
+    "@type": "Thing",
+    name: "JSON (JavaScript Object Notation)",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/JSON",
+      "https://www.wikidata.org/wiki/Q2063",
+    ],
+  },
+  MARKDOWN: {
+    "@type": "Thing",
+    name: "Markdown",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/Markdown",
+      "https://www.wikidata.org/wiki/Q1193600",
+    ],
+  },
+  REGULAR_EXPRESSION: {
+    "@type": "Thing",
+    name: "Regular Expression (Regex)",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/Regular_expression",
+      "https://www.wikidata.org/wiki/Q185612",
+    ],
+  },
+  PWA: {
+    "@type": "Thing",
+    name: "Progressive Web Application (PWA)",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/Progressive_web_app",
+      "https://www.wikidata.org/wiki/Q28456075",
+    ],
+  },
 };
 
 /**
@@ -361,6 +417,34 @@ export function buildToolPageGraphSchema({
     mentions: [
       CANONICAL_ENTITIES.WEBASSEMBLY,
       ...mentionsEntities,
+    ],
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [
+        "[role='doc-abstract'] p",
+        "aside[aria-label='Quick Facts'] p",
+        "aside[aria-label='Quick Facts'] dl",
+      ],
+    },
+    hasPart: [
+      {
+        "@type": "WebPageElement",
+        isAccessibleForFree: "True",
+        cssSelector: "#quick-facts",
+        name: "Technical Specifications",
+      },
+      {
+        "@type": "WebPageElement",
+        isAccessibleForFree: "True",
+        cssSelector: "#how-it-works",
+        name: "Procedural Instructions",
+      },
+      {
+        "@type": "WebPageElement",
+        isAccessibleForFree: "True",
+        cssSelector: "#faq",
+        name: "Frequently Asked Questions",
+      },
     ],
   });
 

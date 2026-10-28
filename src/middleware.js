@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 import { evaluateConditionalRequest } from "./lib/seo/edge-cache.js";
 import { SERP_COOKIE_NAME, SERP_HEADER_NAME } from "./lib/seo/ab-meta-engine.js";
+import { isAiCrawler, isMarkdownPreferred, generateRouteMarkdown } from "./lib/seo/ai-markdown-generator.js";
 
 /**
- * Edge Middleware for Delta Caching, ETag Validation & Meta A/B Split Testing
- * 
- * 1. Inspects If-None-Match and If-Modified-Since against the verified temporal engine.
- *    Emits 304 Not Modified when fresh, preserving search engine crawl budget.
- * 2. Assigns & tracks randomized or query-driven SERP meta variants (A/B testing)
- *    to measure click-through rate performance and dwell-time affinity.
+ * Edge Middleware for:
+ * 1. AI Search & LLM Dual-Mode Content Negotiation (GPTBot, Perplexity, Claude, etc.)
+ *    Streams token-optimized clean Markdown directly, bypassing client JS hydration.
+ * 2. Delta Caching & ETag Validation (304 Not Modified crawl budget optimization).
+ * 3. SERP A/B Split Testing & Variant Assignment.
  */
 export function middleware(request) {
   const { pathname } = request.nextUrl;
@@ -22,7 +22,27 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  // 1. Edge ETag & 304 Delta Caching Evaluation
+  // 1. AI Crawler & Markdown Content Negotiation
+  const userAgent = request.headers.get("user-agent") || "";
+  const wantsMarkdown =
+    isAiCrawler(userAgent) ||
+    isMarkdownPreferred(request.headers, request.nextUrl.searchParams);
+
+  if (wantsMarkdown) {
+    const markdownBody = generateRouteMarkdown(pathname);
+    return new Response(markdownBody, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept, User-Agent",
+        "X-Robots-Tag": "all",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
+      },
+    });
+  }
+
+  // 2. Edge ETag & 304 Delta Caching Evaluation
   const evaluation = evaluateConditionalRequest(request.headers, pathname);
 
   if (evaluation.status === 304) {
@@ -32,7 +52,7 @@ export function middleware(request) {
     });
   }
 
-  // 2. SERP A/B Variant Resolution (?serp_v=b, cookie bts_serp_v, or balanced split)
+  // 3. SERP A/B Variant Resolution (?serp_v=b, cookie bts_serp_v, or balanced split)
   const queryVariant = request.nextUrl.searchParams.get("serp_v");
   const cookieVariant = request.cookies.get(SERP_COOKIE_NAME)?.value;
   let activeVariant = "a";
