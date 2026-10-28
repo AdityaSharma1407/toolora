@@ -210,6 +210,8 @@ export default function ColorPaletteWorkspace() {
                 <img
                   src={previewUrl}
                   alt="Uploaded Source"
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-60 w-auto object-contain"
                 />
               </div>

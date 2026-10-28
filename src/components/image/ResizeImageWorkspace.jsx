@@ -332,6 +332,8 @@ export default function ResizeImageWorkspace() {
                 <img
                   src={previewUrl}
                   alt="Preview"
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-60 w-auto object-contain mx-auto"
                 />
               </div>

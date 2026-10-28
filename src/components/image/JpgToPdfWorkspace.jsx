@@ -343,6 +343,8 @@ export default function JpgToPdfWorkspace() {
                       <img
                         src={item.previewUrl}
                         alt={item.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     ) : (

@@ -294,6 +294,8 @@ export default function VideoToGifWorkspace() {
               <img
                 src={result.url}
                 alt="Animated GIF preview"
+                loading="lazy"
+                decoding="async"
                 className="w-16 h-16 rounded-xl object-cover border border-emerald-300 dark:border-emerald-700 shadow-xs"
               />
               <div>

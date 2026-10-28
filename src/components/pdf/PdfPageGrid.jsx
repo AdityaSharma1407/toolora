@@ -231,6 +231,8 @@ export default function PdfPageGrid({
                     <img
                       src={thumbUrl}
                       alt={`Page ${pageNum} preview`}
+                      loading="lazy"
+                      decoding="async"
                       className={`max-w-full max-h-full object-contain rounded-md shadow-xs pointer-events-none transition-opacity ${
                         isDeleted ? "grayscale opacity-40" : "opacity-100"
                       }`}

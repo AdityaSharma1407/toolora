@@ -350,6 +350,8 @@ export default function CropImageWorkspace() {
                   ref={imageRef}
                   src={previewUrl}
                   alt="Crop preview"
+                  loading="lazy"
+                  decoding="async"
                   onLoad={updateDisplaySize}
                   className="max-h-[500px] w-auto max-w-full object-contain pointer-events-none block rounded-lg"
                   draggable={false}
@@ -591,6 +593,8 @@ export default function CropImageWorkspace() {
                   <img
                     src={result.url}
                     alt="Cropped output"
+                    loading="lazy"
+                    decoding="async"
                     className="w-16 h-16 rounded-xl object-cover border border-emerald-300 dark:border-emerald-700 shadow-xs"
                   />
                   <div>

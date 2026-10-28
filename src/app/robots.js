@@ -13,6 +13,7 @@ export default function robots() {
     ],
     sitemap: [
       `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/sitemap-index.xml`,
       `${baseUrl}/sitemap-fresh.xml`,
       `${baseUrl}/sitemap-archive.xml`,
     ],
