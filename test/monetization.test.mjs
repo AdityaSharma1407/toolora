@@ -55,7 +55,7 @@ describe("Monetization & Advertising Configuration", () => {
     // Verified user personal email is centralized
     assert.equal(
       siteConfig.contactEmail,
-      process.env.NEXT_PUBLIC_CONTACT_EMAIL || "sharmaaditya14jul@gmail.com"
+      process.env.NEXT_PUBLIC_CONTACT_EMAIL || "bitsandtools2026@gmail.com"
     );
     assert.notEqual(siteConfig.contactEmail, "contact@bitsandtools.com");
 

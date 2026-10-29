@@ -96,14 +96,14 @@ describe("Production Readiness & Zero-Issue Audit Verification", () => {
     assert.ok(headerCode.includes('document.body.style.overflow = "hidden"'), "Header must lock body scroll");
   });
 
-  test("12. No visible contact us links or milestone banner on application view", () => {
+  test("12. Navigation links and milestone banner verification", () => {
     const headerCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "Header.jsx"), "utf-8");
     const footerCode = fs.readFileSync(path.join(rootDir, "src", "components", "common", "Footer.jsx"), "utf-8");
     const homeCode = fs.readFileSync(path.join(rootDir, "src", "app", "page.jsx"), "utf-8");
     const notFoundCode = fs.readFileSync(path.join(rootDir, "src", "app", "not-found.jsx"), "utf-8");
 
     assert.ok(!headerCode.includes('href="/contact"'), "Header must not link to /contact");
-    assert.ok(!footerCode.includes('href="/contact"'), "Footer must not link to /contact");
+    assert.ok(footerCode.includes('href="/contact"'), "Footer must link to /contact");
     assert.ok(!footerCode.includes('mailto:'), "Footer must not display mailto email");
     assert.ok(!homeCode.includes("100% Delivery Milestone Achieved"), "Homepage must not contain milestone banner");
     assert.ok(!homeCode.includes("All 55 Planned In-Browser Utilities Are Live!"), "Homepage must not contain dev completion banner");

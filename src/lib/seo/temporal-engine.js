@@ -147,6 +147,7 @@ export const VERIFIED_TEMPORAL_DATA = {
   "/utility-tools": { published: "2026-10-27T00:00:00.000Z", modified: "2026-10-28T00:00:00.000Z", tokenBaseline: "utility-hub-v1" },
   // Static Information Pages
   "/about": { published: "2026-10-24T00:00:00.000Z", modified: "2026-10-28T00:00:00.000Z", tokenBaseline: "about-v1" },
+  "/contact": { published: "2026-10-24T00:00:00.000Z", modified: "2026-10-29T11:00:00.000Z", tokenBaseline: "contact-v1" },
   "/privacy-policy": { published: "2026-10-24T00:00:00.000Z", modified: "2026-10-28T00:00:00.000Z", tokenBaseline: "privacy-v1" },
   "/terms": { published: "2026-10-24T00:00:00.000Z", modified: "2026-10-28T00:00:00.000Z", tokenBaseline: "terms-v1" },
 };

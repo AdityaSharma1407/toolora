@@ -134,6 +134,17 @@ export default function AboutPage() {
           <p className="text-xs text-slate-600 leading-relaxed">
             Vishavjeet Sharma and Aditya Sharma built Bits &amp; Tools with a commitment to privacy-first web utilities. By processing all documents directly inside modern browser runtimes with WebAssembly and local JavaScript, Bits &amp; Tools eliminates cloud file uploads, ensuring that confidential contracts, financial records, and personal images remain completely on your local device.
           </p>
+          <p className="text-xs text-slate-600 leading-relaxed pt-2 border-t border-slate-200/80">
+            Have questions, feedback, or need assistance? Reach out to our team at{" "}
+            <a href={`mailto:${siteConfig.contactEmail}`} className="text-brand-600 font-medium hover:underline">
+              {siteConfig.contactEmail}
+            </a>{" "}
+            or visit our{" "}
+            <Link href="/contact" className="text-brand-600 font-medium hover:underline">
+              Contact Us
+            </Link>{" "}
+            page.
+          </p>
         </section>
 
         {/* Explore Tools CTA */}

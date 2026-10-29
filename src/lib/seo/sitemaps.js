@@ -383,6 +383,11 @@ export function getAllSitemapEntries(customBaseUrl) {
       priority: 0.6,
     },
     {
+      url: `${baseUrl}/contact`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/privacy-policy`,
       changeFrequency: "monthly",
       priority: 0.5,

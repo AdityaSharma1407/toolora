@@ -199,6 +199,12 @@ export function buildRootGraphSchema() {
         contactPoint: [
           {
             "@type": "ContactPoint",
+            email: siteConfig.contactEmail || "bitsandtools2026@gmail.com",
+            contactType: "Customer Support",
+            availableLanguage: ["English", "Hindi"],
+          },
+          {
+            "@type": "ContactPoint",
             email: "vishavjeetsharma88@gmail.com",
             contactType: "Technical & Founder Inquiry",
             availableLanguage: ["English", "Hindi"],

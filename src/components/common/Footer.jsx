@@ -217,6 +217,10 @@ export default function Footer() {
                   About
                 </Link>
                 {" · "}
+                <Link href="/contact" className="text-slate-300 hover:text-white transition-colors">
+                  Contact
+                </Link>
+                {" · "}
                 <Link href="/privacy-policy" className="text-slate-300 hover:text-white transition-colors">
                   Privacy
                 </Link>

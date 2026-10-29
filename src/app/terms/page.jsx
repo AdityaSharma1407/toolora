@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { siteConfig } from "@/config/site";
 import { FileText, Shield, AlertTriangle, CheckCircle } from "lucide-react";
@@ -143,6 +144,26 @@ export default function TermsPage() {
             </h2>
             <p>
               These Terms of Service are governed and interpreted in accordance with standard legal principles. Any updates or revisions are published directly on this page.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-slate-900 mb-3">
+              9. Contact Information
+            </h2>
+            <p>
+              For legal inquiries, terms clarification, or general questions regarding Bits &amp; Tools, please email our support team at{" "}
+              <a
+                href={`mailto:${siteConfig.contactEmail}`}
+                className="text-brand-600 underline font-medium"
+              >
+                {siteConfig.contactEmail}
+              </a>{" "}
+              or reach out via our{" "}
+              <Link href="/contact" className="text-brand-600 underline font-medium">
+                Contact Us
+              </Link>{" "}
+              page.
             </p>
           </section>
         </div>

@@ -1,5 +1,7 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 import { siteConfig } from "../src/config/site.js";
 import sitemap from "../src/app/sitemap.js";
 import robots from "../src/app/robots.js";
@@ -19,15 +21,15 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
     assert.equal(aditya.email, "sharmaaditya14jul@gmail.com");
   });
 
-  test("6. Sitemap.xml produces clean canonical URLs without contact page", () => {
+  test("6. Sitemap.xml produces clean canonical URLs including contact page", () => {
     const entries = sitemap();
     assert.ok(Array.isArray(entries));
-    assert.equal(entries.length, 63);
+    assert.equal(entries.length, 64);
 
     const urls = entries.map((e) => e.url);
     const expectedBase = "https://www.bitsandtools.com";
 
-    assert.ok(!urls.includes(`${expectedBase}/contact`), "Sitemap must not contain /contact");
+    assert.ok(urls.includes(`${expectedBase}/contact`), "Sitemap must contain /contact");
     assert.ok(urls.includes(expectedBase));
     // PDF Tools
     assert.ok(urls.includes(`${expectedBase}/merge-pdf`));
@@ -102,6 +104,7 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
 
     // Static Pages
     assert.ok(urls.includes(`${expectedBase}/about`));
+    assert.ok(urls.includes(`${expectedBase}/contact`));
     assert.ok(urls.includes(`${expectedBase}/privacy-policy`));
     assert.ok(urls.includes(`${expectedBase}/terms`));
 
@@ -117,6 +120,73 @@ describe("Contact Email, Monetization & Technical SEO Verification", () => {
     assert.deepEqual(robotsObj.rules[0].disallow, ["/api/"]);
     const sitemaps = Array.isArray(robotsObj.sitemap) ? robotsObj.sitemap : [robotsObj.sitemap];
     assert.ok(sitemaps.includes("https://www.bitsandtools.com/sitemap.xml"));
+  });
+
+  test("8. Professional Contact Us Page and Support Email Verification", () => {
+    // 1. Central Support Email configuration
+    assert.equal(siteConfig.contactEmail, "bitsandtools2026@gmail.com");
+    assert.ok(!siteConfig.contactEmail.includes("sharmaaditya14jul"));
+
+    // 2. Contact page files exist and are populated
+    const contactPagePath = path.join(process.cwd(), "src", "app", "contact", "page.jsx");
+    const contactClientPath = path.join(process.cwd(), "src", "app", "contact", "ContactClient.jsx");
+    assert.ok(fs.existsSync(contactPagePath), "src/app/contact/page.jsx must exist");
+    assert.ok(fs.existsSync(contactClientPath), "src/app/contact/ContactClient.jsx must exist");
+
+    const pageContent = fs.readFileSync(contactPagePath, "utf-8");
+    const clientContent = fs.readFileSync(contactClientPath, "utf-8");
+
+    // 3. Exact headings and introduction copy
+    assert.ok(pageContent.includes("Contact Us"), "Page must include 'Contact Us' heading");
+    assert.ok(
+      pageContent.includes("Have a question, found an issue, or need help using Bits &amp; Tools?"),
+      "Page must include designated introduction copy"
+    );
+    assert.ok(pageContent.includes('canonical: "/contact"'), "Metadata must include canonical /contact");
+    assert.ok(pageContent.includes('"@type": "ContactPage"'), "Page must inject ContactPage schema");
+
+    // 4. Functional email, mailto, copy control, and guidelines in client component
+    assert.ok(clientContent.includes("Email Support"), "Client must include 'Email Support' section");
+    assert.ok(clientContent.includes("mailto:"), "Client must include functional mailto link");
+    assert.ok(clientContent.includes("handleCopyEmail"), "Client must include copy-to-clipboard handler");
+    assert.ok(
+      clientContent.includes("When contacting us about a technical issue, please include the name of the tool"),
+      "Client must include specific troubleshooting instructions"
+    );
+    assert.ok(
+      clientContent.includes("Please do not send passwords or sensitive personal information"),
+      "Client must warn against sending passwords or sensitive personal data"
+    );
+
+    // 5. Six required contact categories
+    const categories = [
+      "Technical problems with online tools",
+      "PDF, image, and file-processing issues",
+      "Bug reports and suggestions",
+      "Feature requests",
+      "Questions about website functionality",
+      "Privacy or data-processing questions",
+    ];
+    for (const cat of categories) {
+      assert.ok(clientContent.includes(cat), `Client must include category: ${cat}`);
+    }
+
+    // 6. Public support files must not contain old personal email
+    const publicFiles = [
+      contactPagePath,
+      contactClientPath,
+      path.join(process.cwd(), "src", "components", "common", "Footer.jsx"),
+      path.join(process.cwd(), "src", "app", "privacy-policy", "page.jsx"),
+      path.join(process.cwd(), "src", "app", "terms", "page.jsx"),
+      path.join(process.cwd(), "src", "app", "about", "page.jsx"),
+    ];
+    for (const f of publicFiles) {
+      const content = fs.readFileSync(f, "utf-8");
+      assert.ok(
+        !content.includes("sharmaaditya14jul@gmail.com"),
+        `File ${path.basename(f)} must not contain old email sharmaaditya14jul@gmail.com`
+      );
+    }
   });
 
   test("7. NEXT_PUBLIC_ADS_ENABLED remains strictly false", () => {

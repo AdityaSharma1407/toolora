@@ -194,6 +194,26 @@ export default function PrivacyPolicyPage() {
               This Privacy Policy is governed and maintained by the platform operators of {siteConfig.displayName || siteConfig.name}. Because all file manipulations take place entirely in your local browser environment without server data collection, no personal documents or file contents are retained, processed, or shared on remote servers.
             </p>
           </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-slate-900 mb-3">
+              7. Contact &amp; Grievance Redressal
+            </h2>
+            <p>
+              If you have questions, concerns, or requests regarding this Privacy Policy, cookie preferences, or data practices, please contact our support team at{" "}
+              <a
+                href={`mailto:${siteConfig.contactEmail}`}
+                className="text-brand-600 underline font-medium"
+              >
+                {siteConfig.contactEmail}
+              </a>{" "}
+              or visit our{" "}
+              <Link href="/contact" className="text-brand-600 underline font-medium">
+                Contact Us
+              </Link>{" "}
+              page.
+            </p>
+          </section>
         </div>
       </div>
     </div>

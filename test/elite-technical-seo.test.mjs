@@ -256,7 +256,7 @@ describe("Elite Technical SEO Architecture & Protocol Verification", () => {
       assert.ok(code.includes("Vishavjeet Sharma"), "QuickTake must cite founder Vishavjeet Sharma");
       assert.ok(code.includes("Aditya Sharma"), "QuickTake must cite founder Aditya Sharma");
       assert.ok(code.includes("Zero File Uploads"), "QuickTake must highlight Zero File Uploads");
-      assert.ok(code.includes('<ul\n        role="list"'), "QuickTake must provide semantic unordered list");
+      assert.ok(code.replace(/\r\n/g, "\n").includes('<ul\n        role="list"'), "QuickTake must provide semantic unordered list");
     });
 
     test("Flagship tool pages integrate QuickTake, buildToolPageGraphSchema, and semantic tags", () => {

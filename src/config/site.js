@@ -21,7 +21,7 @@ export const siteConfig = {
       email: "sharmaaditya14jul@gmail.com",
     },
   ],
-  contactEmail: "sharmaaditya14jul@gmail.com",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "bitsandtools2026@gmail.com",
   links: {
     github: "https://github.com",
     twitter: "https://twitter.com",
